@@ -849,7 +849,7 @@
             // 
             this.btnFindPatient.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnFindPatient.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnFindPatient.Image = global::DrBeshoyClinic.Properties.Resources.Search1;
+            this.btnFindPatient.Image = global::DrBeshoyClinic.Properties.Resources.Search;
             this.btnFindPatient.ImageFixedSize = new System.Drawing.Size(20, 20);
             this.btnFindPatient.Location = new System.Drawing.Point(264, 7);
             this.btnFindPatient.Margin = new System.Windows.Forms.Padding(2);

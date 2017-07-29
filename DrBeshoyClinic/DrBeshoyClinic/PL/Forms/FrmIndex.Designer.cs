@@ -28,20 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnExamination = new DevComponents.DotNetBar.ButtonX();
+            this.btnDailyReport = new DevComponents.DotNetBar.ButtonX();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::DrBeshoyClinic.Properties.Resources.HomeBackground;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(989, 473);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnExamination
+            // 
+            this.btnExamination.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnExamination.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnExamination.Location = new System.Drawing.Point(553, 301);
+            this.btnExamination.Name = "btnExamination";
+            this.btnExamination.Size = new System.Drawing.Size(209, 59);
+            this.btnExamination.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnExamination.TabIndex = 1;
+            this.btnExamination.Text = "Examination";
+            this.btnExamination.Click += new System.EventHandler(this.btnExamination_Click);
+            // 
+            // btnDailyReport
+            // 
+            this.btnDailyReport.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDailyReport.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDailyReport.Location = new System.Drawing.Point(768, 301);
+            this.btnDailyReport.Name = "btnDailyReport";
+            this.btnDailyReport.Size = new System.Drawing.Size(209, 59);
+            this.btnDailyReport.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnDailyReport.TabIndex = 2;
+            this.btnDailyReport.Text = "Daily Report";
+            this.btnDailyReport.Click += new System.EventHandler(this.btnDailyReport_Click);
             // 
             // FrmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 323);
+            this.ClientSize = new System.Drawing.Size(989, 473);
+            this.Controls.Add(this.btnDailyReport);
+            this.Controls.Add(this.btnExamination);
+            this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "FrmIndex";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "D.Beshoy";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private DevComponents.DotNetBar.ButtonX btnExamination;
+        private DevComponents.DotNetBar.ButtonX btnDailyReport;
     }
 }
