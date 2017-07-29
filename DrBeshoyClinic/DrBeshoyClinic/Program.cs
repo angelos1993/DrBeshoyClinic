@@ -14,7 +14,7 @@ namespace DrBeshoyClinic
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmIndex());
+            Application.Run(new FrmSplash());
         }
     }
 }

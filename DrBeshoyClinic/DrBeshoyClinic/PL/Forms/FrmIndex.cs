@@ -18,5 +18,10 @@ namespace DrBeshoyClinic.PL.Forms
         {
             new FrmDailyReport().ShowDialog();
         }
+
+        private void FrmIndex_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }
