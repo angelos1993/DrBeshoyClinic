@@ -24,7 +24,6 @@ G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\obj\Debug\DrBeshoyCl
 G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\obj\Debug\DrBeshoyClinic.PL.Forms.FrmDiagnosis.resources
 G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\obj\Debug\DrBeshoyClinic.PL.Forms.FrmLightExamination.resources
 G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\obj\Debug\DrBeshoyClinic.PL.Forms.FrmOperationDetails.resources
-G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\obj\Debug\DrBeshoyClinic.csprojResolveAssemblyReference.cache
 G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\obj\Debug\DrBeshoyClinic.PL.Forms.FrmDailyReport.resources
 G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\obj\Debug\DrBeshoyClinic.PL.Forms.FrmIndex.resources
 G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\obj\Debug\DrBeshoyClinic.PL.Forms.FrmPhoto.resources
