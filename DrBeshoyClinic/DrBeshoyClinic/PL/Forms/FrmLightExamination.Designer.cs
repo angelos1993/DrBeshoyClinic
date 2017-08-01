@@ -42,6 +42,7 @@
             this.lstExamination.Name = "lstExamination";
             this.lstExamination.Size = new System.Drawing.Size(120, 124);
             this.lstExamination.TabIndex = 34;
+            this.lstExamination.SelectedIndexChanged += new System.EventHandler(this.lstExamination_SelectedIndexChanged);
             // 
             // txtExamination
             // 
@@ -70,6 +71,7 @@
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 36;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -83,6 +85,7 @@
             this.btnSave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnSave.TabIndex = 35;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmLightExamination
             // 

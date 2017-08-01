@@ -42,6 +42,7 @@
             this.lstDrugHx.Name = "lstDrugHx";
             this.lstDrugHx.Size = new System.Drawing.Size(120, 124);
             this.lstDrugHx.TabIndex = 38;
+            this.lstDrugHx.SelectedIndexChanged += new System.EventHandler(this.lstDrugHx_SelectedIndexChanged);
             // 
             // txtDrugHx
             // 
@@ -70,6 +71,7 @@
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 40;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -83,6 +85,7 @@
             this.btnSave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnSave.TabIndex = 39;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmDrugHx
             // 

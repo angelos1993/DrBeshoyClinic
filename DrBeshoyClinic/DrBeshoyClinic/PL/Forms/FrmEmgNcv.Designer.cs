@@ -74,6 +74,7 @@
             this.lstEmgNcv.Name = "lstEmgNcv";
             this.lstEmgNcv.Size = new System.Drawing.Size(120, 144);
             this.lstEmgNcv.TabIndex = 24;
+            this.lstEmgNcv.SelectedIndexChanged += new System.EventHandler(this.lstEmgNcv_SelectedIndexChanged);
             // 
             // btnCancel
             // 
@@ -87,6 +88,7 @@
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 27;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnClear
             // 
@@ -100,6 +102,7 @@
             this.btnClear.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnClear.TabIndex = 26;
             this.btnClear.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSave
             // 
@@ -113,6 +116,7 @@
             this.btnSave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnSave.TabIndex = 25;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmEmgNcv
             // 

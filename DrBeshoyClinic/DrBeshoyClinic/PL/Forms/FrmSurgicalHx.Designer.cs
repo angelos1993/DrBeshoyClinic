@@ -42,6 +42,7 @@
             this.lstSurgicalHx.Name = "lstSurgicalHx";
             this.lstSurgicalHx.Size = new System.Drawing.Size(120, 124);
             this.lstSurgicalHx.TabIndex = 34;
+            this.lstSurgicalHx.SelectedIndexChanged += new System.EventHandler(this.lstSurgicalHx_SelectedIndexChanged);
             // 
             // txtSurgicalHx
             // 
@@ -70,6 +71,7 @@
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 37;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -83,6 +85,7 @@
             this.btnSave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnSave.TabIndex = 35;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmSurgicalHx
             // 

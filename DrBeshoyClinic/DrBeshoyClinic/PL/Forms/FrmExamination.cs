@@ -13,6 +13,10 @@ namespace DrBeshoyClinic.PL.Forms
 
         #endregion
 
+        #region Properties
+
+        #endregion
+
         #region Events
 
         #region Form Events
@@ -136,5 +140,10 @@ namespace DrBeshoyClinic.PL.Forms
         #region Methods
 
         #endregion
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

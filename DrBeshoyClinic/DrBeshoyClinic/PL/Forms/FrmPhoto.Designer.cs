@@ -56,6 +56,7 @@
             this.lstPhotos.Name = "lstPhotos";
             this.lstPhotos.Size = new System.Drawing.Size(120, 384);
             this.lstPhotos.TabIndex = 52;
+            this.lstPhotos.SelectedIndexChanged += new System.EventHandler(this.lstPhotos_SelectedIndexChanged);
             // 
             // btnCancel
             // 
@@ -69,6 +70,7 @@
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 55;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -82,6 +84,7 @@
             this.btnSave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnSave.TabIndex = 53;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnAddPhoto
             // 
@@ -95,6 +98,7 @@
             this.btnAddPhoto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnAddPhoto.TabIndex = 56;
             this.btnAddPhoto.Text = "Add Photo";
+            this.btnAddPhoto.Click += new System.EventHandler(this.btnAddPhoto_Click);
             // 
             // FrmPhoto
             // 

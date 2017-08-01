@@ -1,27 +1,41 @@
-﻿using DevComponents.DotNetBar;
+﻿using System;
+using System.Windows.Forms;
+using DevComponents.DotNetBar;
 
 namespace DrBeshoyClinic.PL.Forms
 {
     public partial class FrmIndex : Office2007Form
     {
+        #region Constructor
+
         public FrmIndex()
         {
             InitializeComponent();
         }
 
-        private void btnExamination_Click(object sender, System.EventArgs e)
+        #endregion
+
+        #region Properties
+
+        #endregion
+
+        #region Events
+
+        private void btnExamination_Click(object sender, EventArgs e)
         {
             new FrmExamination().ShowDialog();
         }
 
-        private void btnDailyReport_Click(object sender, System.EventArgs e)
+        private void btnDailyReport_Click(object sender, EventArgs e)
         {
             new FrmDailyReport().ShowDialog();
         }
 
-        private void FrmIndex_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        private void FrmIndex_FormClosing(object sender, FormClosingEventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
         }
+
+        #endregion
     }
 }

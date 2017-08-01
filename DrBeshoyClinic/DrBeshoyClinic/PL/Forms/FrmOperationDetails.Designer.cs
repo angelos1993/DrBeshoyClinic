@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpPnlPatientAndExaminationData = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.txtPatientPhone = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.swPatientGender = new DevComponents.DotNetBar.Controls.SwitchButton();
@@ -435,6 +435,7 @@
             this.lstOperations.Name = "lstOperations";
             this.lstOperations.Size = new System.Drawing.Size(124, 264);
             this.lstOperations.TabIndex = 36;
+            this.lstOperations.SelectedIndexChanged += new System.EventHandler(this.lstOperations_SelectedIndexChanged);
             // 
             // groupPanel1
             // 
@@ -595,14 +596,14 @@
             // grdPostOperativeTreatments
             // 
             this.grdPostOperativeTreatments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdPostOperativeTreatments.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdPostOperativeTreatments.DefaultCellStyle = dataGridViewCellStyle13;
             this.grdPostOperativeTreatments.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdPostOperativeTreatments.Location = new System.Drawing.Point(3, 38);
             this.grdPostOperativeTreatments.Name = "grdPostOperativeTreatments";
@@ -633,6 +634,7 @@
             this.btnAddPostOperativeTreatment.Size = new System.Drawing.Size(26, 26);
             this.btnAddPostOperativeTreatment.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnAddPostOperativeTreatment.TabIndex = 53;
+            this.btnAddPostOperativeTreatment.Click += new System.EventHandler(this.btnAddPostOperativeTreatment_Click);
             // 
             // grpPnlPostOperativeInstructions
             // 
@@ -681,14 +683,14 @@
             // grdPostOperativeInstructions
             // 
             this.grdPostOperativeInstructions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdPostOperativeInstructions.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdPostOperativeInstructions.DefaultCellStyle = dataGridViewCellStyle14;
             this.grdPostOperativeInstructions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdPostOperativeInstructions.Location = new System.Drawing.Point(3, 38);
             this.grdPostOperativeInstructions.Name = "grdPostOperativeInstructions";
@@ -719,6 +721,7 @@
             this.btnAddPostOperativeInstruction.Size = new System.Drawing.Size(26, 26);
             this.btnAddPostOperativeInstruction.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnAddPostOperativeInstruction.TabIndex = 53;
+            this.btnAddPostOperativeInstruction.Click += new System.EventHandler(this.btnAddPostOperativeInstruction_Click);
             // 
             // grpPnlTourniquet
             // 
@@ -907,6 +910,7 @@
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 41;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnClear
             // 
@@ -920,6 +924,7 @@
             this.btnClear.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnClear.TabIndex = 40;
             this.btnClear.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSave
             // 
@@ -933,6 +938,7 @@
             this.btnSave.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnSave.TabIndex = 39;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmOperationDetails
             // 
@@ -962,6 +968,7 @@
             this.DoubleBuffered = true;
             this.Name = "FrmOperationDetails";
             this.Text = "Operation Details";
+            this.Load += new System.EventHandler(this.FrmOperationDetails_Load);
             this.grpPnlPatientAndExaminationData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtPatientBirthdate)).EndInit();
             this.groupPanel1.ResumeLayout(false);
