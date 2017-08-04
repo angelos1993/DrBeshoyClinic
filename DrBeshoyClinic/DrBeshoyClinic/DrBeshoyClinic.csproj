@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\Infrastructure\BaseManager.cs" />
     <Compile Include="DAL\Model\ChronicDiseas.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -137,6 +138,9 @@
     <Compile Include="DAL\Model\TreatmentPeriod.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Repositories\Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="DAL\Repositories\Infrastructure\RepositoryBase.cs" />
+    <Compile Include="DAL\Repositories\Infrastructure\UnitOfWork.cs" />
     <Compile Include="PL\Forms\FrmAddNewChronicDisease.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -341,8 +345,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="DAL\Repositories\" />
     <Folder Include="DAL\VMs\" />
     <Folder Include="PL\Reports\" />
   </ItemGroup>
