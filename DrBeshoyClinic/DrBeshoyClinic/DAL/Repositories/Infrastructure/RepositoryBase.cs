@@ -40,17 +40,20 @@ namespace DrBeshoyClinic.DAL.Repositories.Infrastructure
         public void Add(T entity)
         {
             DbSet.Add(entity);
+            Save();
         }
 
         public void Delete(T entity)
         {
             DbSet.Remove(entity);
+            Save();
         }
 
         public void Update(T entity)
         {
             DbSet.Attach(entity);
             Context.Entry(entity).State = EntityState.Modified;
+            Save();
         }
 
         public IQueryable<T> GetAll()
