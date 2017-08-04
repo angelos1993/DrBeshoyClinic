@@ -178,6 +178,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\Enums\ExaminationFormMode.cs" />
     <Compile Include="Utility\Enums\Genders.cs" />
     <EmbeddedResource Include="PL\Forms\FrmAddNewChronicDisease.resx">
       <DependentUpon>FrmAddNewChronicDisease.cs</DependentUpon>

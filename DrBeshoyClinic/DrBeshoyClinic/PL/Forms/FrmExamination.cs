@@ -1,4 +1,5 @@
 ﻿using System;
+using DrBeshoyClinic.Utility.Enums;
 
 namespace DrBeshoyClinic.PL.Forms
 {
@@ -15,6 +16,8 @@ namespace DrBeshoyClinic.PL.Forms
 
         #region Properties
 
+        public ExaminationFormMode Mode { get; set; }
+
         #endregion
 
         #region Events
@@ -23,7 +26,7 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void FrmExamination_Load(object sender, EventArgs e)
         {
-
+            ResetForm();
         }
 
         #endregion
@@ -32,22 +35,18 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void btnFindPatient_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnNewPatient_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnEditPatient_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnClearPatient_Click(object sender, EventArgs e)
         {
-
         }
 
         #endregion
@@ -100,6 +99,7 @@ namespace DrBeshoyClinic.PL.Forms
         {
             new FrmFamilyHx().ShowDialog();
         }
+
         private void btnPhoto_Click(object sender, EventArgs e)
         {
             new FrmPhoto().ShowDialog();
@@ -124,14 +124,16 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void btnSaveVisit_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnClearAll_Click(object sender, EventArgs e)
         {
-
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
         #endregion
 
@@ -139,11 +141,23 @@ namespace DrBeshoyClinic.PL.Forms
 
         #region Methods
 
-        #endregion
-
-        private void btnClose_Click(object sender, EventArgs e)
+        private void ResetForm()
         {
-            Close();
+            Mode = ExaminationFormMode.Normal;
+            ResetPatientPanel();
+            ResetExaminationPanel();
         }
+
+        private void ResetPatientPanel()
+        {
+            
+        }
+
+        private void ResetExaminationPanel()
+        {
+
+        }
+
+        #endregion
     }
 }
