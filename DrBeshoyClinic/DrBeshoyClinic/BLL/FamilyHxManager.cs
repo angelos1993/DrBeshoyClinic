@@ -4,5 +4,12 @@ namespace DrBeshoyClinic.BLL
 {
     public class FamilyHxManager : BaseManager
     {
+        #region Properties
+
+        #endregion
+
+        #region Methods
+
+        #endregion
     }
 }
