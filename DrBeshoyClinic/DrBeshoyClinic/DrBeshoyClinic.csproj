@@ -71,7 +71,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\ChronicDiseaseManager.cs" />
+    <Compile Include="BLL\DrugHxManager.cs" />
+    <Compile Include="BLL\EmgNcvManager.cs" />
+    <Compile Include="BLL\ExaminationChronicDiseaseManager.cs" />
+    <Compile Include="BLL\ExaminationManager.cs" />
+    <Compile Include="BLL\FamilyHxManager.cs" />
     <Compile Include="BLL\Infrastructure\BaseManager.cs" />
+    <Compile Include="BLL\LabTestManager.cs" />
+    <Compile Include="BLL\MedicineDetailsManager.cs" />
+    <Compile Include="BLL\MedicineManager.cs" />
+    <Compile Include="BLL\OperationManager.cs" />
+    <Compile Include="BLL\PatientManager.cs" />
+    <Compile Include="BLL\PhotoManager.cs" />
+    <Compile Include="BLL\RadiologyManager.cs" />
+    <Compile Include="BLL\SurgicalHxManager.cs" />
+    <Compile Include="BLL\TreatmentDescriptionManager.cs" />
+    <Compile Include="BLL\TreatmentManager.cs" />
+    <Compile Include="BLL\TreatmentPeriodManager.cs" />
     <Compile Include="DAL\Model\ChronicDiseas.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
