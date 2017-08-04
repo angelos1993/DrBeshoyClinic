@@ -29,21 +29,8 @@
         private void InitializeComponent()
         {
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.btnPhoto = new DevComponents.DotNetBar.ButtonX();
             this.btnFamilyHx = new DevComponents.DotNetBar.ButtonX();
-            this.btnEmgNcv = new DevComponents.DotNetBar.ButtonX();
-            this.btnDrugHx = new DevComponents.DotNetBar.ButtonX();
-            this.btnSurgicalHx = new DevComponents.DotNetBar.ButtonX();
-            this.btnOperativeDetails = new DevComponents.DotNetBar.ButtonX();
-            this.btnChronicDiseases = new DevComponents.DotNetBar.ButtonX();
-            this.btnRadiology = new DevComponents.DotNetBar.ButtonX();
-            this.btnLabTest = new DevComponents.DotNetBar.ButtonX();
-            this.btnMedicine = new DevComponents.DotNetBar.ButtonX();
             this.grpPnlPatientData = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.btnClearPatient = new DevComponents.DotNetBar.ButtonX();
-            this.btnEditPatient = new DevComponents.DotNetBar.ButtonX();
-            this.btnNewPatient = new DevComponents.DotNetBar.ButtonX();
-            this.btnFindPatient = new DevComponents.DotNetBar.ButtonX();
             this.txtPatientPhone = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.swPatientGender = new DevComponents.DotNetBar.Controls.SwitchButton();
             this.dtPatientBirthdate = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
@@ -53,24 +40,37 @@
             this.txtPatientId = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.swVisitType = new DevComponents.DotNetBar.Controls.SwitchButton();
             this.grpPnlExaminationData = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.btnClearAll = new DevComponents.DotNetBar.ButtonX();
-            this.btnClose = new DevComponents.DotNetBar.ButtonX();
-            this.btnSaveVisit = new DevComponents.DotNetBar.ButtonX();
             this.txtChronicDiseases = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lstExaminations = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnDiagnosis = new DevComponents.DotNetBar.ButtonX();
             this.txtDiagnosis = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnExamination = new DevComponents.DotNetBar.ButtonX();
             this.txtExamination = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAddComplaint = new DevComponents.DotNetBar.ButtonX();
             this.txtComplaints = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.grpPnlHistory = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.txtFamilyHx = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtDrugHx = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtSurgicalHx = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.btnClearAll = new DevComponents.DotNetBar.ButtonX();
+            this.btnClose = new DevComponents.DotNetBar.ButtonX();
+            this.btnSaveVisit = new DevComponents.DotNetBar.ButtonX();
+            this.btnDiagnosis = new DevComponents.DotNetBar.ButtonX();
+            this.btnExamination = new DevComponents.DotNetBar.ButtonX();
+            this.btnAddComplaint = new DevComponents.DotNetBar.ButtonX();
+            this.btnClearPatient = new DevComponents.DotNetBar.ButtonX();
+            this.btnEditPatient = new DevComponents.DotNetBar.ButtonX();
+            this.btnNewPatient = new DevComponents.DotNetBar.ButtonX();
+            this.btnFindPatient = new DevComponents.DotNetBar.ButtonX();
+            this.btnPhoto = new DevComponents.DotNetBar.ButtonX();
+            this.btnEmgNcv = new DevComponents.DotNetBar.ButtonX();
+            this.btnDrugHx = new DevComponents.DotNetBar.ButtonX();
+            this.btnSurgicalHx = new DevComponents.DotNetBar.ButtonX();
+            this.btnOperativeDetails = new DevComponents.DotNetBar.ButtonX();
+            this.btnChronicDiseases = new DevComponents.DotNetBar.ButtonX();
+            this.btnRadiology = new DevComponents.DotNetBar.ButtonX();
+            this.btnLabTest = new DevComponents.DotNetBar.ButtonX();
+            this.btnMedicine = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel1.SuspendLayout();
             this.grpPnlPatientData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtPatientBirthdate)).BeginInit();
@@ -133,24 +133,13 @@
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 0;
             // 
-            // btnPhoto
-            // 
-            this.btnPhoto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnPhoto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnPhoto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPhoto.Location = new System.Drawing.Point(0, 270);
-            this.btnPhoto.Name = "btnPhoto";
-            this.btnPhoto.Size = new System.Drawing.Size(164, 30);
-            this.btnPhoto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnPhoto.TabIndex = 13;
-            this.btnPhoto.Text = "Photo";
-            this.btnPhoto.Click += new System.EventHandler(this.btnPhoto_Click);
-            // 
             // btnFamilyHx
             // 
             this.btnFamilyHx.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnFamilyHx.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnFamilyHx.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFamilyHx.Image = global::DrBeshoyClinic.Properties.Resources.FamilyHx;
+            this.btnFamilyHx.ImageFixedSize = new System.Drawing.Size(30, 30);
             this.btnFamilyHx.Location = new System.Drawing.Point(0, 240);
             this.btnFamilyHx.Name = "btnFamilyHx";
             this.btnFamilyHx.Size = new System.Drawing.Size(164, 30);
@@ -158,110 +147,6 @@
             this.btnFamilyHx.TabIndex = 12;
             this.btnFamilyHx.Text = "Family Hx";
             this.btnFamilyHx.Click += new System.EventHandler(this.btnFamilyHx_Click);
-            // 
-            // btnEmgNcv
-            // 
-            this.btnEmgNcv.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnEmgNcv.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnEmgNcv.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEmgNcv.Location = new System.Drawing.Point(0, 210);
-            this.btnEmgNcv.Name = "btnEmgNcv";
-            this.btnEmgNcv.Size = new System.Drawing.Size(164, 30);
-            this.btnEmgNcv.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnEmgNcv.TabIndex = 11;
-            this.btnEmgNcv.Text = "EMG - NCV";
-            this.btnEmgNcv.Click += new System.EventHandler(this.btnEmgNcv_Click);
-            // 
-            // btnDrugHx
-            // 
-            this.btnDrugHx.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnDrugHx.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDrugHx.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDrugHx.Location = new System.Drawing.Point(0, 180);
-            this.btnDrugHx.Name = "btnDrugHx";
-            this.btnDrugHx.Size = new System.Drawing.Size(164, 30);
-            this.btnDrugHx.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnDrugHx.TabIndex = 9;
-            this.btnDrugHx.Text = "Drug Hx";
-            this.btnDrugHx.Click += new System.EventHandler(this.btnDrugHx_Click);
-            // 
-            // btnSurgicalHx
-            // 
-            this.btnSurgicalHx.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnSurgicalHx.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSurgicalHx.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSurgicalHx.Location = new System.Drawing.Point(0, 150);
-            this.btnSurgicalHx.Name = "btnSurgicalHx";
-            this.btnSurgicalHx.Size = new System.Drawing.Size(164, 30);
-            this.btnSurgicalHx.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnSurgicalHx.TabIndex = 5;
-            this.btnSurgicalHx.Text = "Surgical Hx";
-            this.btnSurgicalHx.Click += new System.EventHandler(this.btnSurgicalHx_Click);
-            // 
-            // btnOperativeDetails
-            // 
-            this.btnOperativeDetails.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnOperativeDetails.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOperativeDetails.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOperativeDetails.Location = new System.Drawing.Point(0, 120);
-            this.btnOperativeDetails.Name = "btnOperativeDetails";
-            this.btnOperativeDetails.Size = new System.Drawing.Size(164, 30);
-            this.btnOperativeDetails.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnOperativeDetails.TabIndex = 4;
-            this.btnOperativeDetails.Text = "Operative Details";
-            this.btnOperativeDetails.Click += new System.EventHandler(this.btnOperativeDetails_Click);
-            // 
-            // btnChronicDiseases
-            // 
-            this.btnChronicDiseases.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnChronicDiseases.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnChronicDiseases.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnChronicDiseases.Location = new System.Drawing.Point(0, 90);
-            this.btnChronicDiseases.Name = "btnChronicDiseases";
-            this.btnChronicDiseases.Size = new System.Drawing.Size(164, 30);
-            this.btnChronicDiseases.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnChronicDiseases.TabIndex = 3;
-            this.btnChronicDiseases.Text = "Chronic Diseases";
-            this.btnChronicDiseases.Click += new System.EventHandler(this.btnChronicDiseases_Click);
-            // 
-            // btnRadiology
-            // 
-            this.btnRadiology.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnRadiology.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnRadiology.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRadiology.Location = new System.Drawing.Point(0, 60);
-            this.btnRadiology.Name = "btnRadiology";
-            this.btnRadiology.Size = new System.Drawing.Size(164, 30);
-            this.btnRadiology.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnRadiology.TabIndex = 2;
-            this.btnRadiology.Text = "Radiology";
-            this.btnRadiology.Click += new System.EventHandler(this.btnRadiology_Click);
-            // 
-            // btnLabTest
-            // 
-            this.btnLabTest.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnLabTest.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnLabTest.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLabTest.Location = new System.Drawing.Point(0, 30);
-            this.btnLabTest.Name = "btnLabTest";
-            this.btnLabTest.Size = new System.Drawing.Size(164, 30);
-            this.btnLabTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnLabTest.TabIndex = 1;
-            this.btnLabTest.Text = "Lab Test";
-            this.btnLabTest.Click += new System.EventHandler(this.btnLabTest_Click);
-            // 
-            // btnMedicine
-            // 
-            this.btnMedicine.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnMedicine.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnMedicine.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMedicine.Location = new System.Drawing.Point(0, 0);
-            this.btnMedicine.Name = "btnMedicine";
-            this.btnMedicine.Size = new System.Drawing.Size(164, 30);
-            this.btnMedicine.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnMedicine.TabIndex = 0;
-            this.btnMedicine.Text = "Medicine";
-            this.btnMedicine.Click += new System.EventHandler(this.btnMedicine_Click);
             // 
             // grpPnlPatientData
             // 
@@ -318,66 +203,6 @@
             this.grpPnlPatientData.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.grpPnlPatientData.TabIndex = 1;
             this.grpPnlPatientData.Text = "Patient Data";
-            // 
-            // btnClearPatient
-            // 
-            this.btnClearPatient.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnClearPatient.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnClearPatient.Image = global::DrBeshoyClinic.Properties.Resources.Clear;
-            this.btnClearPatient.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.btnClearPatient.Location = new System.Drawing.Point(700, 95);
-            this.btnClearPatient.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClearPatient.Name = "btnClearPatient";
-            this.btnClearPatient.Size = new System.Drawing.Size(151, 40);
-            this.btnClearPatient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnClearPatient.TabIndex = 23;
-            this.btnClearPatient.Text = "Clear";
-            this.btnClearPatient.Click += new System.EventHandler(this.btnClearPatient_Click);
-            // 
-            // btnEditPatient
-            // 
-            this.btnEditPatient.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnEditPatient.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnEditPatient.Image = global::DrBeshoyClinic.Properties.Resources.Edit;
-            this.btnEditPatient.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.btnEditPatient.Location = new System.Drawing.Point(700, 51);
-            this.btnEditPatient.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEditPatient.Name = "btnEditPatient";
-            this.btnEditPatient.Size = new System.Drawing.Size(151, 40);
-            this.btnEditPatient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnEditPatient.TabIndex = 22;
-            this.btnEditPatient.Text = "Edit";
-            this.btnEditPatient.Click += new System.EventHandler(this.btnEditPatient_Click);
-            // 
-            // btnNewPatient
-            // 
-            this.btnNewPatient.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnNewPatient.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNewPatient.Image = global::DrBeshoyClinic.Properties.Resources.Add;
-            this.btnNewPatient.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.btnNewPatient.Location = new System.Drawing.Point(700, 7);
-            this.btnNewPatient.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNewPatient.Name = "btnNewPatient";
-            this.btnNewPatient.Size = new System.Drawing.Size(151, 40);
-            this.btnNewPatient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNewPatient.TabIndex = 21;
-            this.btnNewPatient.Text = "New";
-            this.btnNewPatient.Click += new System.EventHandler(this.btnNewPatient_Click);
-            // 
-            // btnFindPatient
-            // 
-            this.btnFindPatient.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnFindPatient.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnFindPatient.Image = global::DrBeshoyClinic.Properties.Resources.Search;
-            this.btnFindPatient.ImageFixedSize = new System.Drawing.Size(20, 20);
-            this.btnFindPatient.Location = new System.Drawing.Point(264, 7);
-            this.btnFindPatient.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFindPatient.Name = "btnFindPatient";
-            this.btnFindPatient.Size = new System.Drawing.Size(76, 58);
-            this.btnFindPatient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnFindPatient.TabIndex = 20;
-            this.btnFindPatient.Text = "Find";
-            this.btnFindPatient.Click += new System.EventHandler(this.btnFindPatient_Click);
             // 
             // txtPatientPhone
             // 
@@ -585,51 +410,6 @@
             this.grpPnlExaminationData.TabIndex = 2;
             this.grpPnlExaminationData.Text = "Examination Data";
             // 
-            // btnClearAll
-            // 
-            this.btnClearAll.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnClearAll.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnClearAll.Image = global::DrBeshoyClinic.Properties.Resources.Clear;
-            this.btnClearAll.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.btnClearAll.Location = new System.Drawing.Point(443, 292);
-            this.btnClearAll.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(151, 40);
-            this.btnClearAll.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnClearAll.TabIndex = 33;
-            this.btnClearAll.Text = "Clear All";
-            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnClose.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnClose.Image = global::DrBeshoyClinic.Properties.Resources.Exit;
-            this.btnClose.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.btnClose.Location = new System.Drawing.Point(605, 292);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(151, 40);
-            this.btnClose.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnClose.TabIndex = 32;
-            this.btnClose.Text = "Close";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnSaveVisit
-            // 
-            this.btnSaveVisit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnSaveVisit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSaveVisit.Image = global::DrBeshoyClinic.Properties.Resources.Save;
-            this.btnSaveVisit.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.btnSaveVisit.Location = new System.Drawing.Point(284, 292);
-            this.btnSaveVisit.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSaveVisit.Name = "btnSaveVisit";
-            this.btnSaveVisit.Size = new System.Drawing.Size(151, 40);
-            this.btnSaveVisit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnSaveVisit.TabIndex = 31;
-            this.btnSaveVisit.Text = "Save Visit";
-            this.btnSaveVisit.Click += new System.EventHandler(this.btnSaveVisit_Click);
-            // 
             // txtChronicDiseases
             // 
             // 
@@ -665,20 +445,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Diagnosis";
             // 
-            // btnDiagnosis
-            // 
-            this.btnDiagnosis.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnDiagnosis.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDiagnosis.Image = global::DrBeshoyClinic.Properties.Resources.Add;
-            this.btnDiagnosis.ImageFixedSize = new System.Drawing.Size(40, 40);
-            this.btnDiagnosis.Location = new System.Drawing.Point(420, 25);
-            this.btnDiagnosis.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDiagnosis.Name = "btnDiagnosis";
-            this.btnDiagnosis.Size = new System.Drawing.Size(45, 45);
-            this.btnDiagnosis.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnDiagnosis.TabIndex = 21;
-            this.btnDiagnosis.Click += new System.EventHandler(this.btnDiagnosis_Click);
-            // 
             // txtDiagnosis
             // 
             // 
@@ -704,20 +470,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Examination";
             // 
-            // btnExamination
-            // 
-            this.btnExamination.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnExamination.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnExamination.Image = global::DrBeshoyClinic.Properties.Resources.Add;
-            this.btnExamination.ImageFixedSize = new System.Drawing.Size(40, 40);
-            this.btnExamination.Location = new System.Drawing.Point(420, 25);
-            this.btnExamination.Margin = new System.Windows.Forms.Padding(2);
-            this.btnExamination.Name = "btnExamination";
-            this.btnExamination.Size = new System.Drawing.Size(45, 45);
-            this.btnExamination.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnExamination.TabIndex = 21;
-            this.btnExamination.Click += new System.EventHandler(this.btnExamination_Click);
-            // 
             // txtExamination
             // 
             // 
@@ -742,20 +494,6 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Complaints";
-            // 
-            // btnAddComplaint
-            // 
-            this.btnAddComplaint.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnAddComplaint.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddComplaint.Image = global::DrBeshoyClinic.Properties.Resources.Add;
-            this.btnAddComplaint.ImageFixedSize = new System.Drawing.Size(40, 40);
-            this.btnAddComplaint.Location = new System.Drawing.Point(420, 25);
-            this.btnAddComplaint.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddComplaint.Name = "btnAddComplaint";
-            this.btnAddComplaint.Size = new System.Drawing.Size(45, 45);
-            this.btnAddComplaint.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnAddComplaint.TabIndex = 21;
-            this.btnAddComplaint.Click += new System.EventHandler(this.btnAddComplaint_Click);
             // 
             // txtComplaints
             // 
@@ -860,6 +598,288 @@
             this.txtSurgicalHx.Size = new System.Drawing.Size(417, 45);
             this.txtSurgicalHx.TabIndex = 21;
             this.txtSurgicalHx.WatermarkText = "Surgical Hx ...";
+            // 
+            // btnClearAll
+            // 
+            this.btnClearAll.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnClearAll.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnClearAll.Image = global::DrBeshoyClinic.Properties.Resources.Clear;
+            this.btnClearAll.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnClearAll.Location = new System.Drawing.Point(443, 292);
+            this.btnClearAll.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClearAll.Name = "btnClearAll";
+            this.btnClearAll.Size = new System.Drawing.Size(151, 40);
+            this.btnClearAll.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnClearAll.TabIndex = 33;
+            this.btnClearAll.Text = "Clear All";
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnClose.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnClose.Image = global::DrBeshoyClinic.Properties.Resources.Exit;
+            this.btnClose.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnClose.Location = new System.Drawing.Point(605, 292);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(151, 40);
+            this.btnClose.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnClose.TabIndex = 32;
+            this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnSaveVisit
+            // 
+            this.btnSaveVisit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnSaveVisit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnSaveVisit.Image = global::DrBeshoyClinic.Properties.Resources.Save;
+            this.btnSaveVisit.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnSaveVisit.Location = new System.Drawing.Point(284, 292);
+            this.btnSaveVisit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSaveVisit.Name = "btnSaveVisit";
+            this.btnSaveVisit.Size = new System.Drawing.Size(151, 40);
+            this.btnSaveVisit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnSaveVisit.TabIndex = 31;
+            this.btnSaveVisit.Text = "Save Visit";
+            this.btnSaveVisit.Click += new System.EventHandler(this.btnSaveVisit_Click);
+            // 
+            // btnDiagnosis
+            // 
+            this.btnDiagnosis.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDiagnosis.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDiagnosis.Image = global::DrBeshoyClinic.Properties.Resources.Add;
+            this.btnDiagnosis.ImageFixedSize = new System.Drawing.Size(40, 40);
+            this.btnDiagnosis.Location = new System.Drawing.Point(420, 25);
+            this.btnDiagnosis.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDiagnosis.Name = "btnDiagnosis";
+            this.btnDiagnosis.Size = new System.Drawing.Size(45, 45);
+            this.btnDiagnosis.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnDiagnosis.TabIndex = 21;
+            this.btnDiagnosis.Click += new System.EventHandler(this.btnDiagnosis_Click);
+            // 
+            // btnExamination
+            // 
+            this.btnExamination.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnExamination.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnExamination.Image = global::DrBeshoyClinic.Properties.Resources.Add;
+            this.btnExamination.ImageFixedSize = new System.Drawing.Size(40, 40);
+            this.btnExamination.Location = new System.Drawing.Point(420, 25);
+            this.btnExamination.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExamination.Name = "btnExamination";
+            this.btnExamination.Size = new System.Drawing.Size(45, 45);
+            this.btnExamination.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnExamination.TabIndex = 21;
+            this.btnExamination.Click += new System.EventHandler(this.btnExamination_Click);
+            // 
+            // btnAddComplaint
+            // 
+            this.btnAddComplaint.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAddComplaint.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAddComplaint.Image = global::DrBeshoyClinic.Properties.Resources.Add;
+            this.btnAddComplaint.ImageFixedSize = new System.Drawing.Size(40, 40);
+            this.btnAddComplaint.Location = new System.Drawing.Point(420, 25);
+            this.btnAddComplaint.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddComplaint.Name = "btnAddComplaint";
+            this.btnAddComplaint.Size = new System.Drawing.Size(45, 45);
+            this.btnAddComplaint.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAddComplaint.TabIndex = 21;
+            this.btnAddComplaint.Click += new System.EventHandler(this.btnAddComplaint_Click);
+            // 
+            // btnClearPatient
+            // 
+            this.btnClearPatient.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnClearPatient.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnClearPatient.Image = global::DrBeshoyClinic.Properties.Resources.Clear;
+            this.btnClearPatient.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnClearPatient.Location = new System.Drawing.Point(700, 95);
+            this.btnClearPatient.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClearPatient.Name = "btnClearPatient";
+            this.btnClearPatient.Size = new System.Drawing.Size(151, 40);
+            this.btnClearPatient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnClearPatient.TabIndex = 23;
+            this.btnClearPatient.Text = "Clear";
+            this.btnClearPatient.Click += new System.EventHandler(this.btnClearPatient_Click);
+            // 
+            // btnEditPatient
+            // 
+            this.btnEditPatient.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnEditPatient.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnEditPatient.Image = global::DrBeshoyClinic.Properties.Resources.Edit;
+            this.btnEditPatient.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnEditPatient.Location = new System.Drawing.Point(700, 51);
+            this.btnEditPatient.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditPatient.Name = "btnEditPatient";
+            this.btnEditPatient.Size = new System.Drawing.Size(151, 40);
+            this.btnEditPatient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnEditPatient.TabIndex = 22;
+            this.btnEditPatient.Text = "Edit";
+            this.btnEditPatient.Click += new System.EventHandler(this.btnEditPatient_Click);
+            // 
+            // btnNewPatient
+            // 
+            this.btnNewPatient.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnNewPatient.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnNewPatient.Image = global::DrBeshoyClinic.Properties.Resources.Add;
+            this.btnNewPatient.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnNewPatient.Location = new System.Drawing.Point(700, 7);
+            this.btnNewPatient.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNewPatient.Name = "btnNewPatient";
+            this.btnNewPatient.Size = new System.Drawing.Size(151, 40);
+            this.btnNewPatient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnNewPatient.TabIndex = 21;
+            this.btnNewPatient.Text = "New";
+            this.btnNewPatient.Click += new System.EventHandler(this.btnNewPatient_Click);
+            // 
+            // btnFindPatient
+            // 
+            this.btnFindPatient.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnFindPatient.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnFindPatient.Image = global::DrBeshoyClinic.Properties.Resources.Search;
+            this.btnFindPatient.ImageFixedSize = new System.Drawing.Size(20, 20);
+            this.btnFindPatient.Location = new System.Drawing.Point(264, 7);
+            this.btnFindPatient.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFindPatient.Name = "btnFindPatient";
+            this.btnFindPatient.Size = new System.Drawing.Size(76, 58);
+            this.btnFindPatient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnFindPatient.TabIndex = 20;
+            this.btnFindPatient.Text = "Find";
+            this.btnFindPatient.Click += new System.EventHandler(this.btnFindPatient_Click);
+            // 
+            // btnPhoto
+            // 
+            this.btnPhoto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnPhoto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnPhoto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPhoto.Image = global::DrBeshoyClinic.Properties.Resources.Photo;
+            this.btnPhoto.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnPhoto.Location = new System.Drawing.Point(0, 270);
+            this.btnPhoto.Name = "btnPhoto";
+            this.btnPhoto.Size = new System.Drawing.Size(164, 30);
+            this.btnPhoto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnPhoto.TabIndex = 13;
+            this.btnPhoto.Text = "Photo";
+            this.btnPhoto.Click += new System.EventHandler(this.btnPhoto_Click);
+            // 
+            // btnEmgNcv
+            // 
+            this.btnEmgNcv.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnEmgNcv.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnEmgNcv.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmgNcv.Image = global::DrBeshoyClinic.Properties.Resources.EmgNcv;
+            this.btnEmgNcv.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnEmgNcv.Location = new System.Drawing.Point(0, 210);
+            this.btnEmgNcv.Name = "btnEmgNcv";
+            this.btnEmgNcv.Size = new System.Drawing.Size(164, 30);
+            this.btnEmgNcv.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnEmgNcv.TabIndex = 11;
+            this.btnEmgNcv.Text = "EMG - NCV";
+            this.btnEmgNcv.Click += new System.EventHandler(this.btnEmgNcv_Click);
+            // 
+            // btnDrugHx
+            // 
+            this.btnDrugHx.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDrugHx.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDrugHx.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDrugHx.Image = global::DrBeshoyClinic.Properties.Resources.DrugHx;
+            this.btnDrugHx.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnDrugHx.Location = new System.Drawing.Point(0, 180);
+            this.btnDrugHx.Name = "btnDrugHx";
+            this.btnDrugHx.Size = new System.Drawing.Size(164, 30);
+            this.btnDrugHx.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnDrugHx.TabIndex = 9;
+            this.btnDrugHx.Text = "Drug Hx";
+            this.btnDrugHx.Click += new System.EventHandler(this.btnDrugHx_Click);
+            // 
+            // btnSurgicalHx
+            // 
+            this.btnSurgicalHx.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnSurgicalHx.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnSurgicalHx.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSurgicalHx.Image = global::DrBeshoyClinic.Properties.Resources.SurgicalHx;
+            this.btnSurgicalHx.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnSurgicalHx.Location = new System.Drawing.Point(0, 150);
+            this.btnSurgicalHx.Name = "btnSurgicalHx";
+            this.btnSurgicalHx.Size = new System.Drawing.Size(164, 30);
+            this.btnSurgicalHx.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnSurgicalHx.TabIndex = 5;
+            this.btnSurgicalHx.Text = "Surgical Hx";
+            this.btnSurgicalHx.Click += new System.EventHandler(this.btnSurgicalHx_Click);
+            // 
+            // btnOperativeDetails
+            // 
+            this.btnOperativeDetails.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOperativeDetails.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOperativeDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOperativeDetails.Image = global::DrBeshoyClinic.Properties.Resources.Operation;
+            this.btnOperativeDetails.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnOperativeDetails.Location = new System.Drawing.Point(0, 120);
+            this.btnOperativeDetails.Name = "btnOperativeDetails";
+            this.btnOperativeDetails.Size = new System.Drawing.Size(164, 30);
+            this.btnOperativeDetails.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnOperativeDetails.TabIndex = 4;
+            this.btnOperativeDetails.Text = "Operative Details";
+            this.btnOperativeDetails.Click += new System.EventHandler(this.btnOperativeDetails_Click);
+            // 
+            // btnChronicDiseases
+            // 
+            this.btnChronicDiseases.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnChronicDiseases.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnChronicDiseases.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnChronicDiseases.Image = global::DrBeshoyClinic.Properties.Resources.ChronicDisease;
+            this.btnChronicDiseases.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnChronicDiseases.Location = new System.Drawing.Point(0, 90);
+            this.btnChronicDiseases.Name = "btnChronicDiseases";
+            this.btnChronicDiseases.Size = new System.Drawing.Size(164, 30);
+            this.btnChronicDiseases.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnChronicDiseases.TabIndex = 3;
+            this.btnChronicDiseases.Text = "Chronic Diseases";
+            this.btnChronicDiseases.Click += new System.EventHandler(this.btnChronicDiseases_Click);
+            // 
+            // btnRadiology
+            // 
+            this.btnRadiology.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnRadiology.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnRadiology.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRadiology.Image = global::DrBeshoyClinic.Properties.Resources.Radiology;
+            this.btnRadiology.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnRadiology.Location = new System.Drawing.Point(0, 60);
+            this.btnRadiology.Name = "btnRadiology";
+            this.btnRadiology.Size = new System.Drawing.Size(164, 30);
+            this.btnRadiology.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnRadiology.TabIndex = 2;
+            this.btnRadiology.Text = "Radiology";
+            this.btnRadiology.Click += new System.EventHandler(this.btnRadiology_Click);
+            // 
+            // btnLabTest
+            // 
+            this.btnLabTest.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnLabTest.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnLabTest.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLabTest.Image = global::DrBeshoyClinic.Properties.Resources.LabTest;
+            this.btnLabTest.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnLabTest.Location = new System.Drawing.Point(0, 30);
+            this.btnLabTest.Name = "btnLabTest";
+            this.btnLabTest.Size = new System.Drawing.Size(164, 30);
+            this.btnLabTest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnLabTest.TabIndex = 1;
+            this.btnLabTest.Text = "Lab Test";
+            this.btnLabTest.Click += new System.EventHandler(this.btnLabTest_Click);
+            // 
+            // btnMedicine
+            // 
+            this.btnMedicine.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnMedicine.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnMedicine.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMedicine.Image = global::DrBeshoyClinic.Properties.Resources.Medicine;
+            this.btnMedicine.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnMedicine.Location = new System.Drawing.Point(0, 0);
+            this.btnMedicine.Name = "btnMedicine";
+            this.btnMedicine.Size = new System.Drawing.Size(164, 30);
+            this.btnMedicine.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnMedicine.TabIndex = 0;
+            this.btnMedicine.Text = "Medicine";
+            this.btnMedicine.Click += new System.EventHandler(this.btnMedicine_Click);
             // 
             // FrmExamination
             // 
