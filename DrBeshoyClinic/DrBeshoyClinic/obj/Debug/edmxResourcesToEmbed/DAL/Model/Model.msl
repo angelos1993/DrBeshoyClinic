@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DrBeshoyClinicModelStoreContainer" CdmEntityContainer="DrBeshoyClinicEntities">
+    <EntitySetMapping Name="ChronicDiseases">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.ChronicDiseas">
+        <MappingFragment StoreEntitySet="ChronicDiseases">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DrugHxes">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.DrugHx">
+        <MappingFragment StoreEntitySet="DrugHx">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmgNcvs">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.EmgNcv">
+        <MappingFragment StoreEntitySet="EmgNcv">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Emg" ColumnName="Emg" />
+          <ScalarProperty Name="Ncv" ColumnName="Ncv" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExaminationChronicDiseases">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.ExaminationChronicDisease">
+        <MappingFragment StoreEntitySet="ExaminationChronicDisease">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExaminationId" ColumnName="ExaminationId" />
+          <ScalarProperty Name="ChronicDiseaseId" ColumnName="ChronicDiseaseId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Examinations">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.Examination">
+        <MappingFragment StoreEntitySet="Examinations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Examination1" ColumnName="Examination" />
+          <ScalarProperty Name="ExaminationType" ColumnName="ExaminationType" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FamilyHxes">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.FamilyHx">
+        <MappingFragment StoreEntitySet="FamilyHx">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LabTests">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.LabTest">
+        <MappingFragment StoreEntitySet="LabTests">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TestName" ColumnName="TestName" />
+          <ScalarProperty Name="TestResult" ColumnName="TestResult" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedicineDetails">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.MedicineDetail">
+        <MappingFragment StoreEntitySet="MedicineDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MedicineId" ColumnName="MedicineId" />
+          <ScalarProperty Name="TreatmentId" ColumnName="TreatmentId" />
+          <ScalarProperty Name="TreatmentPeriodId" ColumnName="TreatmentPeriodId" />
+          <ScalarProperty Name="TreatmentDescriptionId" ColumnName="TreatmentDescriptionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicines">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.Medicine">
+        <MappingFragment StoreEntitySet="Medicines">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operations">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.Operation">
+        <MappingFragment StoreEntitySet="Operations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="OperativeDetails" ColumnName="OperativeDetails" />
+          <ScalarProperty Name="FuturePlan" ColumnName="FuturePlan" />
+          <ScalarProperty Name="Approach" ColumnName="Approach" />
+          <ScalarProperty Name="Anesthesiologist" ColumnName="Anesthesiologist" />
+          <ScalarProperty Name="Anesthesia" ColumnName="Anesthesia" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Antibiotic" ColumnName="Antibiotic" />
+          <ScalarProperty Name="BloodLoss" ColumnName="BloodLoss" />
+          <ScalarProperty Name="ImplantUsed" ColumnName="ImplantUsed" />
+          <ScalarProperty Name="ImplantCompany" ColumnName="ImplantCompany" />
+          <ScalarProperty Name="Nurse" ColumnName="Nurse" />
+          <ScalarProperty Name="Assisstant1" ColumnName="Assisstant1" />
+          <ScalarProperty Name="Assisstant2" ColumnName="Assisstant2" />
+          <ScalarProperty Name="Surgion" ColumnName="Surgion" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="IsCultureAndSensitivity" ColumnName="IsCultureAndSensitivity" />
+          <ScalarProperty Name="IsBiopsy" ColumnName="IsBiopsy" />
+          <ScalarProperty Name="Start" ColumnName="Start" />
+          <ScalarProperty Name="End" ColumnName="End" />
+          <ScalarProperty Name="Pressure" ColumnName="Pressure" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.Patient">
+        <MappingFragment StoreEntitySet="Patients">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Job" ColumnName="Job" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.Photo">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Photo1" ColumnName="Photo" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PatieneId" ColumnName="PatieneId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Radiologies">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.Radiology">
+        <MappingFragment StoreEntitySet="Radiologies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurgicalHxes">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.SurgicalHx">
+        <MappingFragment StoreEntitySet="SurgicalHx">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TreatmentDescriptions">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.TreatmentDescription">
+        <MappingFragment StoreEntitySet="TreatmentDescriptions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TreatmentPeriods">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.TreatmentPeriod">
+        <MappingFragment StoreEntitySet="TreatmentPeriods">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Treatments">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.Treatment">
+        <MappingFragment StoreEntitySet="Treatments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
