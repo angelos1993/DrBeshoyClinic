@@ -21,7 +21,8 @@ namespace DrBeshoyClinic.DAL.Model
         }
     
         public int Id { get; set; }
-        public string Examination1 { get; set; }
+        public string ExaminationOfExamination { get; set; }
+        public System.DateTime Date { get; set; }
         public bool ExaminationType { get; set; }
         public string PatientId { get; set; }
     

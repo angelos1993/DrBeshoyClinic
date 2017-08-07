@@ -45,7 +45,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Examination" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ExaminationOfExamination" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="ExaminationType" Type="bit" Nullable="false" />
           <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -153,6 +154,16 @@
           <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="TreatmentDescriptions">
           <Key>
@@ -382,6 +393,7 @@
           <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Radiologies" EntityType="Self.Radiologies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SurgicalHx" EntityType="Self.SurgicalHx" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TreatmentDescriptions" EntityType="Self.TreatmentDescriptions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TreatmentPeriods" EntityType="Self.TreatmentPeriods" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Treatments" EntityType="Self.Treatments" Schema="dbo" store:Type="Tables" />
@@ -500,7 +512,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Examination1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExaminationOfExamination" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ExaminationType" Type="Boolean" Nullable="false" />
           <Property Name="PatientId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ExaminationChronicDiseases" Relationship="Self.FK_ExaminationChronicDisease_Examinations" FromRole="Examinations" ToRole="ExaminationChronicDisease" />
@@ -632,6 +645,16 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="PatientId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Patient" Relationship="Self.FK_SurgicalHx_Patients" FromRole="SurgicalHx" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TreatmentDescription">
           <Key>
@@ -864,6 +887,7 @@
           <EntitySet Name="Photos" EntityType="Self.Photo" />
           <EntitySet Name="Radiologies" EntityType="Self.Radiology" />
           <EntitySet Name="SurgicalHxes" EntityType="Self.SurgicalHx" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TreatmentDescriptions" EntityType="Self.TreatmentDescription" />
           <EntitySet Name="TreatmentPeriods" EntityType="Self.TreatmentPeriod" />
           <EntitySet Name="Treatments" EntityType="Self.Treatment" />
@@ -981,7 +1005,8 @@
             <EntityTypeMapping TypeName="DrBeshoyClinicModel.Examination">
               <MappingFragment StoreEntitySet="Examinations">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Examination1" ColumnName="Examination" />
+                <ScalarProperty Name="ExaminationOfExamination" ColumnName="ExaminationOfExamination" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="ExaminationType" ColumnName="ExaminationType" />
                 <ScalarProperty Name="PatientId" ColumnName="PatientId" />
               </MappingFragment>
@@ -1098,6 +1123,17 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DrBeshoyClinicModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

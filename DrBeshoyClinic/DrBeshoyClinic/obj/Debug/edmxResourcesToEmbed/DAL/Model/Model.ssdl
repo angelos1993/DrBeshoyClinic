@@ -40,7 +40,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Examination" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExaminationOfExamination" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="ExaminationType" Type="bit" Nullable="false" />
     <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -148,6 +149,16 @@
     <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="TreatmentDescriptions">
     <Key>
@@ -377,6 +388,7 @@
     <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Radiologies" EntityType="Self.Radiologies" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SurgicalHx" EntityType="Self.SurgicalHx" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TreatmentDescriptions" EntityType="Self.TreatmentDescriptions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TreatmentPeriods" EntityType="Self.TreatmentPeriods" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Treatments" EntityType="Self.Treatments" Schema="dbo" store:Type="Tables" />

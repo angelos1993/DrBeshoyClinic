@@ -45,7 +45,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Examination1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ExaminationOfExamination" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ExaminationType" Type="Boolean" Nullable="false" />
     <Property Name="PatientId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="ExaminationChronicDiseases" Relationship="Self.FK_ExaminationChronicDisease_Examinations" FromRole="Examinations" ToRole="ExaminationChronicDisease" />
@@ -177,6 +178,16 @@
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="PatientId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Patient" Relationship="Self.FK_SurgicalHx_Patients" FromRole="SurgicalHx" ToRole="Patients" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="TreatmentDescription">
     <Key>
@@ -409,6 +420,7 @@
     <EntitySet Name="Photos" EntityType="Self.Photo" />
     <EntitySet Name="Radiologies" EntityType="Self.Radiology" />
     <EntitySet Name="SurgicalHxes" EntityType="Self.SurgicalHx" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="TreatmentDescriptions" EntityType="Self.TreatmentDescription" />
     <EntitySet Name="TreatmentPeriods" EntityType="Self.TreatmentPeriod" />
     <EntitySet Name="Treatments" EntityType="Self.Treatment" />

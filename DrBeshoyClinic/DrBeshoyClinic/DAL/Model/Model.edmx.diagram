@@ -4,23 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fbff13ba50174c398bf1e59af8bb7e54" Name="Diagram1">
+      <Diagram DiagramId="959af8065b024f38b09d75e5b488dad9" Name="Diagram1">
         <EntityTypeShape EntityType="DrBeshoyClinicModel.ChronicDiseas" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DrBeshoyClinicModel.DrugHx" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DrBeshoyClinicModel.EmgNcv" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DrBeshoyClinicModel.ExaminationChronicDisease" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DrBeshoyClinicModel.Examination" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DrBeshoyClinicModel.FamilyHx" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DrBeshoyClinicModel.LabTest" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DrBeshoyClinicModel.MedicineDetail" Width="1.5" PointX="5.25" PointY="17.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DrBeshoyClinicModel.Medicine" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
-        <EntityTypeShape EntityType="DrBeshoyClinicModel.Operation" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DrBeshoyClinicModel.Examination" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DrBeshoyClinicModel.FamilyHx" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DrBeshoyClinicModel.LabTest" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DrBeshoyClinicModel.MedicineDetail" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DrBeshoyClinicModel.Medicine" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DrBeshoyClinicModel.Operation" Width="1.5" PointX="3" PointY="20.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DrBeshoyClinicModel.Patient" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DrBeshoyClinicModel.Photo" Width="1.5" PointX="3" PointY="27.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DrBeshoyClinicModel.Radiology" Width="1.5" PointX="3" PointY="29.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DrBeshoyClinicModel.SurgicalHx" Width="1.5" PointX="3" PointY="32.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DrBeshoyClinicModel.TreatmentDescription" Width="1.5" PointX="3" PointY="35.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DrBeshoyClinicModel.TreatmentPeriod" Width="1.5" PointX="3" PointY="38.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DrBeshoyClinicModel.Photo" Width="1.5" PointX="3" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DrBeshoyClinicModel.Radiology" Width="1.5" PointX="3" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="DrBeshoyClinicModel.SurgicalHx" Width="1.5" PointX="3" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DrBeshoyClinicModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DrBeshoyClinicModel.TreatmentDescription" Width="1.5" PointX="3" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="DrBeshoyClinicModel.TreatmentPeriod" Width="1.5" PointX="3" PointY="38.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DrBeshoyClinicModel.Treatment" Width="1.5" PointX="3" PointY="40.625" IsExpanded="true" />
         <AssociationConnector Association="DrBeshoyClinicModel.FK_ExaminationChronicDisease_ChronicDiseases" ManuallyRouted="false" />
         <AssociationConnector Association="DrBeshoyClinicModel.FK_DrugHx_Patients" ManuallyRouted="false" />
