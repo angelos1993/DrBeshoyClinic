@@ -1,4 +1,5 @@
-﻿using DrBeshoyClinic.BLL.Infrastructure;
+﻿using System;
+using DrBeshoyClinic.BLL.Infrastructure;
 
 namespace DrBeshoyClinic.BLL
 {
@@ -9,6 +10,12 @@ namespace DrBeshoyClinic.BLL
         #endregion
 
         #region Methods
+
+        public bool IsExistsExaminationForPatient(string patientId)
+        {
+            throw new NotImplementedException();
+            //return UnitOfWork.ExaminationRepository.Get(examination=>examination.PatientId==patientId&&examination.)
+        }
 
         #endregion
     }

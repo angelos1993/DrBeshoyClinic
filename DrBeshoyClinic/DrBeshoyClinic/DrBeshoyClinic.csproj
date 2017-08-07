@@ -296,8 +296,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utility\Constants.cs" />
     <Compile Include="Utility\Enums\ExaminationFormMode.cs" />
-    <Compile Include="Utility\Enums\Genders.cs" />
+    <Compile Include="Utility\MessageBoxUtility.cs" />
+    <Compile Include="Utility\StringExtensions.cs" />
+    <Compile Include="Utility\Utility.cs" />
     <EmbeddedResource Include="PL\Forms\FrmAddNewChronicDisease.resx">
       <DependentUpon>FrmAddNewChronicDisease.cs</DependentUpon>
     </EmbeddedResource>
