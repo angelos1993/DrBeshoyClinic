@@ -32,3 +32,4 @@ G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\bin\Debug\EntityFram
 G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\bin\Debug\EntityFramework.SqlServer.dll
 G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\bin\Debug\EntityFramework.xml
 G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\bin\Debug\EntityFramework.SqlServer.xml
+G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\obj\Debug\DrBeshoyClinic.csprojResolveAssemblyReference.cache

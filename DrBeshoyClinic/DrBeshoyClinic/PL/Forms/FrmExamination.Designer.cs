@@ -551,6 +551,7 @@
             this.swVisitType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.swVisitType.TabIndex = 18;
             this.swVisitType.Value = true;
+            this.swVisitType.ValueChanged += new System.EventHandler(this.swVisitType_ValueChanged);
             // 
             // grpPnlExaminationData
             // 

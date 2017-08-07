@@ -178,6 +178,7 @@
     <Compile Include="DAL\Repositories\TreatmentDescriptionRepository.cs" />
     <Compile Include="DAL\Repositories\TreatmentPeriodRepository.cs" />
     <Compile Include="DAL\Repositories\TreatmentRepository.cs" />
+    <Compile Include="DAL\VMs\ListBoxVm.cs" />
     <Compile Include="PL\Forms\FrmAddNewChronicDisease.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +301,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utility\Constants.cs" />
+    <Compile Include="Utility\DateTimeExtensions.cs" />
     <Compile Include="Utility\Enums\ExaminationFormMode.cs" />
     <Compile Include="Utility\MessageBoxUtility.cs" />
     <Compile Include="Utility\StringExtensions.cs" />
@@ -385,7 +387,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAL\VMs\" />
     <Folder Include="PL\Reports\" />
   </ItemGroup>
   <ItemGroup>

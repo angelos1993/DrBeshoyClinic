@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using DrBeshoyClinic.BLL;
 using DrBeshoyClinic.DAL.Model;
+using DrBeshoyClinic.DAL.VMs;
 using DrBeshoyClinic.Properties;
 using DrBeshoyClinic.Utility;
 using DrBeshoyClinic.Utility.Enums;
 using static DrBeshoyClinic.Utility.Constants;
-using static DrBeshoyClinic.Utility.Utility;
 using static DrBeshoyClinic.Utility.MessageBoxUtility;
 
 namespace DrBeshoyClinic.PL.Forms
@@ -74,7 +75,9 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void btnClearPatient_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             ResetPatientPanel();
+            Cursor = Cursors.Default;
         }
 
         #endregion
@@ -150,8 +153,20 @@ namespace DrBeshoyClinic.PL.Forms
             new FrmDiagnosis().ShowDialog();
         }
 
+        private void swVisitType_ValueChanged(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            Examination.ExaminationType = swVisitType.Value;
+            ExaminationManager.UpdateExamination(Examination);
+            Cursor = Cursors.Default;
+        }
+
         private void btnSaveVisit_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
+            LoadExaminationFromForm(Examination);
+            ExaminationManager.UpdateExamination(Examination);
+            Cursor = Cursors.Default;
         }
 
         private void btnClearAll_Click(object sender, EventArgs e)
@@ -258,6 +273,7 @@ namespace DrBeshoyClinic.PL.Forms
             ShowPatientData(patient);
             EnableOrDisableControls(ExaminationFormMode.HasPatient);
             CreateNewExaminationIfNotExistsForToday(patient.Id);
+            LoadAllExaminationsForPatient(patient.Id);
         }
 
         private void ShowPatientData(Patient patient)
@@ -274,7 +290,30 @@ namespace DrBeshoyClinic.PL.Forms
         private void CreateNewExaminationIfNotExistsForToday(string patientId)
         {
             var today = DateTime.Now.Date;
-            if(ExaminationManager)
+            if (ExaminationManager.IsExistsExaminationForPatient(patientId, today))
+                return;
+            Examination = new Examination
+            {
+                PatientId = patientId,
+                Date = today,
+                ExaminationType = swVisitType.Value,
+                ExaminationOfExamination = txtExamination.Text.FullTrim()
+            };
+            ExaminationManager.AddNewExamination(Examination);
+        }
+
+        private void LoadAllExaminationsForPatient(string patientId)
+        {
+            var allPatientExaminations = ExaminationManager.GetAllExaminationsForPatient(patientId).ToList();
+            lstExaminations.DataSource = allPatientExaminations.OrderByDescending(examination => examination.Date)
+                .Select(examination => new ListBoxVm
+                {
+                    Id = examination.Id,
+                    DateTime = examination.Date
+                }).ToList();
+            lstExaminations.DisplayMember = ListBoxDisplayMember;
+            lstExaminations.ValueMember = ListBoxValueMember;
+            Examination = allPatientExaminations.FirstOrDefault();
         }
 
         private void AddNewPatient()
@@ -290,31 +329,36 @@ namespace DrBeshoyClinic.PL.Forms
             {
                 if (!txtPatientName.Text.FullTrim().IsNullOrEmptyOrWhiteSpace())
                 {
-                    Patient = GetPatientFromForm();
+                    Patient = new Patient();
+                    LoadPatientFromForm(Patient);
                     //TODO: validate this business
                     //Patient.Id = GetNextPatientId(PatientManager.GetLastPatientId());
-                    Patient.Id = "55";
+                    Patient.Id = "100";
                     PatientManager.AddNewPatient(Patient);
                     btnNewPatient.Text = @"New";
                     btnNewPatient.Image = Resources.Add;
-                    StartExamination();
+                    StartExamination(Patient);
                 }
                 else
                     errorProvider.SetError(txtPatientName, ValidationMsg);
             }
         }
 
-        private Patient GetPatientFromForm()
+        private void LoadPatientFromForm(Patient patient)
         {
-            return new Patient
-            {
-                Name = txtPatientName.Text.FullTrim(),
-                Address = txtPatientAddress.Text.FullTrim(),
-                Phone = txtPatientPhone.Text.FullTrim(),
-                Job = txtPatientJob.Text.FullTrim(),
-                BirthDate = dtPatientBirthdate.Value,
-                Gender = swPatientGender.Value
-            };
+            patient.Name = txtPatientName.Text.FullTrim();
+            patient.Address = txtPatientAddress.Text.FullTrim();
+            patient.Phone = txtPatientPhone.Text.FullTrim();
+            patient.Job = txtPatientJob.Text.FullTrim();
+            patient.BirthDate = dtPatientBirthdate.Value;
+            patient.Gender = swPatientGender.Value;
+        }
+
+        private void LoadExaminationFromForm(Examination examination)
+        {
+            examination.ExaminationOfExamination = txtExamination.Text.FullTrim();
+            examination.Date = DateTime.Now;
+            examination.ExaminationType = swVisitType.Value;
         }
 
         private void FindPatient()
@@ -350,7 +394,7 @@ namespace DrBeshoyClinic.PL.Forms
                     errorProvider.SetError(txtPatientName, ValidationMsg);
                     return;
                 }
-                Patient = GetPatientFromForm();
+                LoadPatientFromForm(Patient);
                 PatientManager.UpdatePatient(Patient);
                 btnEditPatient.Text = @"Edit";
                 btnEditPatient.Image = Resources.Edit;

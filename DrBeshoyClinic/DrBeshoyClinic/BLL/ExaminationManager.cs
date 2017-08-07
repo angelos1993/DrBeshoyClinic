@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using DrBeshoyClinic.BLL.Infrastructure;
+using DrBeshoyClinic.DAL.Model;
 
 namespace DrBeshoyClinic.BLL
 {
@@ -11,10 +14,25 @@ namespace DrBeshoyClinic.BLL
 
         #region Methods
 
-        public bool IsExistsExaminationForPatient(string patientId)
+        public bool IsExistsExaminationForPatient(string patientId, DateTime today)
         {
-            throw new NotImplementedException();
-            //return UnitOfWork.ExaminationRepository.Get(examination=>examination.PatientId==patientId&&examination.)
+            return UnitOfWork.ExaminationRepository
+                .Get(examination => examination.PatientId == patientId && examination.Date == today.Date).Any();
+        }
+
+        public void AddNewExamination(Examination examination)
+        {
+            UnitOfWork.ExaminationRepository.Add(examination);
+        }
+
+        public IEnumerable<Examination> GetAllExaminationsForPatient(string patientId)
+        {
+            return UnitOfWork.ExaminationRepository.Get(examination => examination.PatientId == patientId);
+        }
+
+        public void UpdateExamination(Examination examination)
+        {
+            UnitOfWork.ExaminationRepository.Update(examination);
         }
 
         #endregion
