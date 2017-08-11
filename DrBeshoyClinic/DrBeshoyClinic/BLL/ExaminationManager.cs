@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DrBeshoyClinic.BLL.Infrastructure;
 using DrBeshoyClinic.DAL.Model;
+using static System.Data.Entity.DbFunctions;
 
 namespace DrBeshoyClinic.BLL
 {
@@ -38,8 +39,8 @@ namespace DrBeshoyClinic.BLL
         public Examination GetExaminationByPatientAndDate(string patientId, DateTime dateTime)
         {
             return UnitOfWork.ExaminationRepository
-                .Get(examination => examination.PatientId == patientId && examination.Date.Date == dateTime.Date)
-                .FirstOrDefault();
+                .Get(examination => examination.PatientId == patientId &&
+                                    TruncateTime(examination.Date) == TruncateTime(dateTime)).FirstOrDefault();
         }
 
         #endregion

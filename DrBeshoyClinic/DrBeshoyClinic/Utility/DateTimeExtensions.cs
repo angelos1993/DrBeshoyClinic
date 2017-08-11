@@ -6,7 +6,7 @@ namespace DrBeshoyClinic.Utility
     {
         public static string ToListBoxDateString(this DateTime dateTime)
         {
-            return dateTime.ToShortDateString();
+            return dateTime.ToString("dd / MM / yyyy");
         }
     }
 }
