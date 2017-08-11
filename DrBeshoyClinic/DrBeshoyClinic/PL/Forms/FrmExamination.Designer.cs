@@ -678,6 +678,7 @@
             this.lstExaminations.Name = "lstExaminations";
             this.lstExaminations.Size = new System.Drawing.Size(120, 244);
             this.lstExaminations.TabIndex = 29;
+            this.lstExaminations.SelectedIndexChanged += new System.EventHandler(this.lstExaminations_SelectedIndexChanged);
             // 
             // groupBox3
             // 

@@ -9,6 +9,7 @@ using DrBeshoyClinic.Utility;
 using DrBeshoyClinic.Utility.Enums;
 using static DrBeshoyClinic.Utility.Constants;
 using static DrBeshoyClinic.Utility.MessageBoxUtility;
+using static DrBeshoyClinic.Utility.Utility;
 
 namespace DrBeshoyClinic.PL.Forms
 {
@@ -141,16 +142,19 @@ namespace DrBeshoyClinic.PL.Forms
         private void btnComplaint_Click(object sender, EventArgs e)
         {
             new FrmComplaints().ShowDialog();
+            //todo: bind written to this form from the child one
         }
 
         private void btnExamination_Click(object sender, EventArgs e)
         {
             new FrmLightExamination().ShowDialog();
+            //todo: bind written to this form from the child one
         }
 
         private void btnDiagnosis_Click(object sender, EventArgs e)
         {
             new FrmDiagnosis().ShowDialog();
+            //todo: bind written to this form from the child one
         }
 
         private void swVisitType_ValueChanged(object sender, EventArgs e)
@@ -159,6 +163,13 @@ namespace DrBeshoyClinic.PL.Forms
             Examination.ExaminationType = swVisitType.Value;
             ExaminationManager.UpdateExamination(Examination);
             Cursor = Cursors.Default;
+        }
+
+        private void lstExaminations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedExamination = ExaminationManager.GetExaminationByPatientAndDate(Patient.Id,
+                (lstExaminations.SelectedItem as ListBoxVm)?.DateTime ?? new DateTime());
+            //todo: need to bind the selected examination values to the form
         }
 
         private void btnSaveVisit_Click(object sender, EventArgs e)
@@ -210,11 +221,11 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void ResetPatientData()
         {
-            txtPatientId.Text = string.Empty;
-            txtPatientName.Text = string.Empty;
-            txtPatientAddress.Text = string.Empty;
-            txtPatientPhone.Text = string.Empty;
-            txtPatientJob.Text = string.Empty;
+            txtPatientId.Clear();
+            txtPatientName.Clear();
+            txtPatientAddress.Clear();
+            txtPatientPhone.Clear();
+            txtPatientJob.Clear();
             dtPatientBirthdate.Value = default(DateTime);
             swPatientGender.Value = true;
         }
@@ -266,6 +277,7 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void ResetExaminationPanel()
         {
+            //todo: need to be implemented
         }
 
         private void StartExamination(Patient patient)
@@ -331,9 +343,7 @@ namespace DrBeshoyClinic.PL.Forms
                 {
                     Patient = new Patient();
                     LoadPatientFromForm(Patient);
-                    //TODO: validate this business
-                    //Patient.Id = GetNextPatientId(PatientManager.GetLastPatientId());
-                    Patient.Id = "100";
+                    Patient.Id = GetNextPatientId(PatientManager.GetLastPatientId());
                     PatientManager.AddNewPatient(Patient);
                     btnNewPatient.Text = @"New";
                     btnNewPatient.Image = Resources.Add;
@@ -401,6 +411,23 @@ namespace DrBeshoyClinic.PL.Forms
                 EnableOrDisableControls(ExaminationFormMode.HasPatient);
             }
         }
+
+        #region Call-Back(s)
+
+        public void BindComplaints(string complaints)
+        {
+            txtComplaints.Text = complaints;
+        }
+
+        public void BindExamination(string examination)
+        {
+            txtExamination.Text = examination;
+        }
+        public void BindDiagnosis(string diagnosis)
+        {
+            txtDiagnosis.Text = diagnosis;
+        }
+        #endregion
 
         #endregion
     }

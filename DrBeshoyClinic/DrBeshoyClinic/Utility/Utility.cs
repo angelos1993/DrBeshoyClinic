@@ -6,28 +6,20 @@ namespace DrBeshoyClinic.Utility
     {
         public static string GetNextPatientId(string lastPatientId)
         {
-            string nextPatientId;
-            if (lastPatientId != null)
+            var today = DateTime.Now;
+            if (!lastPatientId.IsNullOrEmptyOrWhiteSpace())
             {
-                var datePartOfLastPatientId = lastPatientId.Substring(0, 8);
-                if (DateTime.TryParse(datePartOfLastPatientId, out DateTime date) && date.Date == DateTime.Now.Date)
+                var datePartOfLastPatientIdString = lastPatientId.Substring(0, 8);
+                if (int.TryParse(datePartOfLastPatientIdString.Substring(0, 4), out int year) &&
+                    int.TryParse(datePartOfLastPatientIdString.Substring(4, 2), out int month) &&
+                    int.TryParse(datePartOfLastPatientIdString.Substring(6, 2), out int day) &&
+                    today.Date == new DateTime(year, month, day))
                 {
-                    var lastNumberString = lastPatientId.Substring(8);
-                    var lastNumber = int.Parse(lastNumberString);
-                    nextPatientId = $"{datePartOfLastPatientId}{lastNumber}";
-                }
-                else
-                {
-                    var today = DateTime.Now;
-                    nextPatientId = $"{today.Year}{today.Month}{today.Day}1";
+                    var lastNumber = int.Parse(lastPatientId.Substring(8));
+                    return $"{datePartOfLastPatientIdString}{lastNumber + 1}";
                 }
             }
-            else
-            {
-                var today = DateTime.Now;
-                nextPatientId = $"{today.Year}{today.Month}{today.Day}1";
-            }
-            return nextPatientId;
+            return $"{today.Year:0000}{today.Month:00}{today.Day:00}1";
         }
     }
 }

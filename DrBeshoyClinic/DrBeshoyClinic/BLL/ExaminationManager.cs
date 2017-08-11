@@ -35,6 +35,13 @@ namespace DrBeshoyClinic.BLL
             UnitOfWork.ExaminationRepository.Update(examination);
         }
 
+        public Examination GetExaminationByPatientAndDate(string patientId, DateTime dateTime)
+        {
+            return UnitOfWork.ExaminationRepository
+                .Get(examination => examination.PatientId == patientId && examination.Date.Date == dateTime.Date)
+                .FirstOrDefault();
+        }
+
         #endregion
     }
 }

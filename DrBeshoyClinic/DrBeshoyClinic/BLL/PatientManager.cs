@@ -19,8 +19,8 @@ namespace DrBeshoyClinic.BLL
 
         public string GetLastPatientId()
         {
-            return UnitOfWork.PatientRepository.GetAll().OrderByDescending(patient => patient.Id)
-                .Select(patient => patient.Id).FirstOrDefault();
+            return UnitOfWork.PatientRepository.Get(patient => patient.Id.StartsWith("20"))
+                .OrderByDescending(patient => patient.Id).Select(patient => patient.Id).FirstOrDefault();
         }
 
         public Patient GetPatientById(string patientId)
