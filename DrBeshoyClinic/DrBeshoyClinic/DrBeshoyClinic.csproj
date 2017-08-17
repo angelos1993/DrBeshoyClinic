@@ -178,6 +178,7 @@
     <Compile Include="DAL\Repositories\TreatmentDescriptionRepository.cs" />
     <Compile Include="DAL\Repositories\TreatmentPeriodRepository.cs" />
     <Compile Include="DAL\Repositories\TreatmentRepository.cs" />
+    <Compile Include="DAL\VMs\LabTestVm.cs" />
     <Compile Include="DAL\VMs\ListBoxVm.cs" />
     <Compile Include="PL\Forms\FrmAddNewChronicDisease.cs">
       <SubType>Form</SubType>

@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace DrBeshoyClinic.Utility
 {
@@ -12,6 +13,11 @@ namespace DrBeshoyClinic.Utility
         public static bool IsNullOrEmptyOrWhiteSpace(this string str)
         {
             return string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str);
+        }
+
+        public static string ToCommaSeperatedString(this IEnumerable<string> list)
+        {
+            return string.Join(", ", list);
         }
     }
 }

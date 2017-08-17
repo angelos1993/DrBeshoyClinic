@@ -89,71 +89,71 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void btnMedicine_Click(object sender, EventArgs e)
         {
-            new FrmMedicine().ShowDialog();
+            new FrmMedicine {Owner = this}.ShowDialog();
         }
 
         private void btnLabTest_Click(object sender, EventArgs e)
         {
-            new FrmLabTest().ShowDialog();
+            new FrmLabTest {Owner = this}.ShowDialog();
         }
 
         private void btnRadiology_Click(object sender, EventArgs e)
         {
-            new FrmRadiology().ShowDialog();
+            new FrmRadiology {Owner = this}.ShowDialog();
         }
 
         private void btnChronicDiseases_Click(object sender, EventArgs e)
         {
-            new FrmChronicDiseases().ShowDialog();
+            new FrmChronicDiseases {Owner = this}.ShowDialog();
         }
 
         private void btnOperativeDetails_Click(object sender, EventArgs e)
         {
-            new FrmOperationDetails().ShowDialog();
+            new FrmOperationDetails {Owner = this}.ShowDialog();
         }
 
         private void btnSurgicalHx_Click(object sender, EventArgs e)
         {
-            new FrmSurgicalHx().ShowDialog();
+            new FrmSurgicalHx {Owner = this}.ShowDialog();
         }
 
         private void btnDrugHx_Click(object sender, EventArgs e)
         {
-            new FrmDrugHx().ShowDialog();
+            new FrmDrugHx {Owner = this}.ShowDialog();
         }
 
         private void btnEmgNcv_Click(object sender, EventArgs e)
         {
-            new FrmEmgNcv().ShowDialog();
+            new FrmEmgNcv {Owner = this}.ShowDialog();
         }
 
         private void btnFamilyHx_Click(object sender, EventArgs e)
         {
-            new FrmFamilyHx().ShowDialog();
+            new FrmFamilyHx {Owner = this}.ShowDialog();
         }
 
         private void btnPhoto_Click(object sender, EventArgs e)
         {
-            new FrmPhoto().ShowDialog();
+            new FrmPhoto {Owner = this}.ShowDialog();
         }
 
         #endregion
 
         private void btnComplaint_Click(object sender, EventArgs e)
         {
-            new FrmComplaints().ShowDialog();
+            new FrmComplaints {Owner = this}.ShowDialog();
             //todo: bind written to this form from the child one
         }
 
         private void btnExamination_Click(object sender, EventArgs e)
         {
-            new FrmLightExamination().ShowDialog();
+            new FrmLightExamination {Owner = this}.ShowDialog();
             //todo: bind written to this form from the child one
         }
 
         private void btnDiagnosis_Click(object sender, EventArgs e)
         {
-            new FrmDiagnosis().ShowDialog();
+            new FrmDiagnosis {Owner = this}.ShowDialog();
             //todo: bind written to this form from the child one
         }
 
@@ -167,6 +167,7 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void lstExaminations_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //todo: should query the examination in the memory not from DB
             var selectedExamination = ExaminationManager.GetExaminationByPatientAndDate(Patient.Id,
                 (lstExaminations.SelectedItem as ListBoxVm)?.DateTime ?? new DateTime());
             //todo: need to bind the selected examination values to the form
@@ -318,11 +319,7 @@ namespace DrBeshoyClinic.PL.Forms
         {
             var allPatientExaminations = ExaminationManager.GetAllExaminationsForPatient(patientId).ToList();
             lstExaminations.DataSource = allPatientExaminations.OrderByDescending(examination => examination.Date)
-                .Select(examination => new ListBoxVm
-                {
-                    Id = examination.Id,
-                    DateTime = examination.Date
-                }).ToList();
+                .Select(examination => new ListBoxVm {Id = examination.Id, DateTime = examination.Date}).ToList();
             lstExaminations.DisplayMember = ListBoxDisplayMember;
             lstExaminations.ValueMember = ListBoxValueMember;
             Examination = allPatientExaminations.FirstOrDefault();
@@ -350,7 +347,9 @@ namespace DrBeshoyClinic.PL.Forms
                     StartExamination(Patient);
                 }
                 else
+                {
                     errorProvider.SetError(txtPatientName, ValidationMsg);
+                }
             }
         }
 
@@ -423,10 +422,12 @@ namespace DrBeshoyClinic.PL.Forms
         {
             txtExamination.Text = examination;
         }
+
         public void BindDiagnosis(string diagnosis)
         {
             txtDiagnosis.Text = diagnosis;
         }
+
         #endregion
 
         #endregion
