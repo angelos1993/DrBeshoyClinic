@@ -148,7 +148,6 @@ namespace DrBeshoyClinic.PL.Forms
             txtTestName.Enabled = isEnabled;
             txtTestResult.Enabled = isEnabled;
             btnAddLabTest.Enabled = isEnabled;
-            grdLabTests.Enabled = isEnabled;
         }
         #endregion
     }

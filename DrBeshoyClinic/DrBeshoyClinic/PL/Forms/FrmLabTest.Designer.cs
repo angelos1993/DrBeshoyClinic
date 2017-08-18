@@ -57,6 +57,7 @@
             this.grdLabTests.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdLabTests.Location = new System.Drawing.Point(12, 44);
             this.grdLabTests.Name = "grdLabTests";
+            this.grdLabTests.ReadOnly = true;
             this.grdLabTests.Size = new System.Drawing.Size(571, 192);
             this.grdLabTests.TabIndex = 0;
             // 
