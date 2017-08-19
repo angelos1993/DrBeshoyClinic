@@ -8,6 +8,6 @@
 
         #endregion
 
-        public static string ListBoxDisplayMember = "DateTimeString";
+        public static string ListBoxDisplayMember = "DateString";
     }
 }
