@@ -13,6 +13,11 @@ namespace DrBeshoyClinic.BLL
 
         #region Methods
 
+        public IQueryable<LabTest> GetAllLabTests()
+        {
+            return UnitOfWork.LabTestRepository.GetAll();
+        }
+
         public IQueryable<LabTest> GetAllLabTestsForPatient(string patientId)
         {
             return UnitOfWork.LabTestRepository.Get(labTest => labTest.PatientId == patientId);

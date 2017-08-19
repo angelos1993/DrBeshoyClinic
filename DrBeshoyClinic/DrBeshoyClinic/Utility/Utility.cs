@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace DrBeshoyClinic.Utility
 {
@@ -20,6 +21,13 @@ namespace DrBeshoyClinic.Utility
                 }
             }
             return $"{today.Year:0000}{today.Month:00}{today.Day:00}1";
+        }
+
+        public static void SetAutoCompleteSourceForTextBox(TextBox textBox, AutoCompleteStringCollection collection)
+        {
+            textBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            textBox.AutoCompleteCustomSource = collection;
         }
     }
 }

@@ -319,9 +319,8 @@ namespace DrBeshoyClinic.PL.Forms
         {
             var allPatientExaminations = ExaminationManager.GetAllExaminationsForPatient(patientId).ToList();
             lstExaminations.DataSource = allPatientExaminations.OrderByDescending(examination => examination.Date)
-                .Select(examination => new ListBoxVm {Id = examination.Id, DateTime = examination.Date}).ToList();
+                .Select(examination => new ListBoxVm {DateTime = examination.Date}).ToList();
             lstExaminations.DisplayMember = ListBoxDisplayMember;
-            lstExaminations.ValueMember = ListBoxValueMember;
             Examination = allPatientExaminations.FirstOrDefault();
         }
 

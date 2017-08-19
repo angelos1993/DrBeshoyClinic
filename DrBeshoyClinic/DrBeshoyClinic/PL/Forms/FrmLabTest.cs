@@ -7,6 +7,7 @@ using DrBeshoyClinic.DAL.Model;
 using DrBeshoyClinic.DAL.VMs;
 using DrBeshoyClinic.Utility;
 using static DrBeshoyClinic.Utility.Constants;
+using static DrBeshoyClinic.Utility.Utility;
 
 namespace DrBeshoyClinic.PL.Forms
 {
@@ -29,6 +30,7 @@ namespace DrBeshoyClinic.PL.Forms
         private Patient Patient => OwnerForm.Patient;
         private List<LabTest> AllLabTests { get; set; }
         private List<LabTest> TodaysLabTests { get; set; }
+        private List<LabTest> NewLabTests { get; set; }
         private static DateTime Today => DateTime.Now.Date;
 
         #endregion
@@ -40,16 +42,18 @@ namespace DrBeshoyClinic.PL.Forms
             AllLabTests = LabTestManager.GetAllLabTestsForPatient(Patient.Id).ToList();
             var todaysLabTests = AllLabTests.Where(labTest => labTest.Date == Today).ToList();
             TodaysLabTests = todaysLabTests.Any() ? todaysLabTests : new List<LabTest>();
+            NewLabTests = new List<LabTest>();
             BindLabTestsToListView();
             if (TodaysLabTests.Any())
                 BindLabTestsToGrid(TodaysLabTests);
+            SetAutoCompletionForTextBoxes();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            if (TodaysLabTests.Any())
-                LabTestManager.AddListOfLabTests(TodaysLabTests);
+            if (NewLabTests.Any())
+                LabTestManager.AddListOfLabTests(NewLabTests);
             Close();
             Cursor = Cursors.Default;
         }
@@ -102,18 +106,18 @@ namespace DrBeshoyClinic.PL.Forms
         private void BindLabTestsToGrid(IEnumerable<LabTest> labTests)
         {
             grdLabTests.DataSource = labTests.Select(labTest => new LabTestVm
-                { TestName = labTest.TestName, TestResult = labTest.TestResult }).ToList();
+                {TestName = labTest.TestName, TestResult = labTest.TestResult}).ToList();
         }
 
         private void BindLabTestsToListView()
         {
-            var lstLabTestsDataSource = AllLabTests.OrderByDescending(labTest => labTest.Date)
-                .Select(labTest => new ListBoxVm {Id = labTest.Id, DateTime = labTest.Date}).ToList();
+            var lstLabTestsDataSource =
+                AllLabTests.OrderByDescending(labTest => labTest.Date).GroupBy(labTest => labTest.Date)
+                    .Select(labTestDateGroup => new ListBoxVm {DateTime = labTestDateGroup.Key}).ToList();
             if (!TodaysLabTests.Any())
-                lstLabTestsDataSource.Insert(0, new ListBoxVm {Id = 0, DateTime = Today});
+                lstLabTestsDataSource.Insert(0, new ListBoxVm {DateTime = Today});
             lstLabTests.DataSource = lstLabTestsDataSource;
             lstLabTests.DisplayMember = ListBoxDisplayMember;
-            lstLabTests.ValueMember = ListBoxValueMember;
         }
 
         private void AddLabTest()
@@ -125,13 +129,15 @@ namespace DrBeshoyClinic.PL.Forms
                 errorProvider.SetError(txtTestName, ValidationMsg);
                 return;
             }
-            TodaysLabTests.Add(new LabTest
+            var labTest = new LabTest
             {
                 TestName = testName,
                 TestResult = testResult,
                 PatientId = Patient.Id,
                 Date = Today
-            });
+            };
+            TodaysLabTests.Add(labTest);
+            NewLabTests.Add(labTest);
             BindLabTestsToGrid(TodaysLabTests);
             ResetInputControls();
         }
@@ -149,6 +155,27 @@ namespace DrBeshoyClinic.PL.Forms
             txtTestResult.Enabled = isEnabled;
             btnAddLabTest.Enabled = isEnabled;
         }
+
+        private void SetAutoCompletionForTextBoxes()
+        {
+            SetAutoCompletionForTestNames();
+            SetAutoCompletionForTestResults();
+        }
+
+        private void SetAutoCompletionForTestResults()
+        {
+            var collection = new AutoCompleteStringCollection();
+            collection.AddRange(LabTestManager.GetAllLabTests().Select(labTest => labTest.TestName).ToArray());
+            SetAutoCompleteSourceForTextBox(txtTestName, collection);
+        }
+
+        private void SetAutoCompletionForTestNames()
+        {
+            var collection = new AutoCompleteStringCollection();
+            collection.AddRange(LabTestManager.GetAllLabTests().Select(labTest => labTest.TestResult).ToArray());
+            SetAutoCompleteSourceForTextBox(txtTestResult, collection);
+        }
+
         #endregion
     }
 }
