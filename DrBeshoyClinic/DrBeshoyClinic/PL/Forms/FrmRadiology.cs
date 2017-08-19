@@ -97,9 +97,9 @@ namespace DrBeshoyClinic.PL.Forms
         {
             var lstRadiologiesDataSource =
                 AllRadiologies.OrderByDescending(radiology => radiology.Date).GroupBy(radiology => radiology.Date)
-                    .Select(radiologyDateGroup => new ListBoxVm {DateTime = radiologyDateGroup.Key}).ToList();
+                    .Select(radiologyDateGroup => new ListBoxVm {Date = radiologyDateGroup.Key}).ToList();
             if (!TodaysRadiologies.Any())
-                lstRadiologiesDataSource.Insert(0, new ListBoxVm {DateTime = Today});
+                lstRadiologiesDataSource.Insert(0, new ListBoxVm {Date = Today});
             lstRadiologies.DataSource = lstRadiologiesDataSource;
             lstRadiologies.DisplayMember = ListBoxDisplayMember;
         }
@@ -166,14 +166,14 @@ namespace DrBeshoyClinic.PL.Forms
             if (selectedItem == null)
                 return;
             List<Radiology> selectedRadiologies;
-            if (selectedItem.DateTime == Today)
+            if (selectedItem.Date == Today)
             {
                 selectedRadiologies = TodaysRadiologies;
                 EnableOrDisableControls(true);
             }
             else
             {
-                selectedRadiologies = AllRadiologies.Where(radiology => radiology.Date == selectedItem.DateTime)
+                selectedRadiologies = AllRadiologies.Where(radiology => radiology.Date == selectedItem.Date)
                     .Select(radiology => radiology).ToList();
                 EnableOrDisableControls(false);
             }

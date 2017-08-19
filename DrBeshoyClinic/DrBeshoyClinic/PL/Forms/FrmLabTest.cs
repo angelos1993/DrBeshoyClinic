@@ -88,14 +88,14 @@ namespace DrBeshoyClinic.PL.Forms
             if (selectedItem == null)
                 return;
             List<LabTest> selectedLabTests;
-            if (selectedItem.DateTime == Today)
+            if (selectedItem.Date == Today)
             {
                 selectedLabTests = TodaysLabTests;
                 EnableOrDisableControls(true);
             }
             else
             {
-                selectedLabTests = AllLabTests.Where(labTest => labTest.Date == selectedItem.DateTime)
+                selectedLabTests = AllLabTests.Where(labTest => labTest.Date == selectedItem.Date)
                     .Select(labTest => labTest).ToList();
                 EnableOrDisableControls(false);
             }
@@ -112,9 +112,9 @@ namespace DrBeshoyClinic.PL.Forms
         {
             var lstLabTestsDataSource =
                 AllLabTests.OrderByDescending(labTest => labTest.Date).GroupBy(labTest => labTest.Date)
-                    .Select(labTestDateGroup => new ListBoxVm {DateTime = labTestDateGroup.Key}).ToList();
+                    .Select(labTestDateGroup => new ListBoxVm {Date = labTestDateGroup.Key}).ToList();
             if (!TodaysLabTests.Any())
-                lstLabTestsDataSource.Insert(0, new ListBoxVm {DateTime = Today});
+                lstLabTestsDataSource.Insert(0, new ListBoxVm {Date = Today});
             lstLabTests.DataSource = lstLabTestsDataSource;
             lstLabTests.DisplayMember = ListBoxDisplayMember;
         }

@@ -169,7 +169,7 @@ namespace DrBeshoyClinic.PL.Forms
         {
             //todo: should query the examination in the memory not from DB
             var selectedExamination = ExaminationManager.GetExaminationByPatientAndDate(Patient.Id,
-                (lstExaminations.SelectedItem as ListBoxVm)?.DateTime ?? new DateTime());
+                (lstExaminations.SelectedItem as ListBoxVm)?.Date ?? new DateTime());
             //todo: need to bind the selected examination values to the form
         }
 
@@ -319,7 +319,7 @@ namespace DrBeshoyClinic.PL.Forms
         {
             var allPatientExaminations = ExaminationManager.GetAllExaminationsForPatient(patientId).ToList();
             lstExaminations.DataSource = allPatientExaminations.OrderByDescending(examination => examination.Date)
-                .Select(examination => new ListBoxVm {DateTime = examination.Date}).ToList();
+                .Select(examination => new ListBoxVm {Date = examination.Date}).ToList();
             lstExaminations.DisplayMember = ListBoxDisplayMember;
             Examination = allPatientExaminations.FirstOrDefault();
         }
