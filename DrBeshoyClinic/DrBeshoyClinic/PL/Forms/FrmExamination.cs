@@ -191,6 +191,12 @@ namespace DrBeshoyClinic.PL.Forms
             Close();
         }
 
+        private void txtPatientIdOrName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                FindPatient();
+        }
+
         #endregion
 
         #endregion

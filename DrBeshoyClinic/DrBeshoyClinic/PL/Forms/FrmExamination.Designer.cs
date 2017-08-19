@@ -522,6 +522,7 @@
             this.txtPatientName.Size = new System.Drawing.Size(256, 26);
             this.txtPatientName.TabIndex = 3;
             this.txtPatientName.WatermarkText = "Patient Name ...";
+            this.txtPatientName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPatientIdOrName_KeyDown);
             // 
             // txtPatientId
             // 
@@ -535,6 +536,7 @@
             this.txtPatientId.Size = new System.Drawing.Size(256, 26);
             this.txtPatientId.TabIndex = 1;
             this.txtPatientId.WatermarkText = "Patient ID ...";
+            this.txtPatientId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPatientIdOrName_KeyDown);
             // 
             // swVisitType
             // 
