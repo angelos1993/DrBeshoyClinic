@@ -347,7 +347,7 @@ namespace DrBeshoyClinic.PL.Forms
                 }
                 else
                 {
-                    errorProvider.SetError(txtPatientName, ValidationMsg);
+                    errorProvider.SetError(txtPatientName, RequiredValidationMsg);
                 }
             }
         }
@@ -399,7 +399,7 @@ namespace DrBeshoyClinic.PL.Forms
             {
                 if (txtPatientName.Text.FullTrim().IsNullOrEmptyOrWhiteSpace())
                 {
-                    errorProvider.SetError(txtPatientName, ValidationMsg);
+                    errorProvider.SetError(txtPatientName, RequiredValidationMsg);
                     return;
                 }
                 LoadPatientFromForm(Patient);

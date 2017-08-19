@@ -2,7 +2,12 @@
 {
     public static class Constants
     {
-        public static string ValidationMsg = "This field is required";
+        #region Validation MSGs
+
+        public static string RequiredValidationMsg = "This field is required";
+
+        #endregion
+
         public static string ListBoxDisplayMember = "DateTimeString";
     }
 }

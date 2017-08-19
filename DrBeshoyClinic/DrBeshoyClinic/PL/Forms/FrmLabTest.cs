@@ -95,8 +95,7 @@ namespace DrBeshoyClinic.PL.Forms
             }
             else
             {
-                selectedLabTests = AllLabTests
-                    .Where(labTest => labTest.PatientId == Patient.Id && labTest.Date == selectedItem.DateTime)
+                selectedLabTests = AllLabTests.Where(labTest => labTest.Date == selectedItem.DateTime)
                     .Select(labTest => labTest).ToList();
                 EnableOrDisableControls(false);
             }
@@ -126,7 +125,7 @@ namespace DrBeshoyClinic.PL.Forms
             var testResult = txtTestResult.Text.FullTrim();
             if (testName.IsNullOrEmptyOrWhiteSpace())
             {
-                errorProvider.SetError(txtTestName, ValidationMsg);
+                errorProvider.SetError(txtTestName, RequiredValidationMsg);
                 return;
             }
             var labTest = new LabTest
