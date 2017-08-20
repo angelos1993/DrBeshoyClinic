@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvChronicDiseases = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.colCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colDiasease = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddDiasease = new DevComponents.DotNetBar.ButtonX();
             this.btnClear = new DevComponents.DotNetBar.ButtonX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
+            this.colCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colDiasease = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChronicDiseases)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,39 +48,19 @@
             this.colCheck,
             this.colDiasease,
             this.colNotes});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvChronicDiseases.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvChronicDiseases.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvChronicDiseases.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvChronicDiseases.Location = new System.Drawing.Point(12, 12);
             this.dgvChronicDiseases.Name = "dgvChronicDiseases";
             this.dgvChronicDiseases.Size = new System.Drawing.Size(606, 332);
             this.dgvChronicDiseases.TabIndex = 0;
-            // 
-            // colCheck
-            // 
-            this.colCheck.FillWeight = 5F;
-            this.colCheck.HeaderText = "#";
-            this.colCheck.Name = "colCheck";
-            this.colCheck.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colCheck.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // colDiasease
-            // 
-            this.colDiasease.FillWeight = 40F;
-            this.colDiasease.HeaderText = "Disease";
-            this.colDiasease.Name = "colDiasease";
-            // 
-            // colNotes
-            // 
-            this.colNotes.FillWeight = 55F;
-            this.colNotes.HeaderText = "Notes";
-            this.colNotes.Name = "colNotes";
             // 
             // btnAddDiasease
             // 
@@ -138,6 +118,28 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // colCheck
+            // 
+            this.colCheck.FillWeight = 5F;
+            this.colCheck.HeaderText = "#";
+            this.colCheck.Name = "colCheck";
+            this.colCheck.ReadOnly = true;
+            this.colCheck.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colCheck.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // colDiasease
+            // 
+            this.colDiasease.FillWeight = 40F;
+            this.colDiasease.HeaderText = "Disease";
+            this.colDiasease.Name = "colDiasease";
+            this.colDiasease.ReadOnly = true;
+            // 
+            // colNotes
+            // 
+            this.colNotes.FillWeight = 55F;
+            this.colNotes.HeaderText = "Notes";
+            this.colNotes.Name = "colNotes";
+            // 
             // FrmChronicDiseases
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -151,6 +153,7 @@
             this.DoubleBuffered = true;
             this.Name = "FrmChronicDiseases";
             this.Text = "Chronic Diseases";
+            this.Load += new System.EventHandler(this.FrmChronicDiseases_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChronicDiseases)).EndInit();
             this.ResumeLayout(false);
 
@@ -162,9 +165,9 @@
         private DevComponents.DotNetBar.ButtonX btnClear;
         private DevComponents.DotNetBar.ButtonX btnSave;
         private DevComponents.DotNetBar.ButtonX btnAddDiasease;
+        private DevComponents.DotNetBar.ButtonX btnCancel;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDiasease;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNotes;
-        private DevComponents.DotNetBar.ButtonX btnCancel;
     }
 }

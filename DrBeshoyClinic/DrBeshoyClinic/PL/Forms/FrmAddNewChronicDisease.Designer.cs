@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtDiseaseName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.radAdd = new System.Windows.Forms.RadioButton();
             this.radDelete = new System.Windows.Forms.RadioButton();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDiseaseName
@@ -98,6 +101,10 @@
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // FrmAddNewChronicDisease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -111,6 +118,8 @@
             this.DoubleBuffered = true;
             this.Name = "FrmAddNewChronicDisease";
             this.Text = "Add New Chronic Disease";
+            this.Load += new System.EventHandler(this.FrmAddNewChronicDisease_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,5 +132,6 @@
         private DevComponents.DotNetBar.ButtonX btnSave;
         private System.Windows.Forms.RadioButton radAdd;
         private System.Windows.Forms.RadioButton radDelete;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
