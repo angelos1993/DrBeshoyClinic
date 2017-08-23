@@ -39,14 +39,7 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void FrmLabTest_Load(object sender, EventArgs e)
         {
-            AllLabTests = LabTestManager.GetAllLabTestsForPatient(Patient.Id).ToList();
-            var todaysLabTests = AllLabTests.Where(labTest => labTest.Date == Today).ToList();
-            TodaysLabTests = todaysLabTests.Any() ? todaysLabTests : new List<LabTest>();
-            NewLabTests = new List<LabTest>();
-            BindLabTestsToListView();
-            if (TodaysLabTests.Any())
-                BindLabTestsToGrid(TodaysLabTests);
-            SetAutoCompletionForTextBoxes();
+            ResetForm();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -80,6 +73,18 @@ namespace DrBeshoyClinic.PL.Forms
         #endregion
 
         #region Methods
+
+        private void ResetForm()
+        {
+            AllLabTests = LabTestManager.GetAllLabTestsForPatient(Patient.Id).ToList();
+            var todaysLabTests = AllLabTests.Where(labTest => labTest.Date == Today).ToList();
+            TodaysLabTests = todaysLabTests.Any() ? todaysLabTests : new List<LabTest>();
+            NewLabTests = new List<LabTest>();
+            BindLabTestsToListView();
+            if (TodaysLabTests.Any())
+                BindLabTestsToGrid(TodaysLabTests);
+            SetAutoCompletionForTextBoxes();
+        }
 
         private void LoadLabTestsForSelectedDate()
         {
