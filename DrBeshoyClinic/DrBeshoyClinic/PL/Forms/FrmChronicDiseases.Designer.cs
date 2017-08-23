@@ -42,6 +42,7 @@
             // 
             // dgvChronicDiseases
             // 
+            this.dgvChronicDiseases.AllowUserToAddRows = false;
             this.dgvChronicDiseases.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvChronicDiseases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChronicDiseases.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -123,7 +124,6 @@
             this.colCheck.FillWeight = 5F;
             this.colCheck.HeaderText = "#";
             this.colCheck.Name = "colCheck";
-            this.colCheck.ReadOnly = true;
             this.colCheck.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colCheck.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -153,6 +153,7 @@
             this.DoubleBuffered = true;
             this.Name = "FrmChronicDiseases";
             this.Text = "Chronic Diseases";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmChronicDiseases_FormClosing);
             this.Load += new System.EventHandler(this.FrmChronicDiseases_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChronicDiseases)).EndInit();
             this.ResumeLayout(false);

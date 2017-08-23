@@ -104,7 +104,7 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void btnChronicDiseases_Click(object sender, EventArgs e)
         {
-            new FrmChronicDiseases {Owner = this}.ShowDialog();
+            new FrmChronicDiseases {Owner = this, Examination = Examination}.ShowDialog();
         }
 
         private void btnOperativeDetails_Click(object sender, EventArgs e)
@@ -327,7 +327,7 @@ namespace DrBeshoyClinic.PL.Forms
             lstExaminations.DataSource = allPatientExaminations.OrderByDescending(examination => examination.Date)
                 .Select(examination => new ListBoxVm {Date = examination.Date}).ToList();
             lstExaminations.DisplayMember = ListBoxDisplayMember;
-            Examination = allPatientExaminations.FirstOrDefault();
+            Examination = allPatientExaminations.OrderByDescending(examination => examination.Date).FirstOrDefault();
         }
 
         private void AddNewPatient()
@@ -431,6 +431,11 @@ namespace DrBeshoyClinic.PL.Forms
         public void BindDiagnosis(string diagnosis)
         {
             txtDiagnosis.Text = diagnosis;
+        }
+
+        public void BindChronicDiseases(string chronicDiseases)
+        {
+            txtChronicDiseases.Text = chronicDiseases;
         }
 
         #endregion
