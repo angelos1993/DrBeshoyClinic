@@ -438,6 +438,11 @@ namespace DrBeshoyClinic.PL.Forms
             txtChronicDiseases.Text = chronicDiseases;
         }
 
+        public void BindSurgicalHxs(string surgicalHxs)
+        {
+            txtSurgicalHx.Text = surgicalHxs;
+        }
+
         #endregion
 
         #endregion

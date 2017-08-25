@@ -58,6 +58,7 @@
             this.txtSurgicalHx.Size = new System.Drawing.Size(333, 124);
             this.txtSurgicalHx.TabIndex = 32;
             this.txtSurgicalHx.WatermarkText = "Surgical Hx ...";
+            this.txtSurgicalHx.TextChanged += new System.EventHandler(this.txtSurgicalHx_TextChanged);
             // 
             // btnCancel
             // 
@@ -99,6 +100,8 @@
             this.DoubleBuffered = true;
             this.Name = "FrmSurgicalHx";
             this.Text = "Surgical Hx";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSurgicalHx_FormClosing);
+            this.Load += new System.EventHandler(this.FrmSurgicalHx_Load);
             this.ResumeLayout(false);
 
         }

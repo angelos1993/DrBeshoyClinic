@@ -663,10 +663,10 @@
             // 
             this.txtChronicDiseases.Border.Class = "TextBoxBorder";
             this.txtChronicDiseases.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtChronicDiseases.Enabled = false;
             this.txtChronicDiseases.Location = new System.Drawing.Point(484, 47);
             this.txtChronicDiseases.Multiline = true;
             this.txtChronicDiseases.Name = "txtChronicDiseases";
+            this.txtChronicDiseases.ReadOnly = true;
             this.txtChronicDiseases.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtChronicDiseases.Size = new System.Drawing.Size(428, 45);
             this.txtChronicDiseases.TabIndex = 30;
@@ -854,10 +854,10 @@
             // 
             this.txtFamilyHx.Border.Class = "TextBoxBorder";
             this.txtFamilyHx.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtFamilyHx.Enabled = false;
             this.txtFamilyHx.Location = new System.Drawing.Point(3, 105);
             this.txtFamilyHx.Multiline = true;
             this.txtFamilyHx.Name = "txtFamilyHx";
+            this.txtFamilyHx.ReadOnly = true;
             this.txtFamilyHx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtFamilyHx.Size = new System.Drawing.Size(417, 45);
             this.txtFamilyHx.TabIndex = 23;
@@ -870,10 +870,10 @@
             // 
             this.txtDrugHx.Border.Class = "TextBoxBorder";
             this.txtDrugHx.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDrugHx.Enabled = false;
             this.txtDrugHx.Location = new System.Drawing.Point(3, 54);
             this.txtDrugHx.Multiline = true;
             this.txtDrugHx.Name = "txtDrugHx";
+            this.txtDrugHx.ReadOnly = true;
             this.txtDrugHx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDrugHx.Size = new System.Drawing.Size(417, 45);
             this.txtDrugHx.TabIndex = 22;
@@ -886,10 +886,10 @@
             // 
             this.txtSurgicalHx.Border.Class = "TextBoxBorder";
             this.txtSurgicalHx.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSurgicalHx.Enabled = false;
             this.txtSurgicalHx.Location = new System.Drawing.Point(3, 3);
             this.txtSurgicalHx.Multiline = true;
             this.txtSurgicalHx.Name = "txtSurgicalHx";
+            this.txtSurgicalHx.ReadOnly = true;
             this.txtSurgicalHx.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtSurgicalHx.Size = new System.Drawing.Size(417, 45);
             this.txtSurgicalHx.TabIndex = 21;
