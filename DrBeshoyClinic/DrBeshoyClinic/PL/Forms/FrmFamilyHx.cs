@@ -29,9 +29,9 @@ namespace DrBeshoyClinic.PL.Forms
         private static DateTime Today => DateTime.Now.Date;
         private FrmExamination OwnerForm => Owner as FrmExamination;
         private Patient Patient => OwnerForm.Patient;
-        private List<FamilyHx> AllPatientFamilyHxs { get; set; }
+        private List<FamilyHx> AllPatientFamilyHxes { get; set; }
         private FamilyHx TodaysFamilyHx { get; set; }
-        private bool IsExistPatientFamilyHxForToday => AllPatientFamilyHxs.Any(familyHx => familyHx.Date == Today);
+        private bool IsExistPatientFamilyHxForToday => AllPatientFamilyHxes.Any(familyHx => familyHx.Date == Today);
         private bool ShouldBind { get; set; }
 
         #endregion
@@ -46,7 +46,7 @@ namespace DrBeshoyClinic.PL.Forms
         private void FrmFamilyHx_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (ShouldBind)
-                OwnerForm.BindFamilyHxs(TodaysFamilyHx.Description);
+                OwnerForm.BindFamilyHxes(TodaysFamilyHx.Description);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace DrBeshoyClinic.PL.Forms
         private void lstFamilyHx_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            LoadFamilyHxsForSelectedDate();
+            LoadFamilyHxesForSelectedDate();
             Cursor = Cursors.Default;
         }
 
@@ -82,17 +82,17 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void ResetForm()
         {
-            AllPatientFamilyHxs = FamilyHxManager.GetFamilyHxesForPatient(Patient.Id).ToList();
+            AllPatientFamilyHxes = FamilyHxManager.GetFamilyHxesForPatient(Patient.Id).ToList();
             TodaysFamilyHx = IsExistPatientFamilyHxForToday
-                ? AllPatientFamilyHxs.FirstOrDefault(familyHx => familyHx.Date == Today)
+                ? AllPatientFamilyHxes.FirstOrDefault(familyHx => familyHx.Date == Today)
                 : new FamilyHx {Date = Today, PatientId = Patient.Id};
-            BindFamilyHxsToListView();
+            BindFamilyHxesToListView();
         }
 
-        private void BindFamilyHxsToListView()
+        private void BindFamilyHxesToListView()
         {
             var lstFamilyHxesDataSource =
-                AllPatientFamilyHxs.OrderByDescending(familyHx => familyHx.Date).GroupBy(familyHx => familyHx.Date)
+                AllPatientFamilyHxes.OrderByDescending(familyHx => familyHx.Date).GroupBy(familyHx => familyHx.Date)
                     .Select(familyHxDateGroup => new ListBoxVm {Date = familyHxDateGroup.Key}).ToList();
             if (!IsExistPatientFamilyHxForToday)
                 lstFamilyHxesDataSource.Insert(0, new ListBoxVm {Date = Today});
@@ -106,7 +106,7 @@ namespace DrBeshoyClinic.PL.Forms
                 FamilyHxManager.AddOrUpdateFamilyHx(TodaysFamilyHx);
         }
 
-        private void LoadFamilyHxsForSelectedDate()
+        private void LoadFamilyHxesForSelectedDate()
         {
             var selectedItem = lstFamilyHx.SelectedItem as ListBoxVm;
             if (selectedItem == null)
@@ -118,7 +118,7 @@ namespace DrBeshoyClinic.PL.Forms
             }
             else
             {
-                txtFamilyHx.Text = AllPatientFamilyHxs.FirstOrDefault(drugHx => drugHx.Date == selectedItem.Date)
+                txtFamilyHx.Text = AllPatientFamilyHxes.FirstOrDefault(drugHx => drugHx.Date == selectedItem.Date)
                     ?.Description;
                 txtFamilyHx.ReadOnly = true;
             }

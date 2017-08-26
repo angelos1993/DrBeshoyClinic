@@ -438,19 +438,19 @@ namespace DrBeshoyClinic.PL.Forms
             txtChronicDiseases.Text = chronicDiseases;
         }
 
-        public void BindSurgicalHxs(string surgicalHxs)
+        public void BindSurgicalHxes(string surgicalHxes)
         {
-            txtSurgicalHx.Text = surgicalHxs;
+            txtSurgicalHx.Text = surgicalHxes;
         }
 
-        public void BindDrugHxs(string drugHxs)
+        public void BindDrugHxes(string drugHxes)
         {
-            txtDrugHx.Text = drugHxs;
+            txtDrugHx.Text = drugHxes;
         }
 
-        public void BindFamilyHxs(string familyHxs)
+        public void BindFamilyHxes(string familyHxes)
         {
-            txtFamilyHx.Text = familyHxs;
+            txtFamilyHx.Text = familyHxes;
         }
 
         #endregion

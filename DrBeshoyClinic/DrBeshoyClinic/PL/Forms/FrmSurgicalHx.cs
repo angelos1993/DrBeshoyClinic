@@ -28,7 +28,7 @@ namespace DrBeshoyClinic.PL.Forms
         private SurgicalHxManager SurgicalHxManager
             => _surgicalHxManager ?? (_surgicalHxManager = new SurgicalHxManager());
 
-        private List<SurgicalHx> AllPatientSurgicalHxs { get; set; }
+        private List<SurgicalHx> AllPatientSurgicalHxes { get; set; }
         private FrmExamination OwnerForm => Owner as FrmExamination;
         private Patient Patient => OwnerForm.Patient;
         private SurgicalHx TodaysSurgicalHx { get; set; }
@@ -36,7 +36,7 @@ namespace DrBeshoyClinic.PL.Forms
         private bool ShouldBind { get; set; }
 
         private bool IsExistPatientSurgicalHxForToday
-            => AllPatientSurgicalHxs.Any(surgicalHx => surgicalHx.Date == Today);
+            => AllPatientSurgicalHxes.Any(surgicalHx => surgicalHx.Date == Today);
 
         #endregion
 
@@ -50,7 +50,7 @@ namespace DrBeshoyClinic.PL.Forms
         private void FrmSurgicalHx_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (ShouldBind)
-                OwnerForm.BindSurgicalHxs(TodaysSurgicalHx.Description);
+                OwnerForm.BindSurgicalHxes(TodaysSurgicalHx.Description);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace DrBeshoyClinic.PL.Forms
         private void lstSurgicalHx_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            LoadSurgicalHxsForSelectedDate();
+            LoadSurgicalHxesForSelectedDate();
             Cursor = Cursors.Default;
         }
 
@@ -86,11 +86,11 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void ResetForm()
         {
-            AllPatientSurgicalHxs = SurgicalHxManager.GetSurgicalHxesForPatient(Patient.Id).ToList();
+            AllPatientSurgicalHxes = SurgicalHxManager.GetSurgicalHxesForPatient(Patient.Id).ToList();
             TodaysSurgicalHx = IsExistPatientSurgicalHxForToday
-                ? AllPatientSurgicalHxs.FirstOrDefault(surgicalHx => surgicalHx.Date == Today)
+                ? AllPatientSurgicalHxes.FirstOrDefault(surgicalHx => surgicalHx.Date == Today)
                 : new SurgicalHx {Date = Today, PatientId = Patient.Id};
-            BindSurgicalHxsToListView();
+            BindSurgicalHxesToListView();
         }
 
         private void SaveTheCurrentSurgicalHx()
@@ -99,7 +99,7 @@ namespace DrBeshoyClinic.PL.Forms
                 SurgicalHxManager.AddOrUpdateSurgicalHx(TodaysSurgicalHx);
         }
 
-        private void LoadSurgicalHxsForSelectedDate()
+        private void LoadSurgicalHxesForSelectedDate()
         {
             var selectedItem = lstSurgicalHx.SelectedItem as ListBoxVm;
             if (selectedItem == null)
@@ -111,21 +111,21 @@ namespace DrBeshoyClinic.PL.Forms
             }
             else
             {
-                txtSurgicalHx.Text = AllPatientSurgicalHxs
+                txtSurgicalHx.Text = AllPatientSurgicalHxes
                     .FirstOrDefault(surgicalHx => surgicalHx.Date == selectedItem.Date)?.Description;
                 txtSurgicalHx.ReadOnly = true;
             }
         }
 
-        private void BindSurgicalHxsToListView()
+        private void BindSurgicalHxesToListView()
         {
-            var lstSurgicalHxsDataSource =
-                AllPatientSurgicalHxs.OrderByDescending(surgicalHx => surgicalHx.Date)
+            var lstSurgicalHxesDataSource =
+                AllPatientSurgicalHxes.OrderByDescending(surgicalHx => surgicalHx.Date)
                     .GroupBy(surgicalHx => surgicalHx.Date)
                     .Select(surgicalHxDateGroup => new ListBoxVm {Date = surgicalHxDateGroup.Key}).ToList();
             if (!IsExistPatientSurgicalHxForToday)
-                lstSurgicalHxsDataSource.Insert(0, new ListBoxVm {Date = Today});
-            lstSurgicalHx.DataSource = lstSurgicalHxsDataSource;
+                lstSurgicalHxesDataSource.Insert(0, new ListBoxVm {Date = Today});
+            lstSurgicalHx.DataSource = lstSurgicalHxesDataSource;
             lstSurgicalHx.DisplayMember = ListBoxDisplayMember;
         }
 

@@ -28,9 +28,9 @@ namespace DrBeshoyClinic.PL.Forms
         private static DateTime Today => DateTime.Now.Date;
         private FrmExamination OwnerForm => Owner as FrmExamination;
         private Patient Patient => OwnerForm.Patient;
-        private List<DrugHx> AllPatientDrugHxs { get; set; }
+        private List<DrugHx> AllPatientDrugHxes { get; set; }
         private DrugHx TodaysDrugHx { get; set; }
-        private bool IsExistPatientDrugHxForToday => AllPatientDrugHxs.Any(drugHx => drugHx.Date == Today);
+        private bool IsExistPatientDrugHxForToday => AllPatientDrugHxes.Any(drugHx => drugHx.Date == Today);
         private bool ShouldBind { get; set; }
 
         #endregion
@@ -45,7 +45,7 @@ namespace DrBeshoyClinic.PL.Forms
         private void FrmDrugHx_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (ShouldBind)
-                OwnerForm.BindDrugHxs(TodaysDrugHx.Description);
+                OwnerForm.BindDrugHxes(TodaysDrugHx.Description);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace DrBeshoyClinic.PL.Forms
         private void lstDrugHx_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            LoadDrugHxsForSelectedDate();
+            LoadDrugHxesForSelectedDate();
             Cursor = Cursors.Default;
         }
 
@@ -81,21 +81,21 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void ResetForm()
         {
-            AllPatientDrugHxs = DrugHxManager.GetDrugHxesForPatient(Patient.Id).ToList();
+            AllPatientDrugHxes = DrugHxManager.GetDrugHxesForPatient(Patient.Id).ToList();
             TodaysDrugHx = IsExistPatientDrugHxForToday
-                ? AllPatientDrugHxs.FirstOrDefault(drugHx => drugHx.Date == Today)
+                ? AllPatientDrugHxes.FirstOrDefault(drugHx => drugHx.Date == Today)
                 : new DrugHx {Date = Today, PatientId = Patient.Id};
-            BindDrugHxsToListView();
+            BindDrugHxesToListView();
         }
 
-        private void BindDrugHxsToListView()
+        private void BindDrugHxesToListView()
         {
-            var lstDrugHxsDataSource =
-                AllPatientDrugHxs.OrderByDescending(drugHx => drugHx.Date).GroupBy(drugHx => drugHx.Date)
+            var lstDrugHxesDataSource =
+                AllPatientDrugHxes.OrderByDescending(drugHx => drugHx.Date).GroupBy(drugHx => drugHx.Date)
                     .Select(drugHxDateGroup => new ListBoxVm {Date = drugHxDateGroup.Key}).ToList();
             if (!IsExistPatientDrugHxForToday)
-                lstDrugHxsDataSource.Insert(0, new ListBoxVm {Date = Today});
-            lstDrugHx.DataSource = lstDrugHxsDataSource;
+                lstDrugHxesDataSource.Insert(0, new ListBoxVm {Date = Today});
+            lstDrugHx.DataSource = lstDrugHxesDataSource;
             lstDrugHx.DisplayMember = ListBoxDisplayMember;
         }
 
@@ -105,7 +105,7 @@ namespace DrBeshoyClinic.PL.Forms
                 DrugHxManager.AddOrUpdateDrugHx(TodaysDrugHx);
         }
 
-        private void LoadDrugHxsForSelectedDate()
+        private void LoadDrugHxesForSelectedDate()
         {
             var selectedItem = lstDrugHx.SelectedItem as ListBoxVm;
             if (selectedItem == null)
@@ -117,7 +117,7 @@ namespace DrBeshoyClinic.PL.Forms
             }
             else
             {
-                txtDrugHx.Text = AllPatientDrugHxs.FirstOrDefault(drugHx => drugHx.Date == selectedItem.Date)
+                txtDrugHx.Text = AllPatientDrugHxes.FirstOrDefault(drugHx => drugHx.Date == selectedItem.Date)
                     ?.Description;
                 txtDrugHx.ReadOnly = true;
             }
