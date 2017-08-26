@@ -48,6 +48,7 @@
             this.txtFamilyHx.Size = new System.Drawing.Size(333, 124);
             this.txtFamilyHx.TabIndex = 22;
             this.txtFamilyHx.WatermarkText = "Family Hx ...";
+            this.txtFamilyHx.TextChanged += new System.EventHandler(this.txtFamilyHx_TextChanged);
             // 
             // lstFamilyHx
             // 
@@ -57,6 +58,7 @@
             this.lstFamilyHx.Name = "lstFamilyHx";
             this.lstFamilyHx.Size = new System.Drawing.Size(120, 124);
             this.lstFamilyHx.TabIndex = 30;
+            this.lstFamilyHx.SelectedIndexChanged += new System.EventHandler(this.lstFamilyHx_SelectedIndexChanged);
             // 
             // btnCancel
             // 
@@ -98,6 +100,8 @@
             this.DoubleBuffered = true;
             this.Name = "FrmFamilyHx";
             this.Text = "Family Hx";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmFamilyHx_FormClosing);
+            this.Load += new System.EventHandler(this.FrmFamilyHx_Load);
             this.ResumeLayout(false);
 
         }

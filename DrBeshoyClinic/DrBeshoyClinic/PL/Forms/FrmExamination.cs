@@ -448,6 +448,11 @@ namespace DrBeshoyClinic.PL.Forms
             txtDrugHx.Text = drugHxs;
         }
 
+        public void BindFamilyHxs(string familyHxs)
+        {
+            txtFamilyHx.Text = familyHxs;
+        }
+
         #endregion
 
         #endregion
