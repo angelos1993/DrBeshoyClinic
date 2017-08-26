@@ -134,7 +134,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Photo" Type="varbinary(max)" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
-          <Property Name="PatieneId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Radiologies">
           <Key>
@@ -350,7 +350,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Photos">
-              <PropertyRef Name="PatieneId" />
+              <PropertyRef Name="PatientId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -622,7 +622,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Photo1" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="PatieneId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PatientId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Patient" Relationship="Self.FK_Photos_Patients" FromRole="Photos" ToRole="Patients" />
         </EntityType>
         <EntityType Name="Radiology">
@@ -844,7 +844,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Photos">
-              <PropertyRef Name="PatieneId" />
+              <PropertyRef Name="PatientId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1101,7 +1101,7 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Photo1" ColumnName="Photo" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="PatieneId" ColumnName="PatieneId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

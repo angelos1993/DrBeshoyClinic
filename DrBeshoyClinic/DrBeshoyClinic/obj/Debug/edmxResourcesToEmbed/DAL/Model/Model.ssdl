@@ -129,7 +129,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Photo" Type="varbinary(max)" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
-    <Property Name="PatieneId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Radiologies">
     <Key>
@@ -345,7 +345,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Photos">
-        <PropertyRef Name="PatieneId" />
+        <PropertyRef Name="PatientId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

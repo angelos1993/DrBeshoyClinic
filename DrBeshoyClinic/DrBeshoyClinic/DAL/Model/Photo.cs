@@ -17,7 +17,7 @@ namespace DrBeshoyClinic.DAL.Model
         public int Id { get; set; }
         public byte[] Photo1 { get; set; }
         public System.DateTime Date { get; set; }
-        public string PatieneId { get; set; }
+        public string PatientId { get; set; }
     
         public virtual Patient Patient { get; set; }
     }

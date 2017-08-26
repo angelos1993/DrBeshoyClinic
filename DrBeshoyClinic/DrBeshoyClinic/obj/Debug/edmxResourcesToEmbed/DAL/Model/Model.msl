@@ -140,7 +140,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Photo1" ColumnName="Photo" />
           <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="PatieneId" ColumnName="PatieneId" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
