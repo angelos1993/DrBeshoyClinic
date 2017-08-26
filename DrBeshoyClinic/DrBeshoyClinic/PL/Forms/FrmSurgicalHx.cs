@@ -33,6 +33,7 @@ namespace DrBeshoyClinic.PL.Forms
         private Patient Patient => OwnerForm.Patient;
         private SurgicalHx TodaysSurgicalHx { get; set; }
         private static DateTime Today => DateTime.Now.Date;
+        private bool ShouldBind { get; set; }
 
         private bool IsExistPatientSurgicalHxForToday
             => AllPatientSurgicalHxs.Any(surgicalHx => surgicalHx.Date == Today);
@@ -48,13 +49,15 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void FrmSurgicalHx_FormClosing(object sender, FormClosingEventArgs e)
         {
-            OwnerForm.BindSurgicalHxs(TodaysSurgicalHx.Description);
+            if (ShouldBind)
+                OwnerForm.BindSurgicalHxs(TodaysSurgicalHx.Description);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            AddTheCurrentSurgicalHx();
+            SaveTheCurrentSurgicalHx();
+            ShouldBind = true;
             Close();
             Cursor = Cursors.Default;
         }
@@ -73,8 +76,7 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void txtSurgicalHx_TextChanged(object sender, EventArgs e)
         {
-            var selectedItem = lstSurgicalHx.SelectedItem as ListBoxVm;
-            if (selectedItem != null && selectedItem.Date == Today)
+            if (lstSurgicalHx.SelectedItem is ListBoxVm selectedItem && selectedItem.Date == Today)
                 TodaysSurgicalHx.Description = txtSurgicalHx.Text;
         }
 
@@ -88,11 +90,10 @@ namespace DrBeshoyClinic.PL.Forms
             TodaysSurgicalHx = IsExistPatientSurgicalHxForToday
                 ? AllPatientSurgicalHxs.FirstOrDefault(surgicalHx => surgicalHx.Date == Today)
                 : new SurgicalHx {Date = Today, PatientId = Patient.Id};
-            txtSurgicalHx.Text = TodaysSurgicalHx?.Description;
             BindSurgicalHxsToListView();
         }
 
-        private void AddTheCurrentSurgicalHx()
+        private void SaveTheCurrentSurgicalHx()
         {
             if (!TodaysSurgicalHx.Description.IsNullOrEmptyOrWhiteSpace())
                 SurgicalHxManager.AddOrUpdateSurgicalHx(TodaysSurgicalHx);
@@ -119,7 +120,8 @@ namespace DrBeshoyClinic.PL.Forms
         private void BindSurgicalHxsToListView()
         {
             var lstSurgicalHxsDataSource =
-                AllPatientSurgicalHxs.OrderByDescending(surgicalHx => surgicalHx.Date).GroupBy(labTest => labTest.Date)
+                AllPatientSurgicalHxs.OrderByDescending(surgicalHx => surgicalHx.Date)
+                    .GroupBy(surgicalHx => surgicalHx.Date)
                     .Select(surgicalHxDateGroup => new ListBoxVm {Date = surgicalHxDateGroup.Key}).ToList();
             if (!IsExistPatientSurgicalHxForToday)
                 lstSurgicalHxsDataSource.Insert(0, new ListBoxVm {Date = Today});

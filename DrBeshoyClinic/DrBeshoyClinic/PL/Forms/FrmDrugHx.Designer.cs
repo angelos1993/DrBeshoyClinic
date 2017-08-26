@@ -58,6 +58,7 @@
             this.txtDrugHx.Size = new System.Drawing.Size(333, 124);
             this.txtDrugHx.TabIndex = 36;
             this.txtDrugHx.WatermarkText = "Drug Hx ...";
+            this.txtDrugHx.TextChanged += new System.EventHandler(this.txtDrugHx_TextChanged);
             // 
             // btnCancel
             // 
@@ -99,6 +100,8 @@
             this.DoubleBuffered = true;
             this.Name = "FrmDrugHx";
             this.Text = "Drug Hx";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDrugHx_FormClosing);
+            this.Load += new System.EventHandler(this.FrmDrugHx_Load);
             this.ResumeLayout(false);
 
         }

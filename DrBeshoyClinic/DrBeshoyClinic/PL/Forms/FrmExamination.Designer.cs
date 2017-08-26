@@ -714,10 +714,10 @@
             // 
             this.txtDiagnosis.Border.Class = "TextBoxBorder";
             this.txtDiagnosis.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDiagnosis.Enabled = false;
             this.txtDiagnosis.Location = new System.Drawing.Point(6, 25);
             this.txtDiagnosis.Multiline = true;
             this.txtDiagnosis.Name = "txtDiagnosis";
+            this.txtDiagnosis.ReadOnly = true;
             this.txtDiagnosis.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDiagnosis.Size = new System.Drawing.Size(409, 45);
             this.txtDiagnosis.TabIndex = 20;
@@ -754,10 +754,10 @@
             // 
             this.txtExamination.Border.Class = "TextBoxBorder";
             this.txtExamination.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtExamination.Enabled = false;
             this.txtExamination.Location = new System.Drawing.Point(6, 25);
             this.txtExamination.Multiline = true;
             this.txtExamination.Name = "txtExamination";
+            this.txtExamination.ReadOnly = true;
             this.txtExamination.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtExamination.Size = new System.Drawing.Size(409, 45);
             this.txtExamination.TabIndex = 20;
@@ -794,10 +794,10 @@
             // 
             this.txtComplaints.Border.Class = "TextBoxBorder";
             this.txtComplaints.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtComplaints.Enabled = false;
             this.txtComplaints.Location = new System.Drawing.Point(6, 25);
             this.txtComplaints.Multiline = true;
             this.txtComplaints.Name = "txtComplaints";
+            this.txtComplaints.ReadOnly = true;
             this.txtComplaints.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtComplaints.Size = new System.Drawing.Size(409, 45);
             this.txtComplaints.TabIndex = 20;

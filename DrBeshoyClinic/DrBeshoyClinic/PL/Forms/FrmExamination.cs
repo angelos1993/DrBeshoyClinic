@@ -443,6 +443,11 @@ namespace DrBeshoyClinic.PL.Forms
             txtSurgicalHx.Text = surgicalHxs;
         }
 
+        public void BindDrugHxs(string drugHxs)
+        {
+            txtDrugHx.Text = drugHxs;
+        }
+
         #endregion
 
         #endregion

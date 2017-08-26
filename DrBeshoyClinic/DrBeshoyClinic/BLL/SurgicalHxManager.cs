@@ -29,7 +29,7 @@ namespace DrBeshoyClinic.BLL
         public bool IsExistSurgicalHx(string patientId, DateTime date)
         {
             return UnitOfWork.SurgicalHxRepository
-                .Get(hx => hx.PatientId == patientId && hx.Date == date).Any();
+                .Get(surgicalHx => surgicalHx.PatientId == patientId && surgicalHx.Date == date).Any();
         }
 
         #endregion
