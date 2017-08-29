@@ -305,6 +305,7 @@
     <Compile Include="Utility\Constants.cs" />
     <Compile Include="Utility\DateTimeExtensions.cs" />
     <Compile Include="Utility\Enums\ExaminationFormMode.cs" />
+    <Compile Include="Utility\ImageExtensions.cs" />
     <Compile Include="Utility\InputLanguageUtility.cs" />
     <Compile Include="Utility\MessageBoxUtility.cs" />
     <Compile Include="Utility\StringExtensions.cs" />

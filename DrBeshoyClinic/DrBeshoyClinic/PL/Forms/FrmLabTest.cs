@@ -100,8 +100,7 @@ namespace DrBeshoyClinic.PL.Forms
             }
             else
             {
-                selectedLabTests = AllLabTests.Where(labTest => labTest.Date == selectedItem.Date)
-                    .Select(labTest => labTest).ToList();
+                selectedLabTests = AllLabTests.Where(labTest => labTest.Date == selectedItem.Date).ToList();
                 EnableOrDisableControls(false);
             }
             BindLabTestsToGrid(selectedLabTests);

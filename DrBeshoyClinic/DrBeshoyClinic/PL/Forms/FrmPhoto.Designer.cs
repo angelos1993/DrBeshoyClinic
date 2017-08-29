@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listViewEx1 = new DevComponents.DotNetBar.Controls.ListViewEx();
+            this.lstVwPhotos = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.lstPhotos = new System.Windows.Forms.ListBox();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
             this.btnAddPhoto = new DevComponents.DotNetBar.ButtonX();
             this.SuspendLayout();
             // 
-            // listViewEx1
+            // lstVwPhotos
             // 
             // 
             // 
             // 
-            this.listViewEx1.Border.Class = "ListViewBorder";
-            this.listViewEx1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.listViewEx1.Location = new System.Drawing.Point(11, 12);
-            this.listViewEx1.Name = "listViewEx1";
-            this.listViewEx1.Size = new System.Drawing.Size(770, 384);
-            this.listViewEx1.TabIndex = 0;
-            this.listViewEx1.UseCompatibleStateImageBehavior = false;
+            this.lstVwPhotos.Border.Class = "ListViewBorder";
+            this.lstVwPhotos.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lstVwPhotos.Location = new System.Drawing.Point(11, 12);
+            this.lstVwPhotos.Name = "lstVwPhotos";
+            this.lstVwPhotos.Size = new System.Drawing.Size(770, 384);
+            this.lstVwPhotos.TabIndex = 0;
+            this.lstVwPhotos.UseCompatibleStateImageBehavior = false;
             // 
             // lstPhotos
             // 
@@ -109,17 +109,18 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lstPhotos);
-            this.Controls.Add(this.listViewEx1);
+            this.Controls.Add(this.lstVwPhotos);
             this.DoubleBuffered = true;
             this.Name = "FrmPhoto";
             this.Text = "Photo";
+            this.Load += new System.EventHandler(this.FrmPhoto_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevComponents.DotNetBar.Controls.ListViewEx listViewEx1;
+        private DevComponents.DotNetBar.Controls.ListViewEx lstVwPhotos;
         private System.Windows.Forms.ListBox lstPhotos;
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.ButtonX btnSave;
