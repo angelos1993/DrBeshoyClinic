@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.SqlServer;
 using System.Linq;
 using DrBeshoyClinic.BLL.Infrastructure;
 using DrBeshoyClinic.DAL.Model;
+using DrBeshoyClinic.DAL.VMs;
 using static System.Data.Entity.DbFunctions;
 
 namespace DrBeshoyClinic.BLL
@@ -41,6 +43,17 @@ namespace DrBeshoyClinic.BLL
             return UnitOfWork.ExaminationRepository
                 .Get(examination => examination.PatientId == patientId &&
                                     TruncateTime(examination.Date) == TruncateTime(dateTime)).FirstOrDefault();
+        }
+
+        public List<DailyReportExaminationVm> GetDailyReportExaminationVms(DateTime dateTime)
+        {
+            return UnitOfWork.ExaminationRepository
+                .Get(examination => SqlFunctions.DateDiff("DAY", examination.Date, dateTime) == 0)
+                .Select(examination => new DailyReportExaminationVm
+                {
+                    PatientName = examination.Patient.Name,
+                    ExaminationType = examination.ExaminationType ? "كشف" : "إعادة"
+                }).ToList();
         }
 
         #endregion
