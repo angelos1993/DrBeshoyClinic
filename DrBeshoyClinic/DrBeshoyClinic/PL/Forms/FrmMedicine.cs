@@ -111,7 +111,7 @@ namespace DrBeshoyClinic.PL.Forms
             ResetInputControls();
             CurrentMedicine = MedicineManager.CreateNewMedicineForPatientIfNotExistsForToday(Patient.Id);
             AllPatientMedicines = MedicineManager.GetAllMedicinesForPatient(Patient.Id).ToList();
-            AllPatientMedicineDetails = MedicineDetailsManager.GetMedicineDetailsByMedicineId(CurrentMedicine.Id);
+            AllPatientMedicineDetails = MedicineDetailsManager.GetMedicineDetailsByPatientId(Patient.Id);
             NewMedicineDetails = new List<MedicineDetail>();
             BindMedicinesToListView();
             BindMedicinesToGrid(CurrentMedicine.MedicineDetails);

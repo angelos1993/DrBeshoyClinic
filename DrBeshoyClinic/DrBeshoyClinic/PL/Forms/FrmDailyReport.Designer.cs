@@ -30,13 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.DailyReportExaminationVmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtExaminationsDate = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.btnSearch = new DevComponents.DotNetBar.ButtonX();
             this.repVwDailyReport = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DailyReportExaminationVmBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dtExaminationsDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DailyReportExaminationVmBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtExaminationsDate)).BeginInit();
             this.SuspendLayout();
+            // 
+            // DailyReportExaminationVmBindingSource
+            // 
+            this.DailyReportExaminationVmBindingSource.DataSource = typeof(DrBeshoyClinic.DAL.VMs.DailyReportExaminationVm);
             // 
             // dtExaminationsDate
             // 
@@ -102,25 +106,22 @@
             // 
             // repVwDailyReport
             // 
+            this.repVwDailyReport.Dock = System.Windows.Forms.DockStyle.Bottom;
             reportDataSource1.Name = "DailyReportExaminationDataSet";
             reportDataSource1.Value = this.DailyReportExaminationVmBindingSource;
             this.repVwDailyReport.LocalReport.DataSources.Add(reportDataSource1);
             this.repVwDailyReport.LocalReport.ReportEmbeddedResource = "DrBeshoyClinic.PL.Reports.RepDailyReport.rdlc";
-            this.repVwDailyReport.Location = new System.Drawing.Point(12, 44);
+            this.repVwDailyReport.Location = new System.Drawing.Point(0, 44);
             this.repVwDailyReport.Name = "repVwDailyReport";
             this.repVwDailyReport.ServerReport.BearerToken = null;
-            this.repVwDailyReport.Size = new System.Drawing.Size(698, 590);
+            this.repVwDailyReport.Size = new System.Drawing.Size(644, 617);
             this.repVwDailyReport.TabIndex = 2;
-            // 
-            // DailyReportExaminationVmBindingSource
-            // 
-            this.DailyReportExaminationVmBindingSource.DataSource = typeof(DrBeshoyClinic.DAL.VMs.DailyReportExaminationVm);
             // 
             // FrmDailyReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 646);
+            this.ClientSize = new System.Drawing.Size(644, 661);
             this.Controls.Add(this.repVwDailyReport);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dtExaminationsDate);
@@ -128,8 +129,8 @@
             this.Name = "FrmDailyReport";
             this.Text = "FrmDailyReport";
             this.Load += new System.EventHandler(this.FrmDailyReport_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dtExaminationsDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DailyReportExaminationVmBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtExaminationsDate)).EndInit();
             this.ResumeLayout(false);
 
         }

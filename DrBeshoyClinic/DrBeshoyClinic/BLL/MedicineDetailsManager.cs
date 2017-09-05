@@ -13,10 +13,10 @@ namespace DrBeshoyClinic.BLL
 
         #region Methods
 
-        public List<MedicineDetail> GetMedicineDetailsByMedicineId(int medicineId)
+        public List<MedicineDetail> GetMedicineDetailsByPatientId(string patientId)
         {
             return UnitOfWork.MedicineDetailsRepository
-                .Get(medicineDetail => medicineDetail.MedicineId == medicineId).ToList();
+                .Get(medicineDetail => medicineDetail.Medicine.PatientId == patientId).ToList();
         }
 
         public void AddListOfMedicineDetails(List<MedicineDetail> medicineDetails)

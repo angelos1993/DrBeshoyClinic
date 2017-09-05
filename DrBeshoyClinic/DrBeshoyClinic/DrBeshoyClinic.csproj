@@ -201,6 +201,7 @@
     <Compile Include="DAL\VMs\ListBoxVm.cs" />
     <Compile Include="DAL\VMs\MedicineVm.cs" />
     <Compile Include="DAL\VMs\RadiologyVm.cs" />
+    <Compile Include="DAL\VMs\RoshettaMedicineVm.cs" />
     <Compile Include="PL\Forms\FrmAddNewChronicDisease.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,6 +396,7 @@
       <DependentUpon>FrmSurgicalHx.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Reports\RepDailyReport.rdlc" />
+    <EmbeddedResource Include="PL\Reports\RepRoshetta.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -409,6 +411,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DrBeshoyClinic.DAL.VMs.DailyReportExaminationVm.datasource" />
+    <None Include="Properties\DataSources\DrBeshoyClinic.DAL.VMs.RoshettaMedicineVm.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
