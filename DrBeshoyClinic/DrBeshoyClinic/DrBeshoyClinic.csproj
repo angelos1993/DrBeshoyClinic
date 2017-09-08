@@ -193,9 +193,13 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Repositories\ChronicDiseaseRepository.cs" />
+    <Compile Include="DAL\Repositories\ComplaintRepository.cs" />
+    <Compile Include="DAL\Repositories\DiagnosisRepository.cs" />
     <Compile Include="DAL\Repositories\DrugHxRepository.cs" />
     <Compile Include="DAL\Repositories\EmgNcvRepository.cs" />
     <Compile Include="DAL\Repositories\ExaminationChronicDiseaseRepository.cs" />
+    <Compile Include="DAL\Repositories\ExaminationComplaintRepository.cs" />
+    <Compile Include="DAL\Repositories\ExaminationDiagnosisRepository.cs" />
     <Compile Include="DAL\Repositories\ExaminationRepository.cs" />
     <Compile Include="DAL\Repositories\FamilyHxRepository.cs" />
     <Compile Include="DAL\Repositories\Infrastructure\IUnitOfWork.cs" />

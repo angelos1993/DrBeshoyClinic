@@ -21,6 +21,10 @@
         private TreatmentDescriptionRepository _treatmentDescriptionRepository;
         private TreatmentPeriodRepository _treatmentPeriodRepository;
         private TreatmentRepository _treatmentRepository;
+        private DiagnosisRepository _diagnosisRepository;
+        private ExaminationDiagnosisRepository _examinationDiagnosisRepository;
+        private ComplaintRepository _complaintRepository;
+        private ExaminationComplaintRepository _examinationComplaintRepository;
 
         #endregion
 
@@ -74,6 +78,20 @@
 
         public TreatmentRepository TreatmentRepository
             => _treatmentRepository ?? (_treatmentRepository = new TreatmentRepository());
+
+        public DiagnosisRepository DiagnosisRepository
+            => _diagnosisRepository ?? (_diagnosisRepository = new DiagnosisRepository());
+
+        public ExaminationDiagnosisRepository ExaminationDiagnosisRepository
+            => _examinationDiagnosisRepository ?? (_examinationDiagnosisRepository =
+                   new ExaminationDiagnosisRepository());
+
+        public ComplaintRepository ComplaintRepository
+            => _complaintRepository ?? (_complaintRepository = new ComplaintRepository());
+
+        public ExaminationComplaintRepository ExaminationComplaintRepository
+            => _examinationComplaintRepository ?? (_examinationComplaintRepository =
+                   new ExaminationComplaintRepository());
 
         #endregion
     }

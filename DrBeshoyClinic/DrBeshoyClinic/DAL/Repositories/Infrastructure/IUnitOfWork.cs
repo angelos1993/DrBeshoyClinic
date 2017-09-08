@@ -19,5 +19,9 @@
         TreatmentDescriptionRepository TreatmentDescriptionRepository { get; }
         TreatmentPeriodRepository TreatmentPeriodRepository { get; }
         TreatmentRepository TreatmentRepository { get; }
+        DiagnosisRepository DiagnosisRepository { get; }
+        ExaminationDiagnosisRepository ExaminationDiagnosisRepository { get; }
+        ComplaintRepository ComplaintRepository { get; }
+        ExaminationComplaintRepository ExaminationComplaintRepository { get; }
     }
 }

@@ -4,5 +4,12 @@ namespace DrBeshoyClinic.BLL
 {
     public class ExaminationComplaintManager : BaseManager
     {
+        #region Properties
+
+        #endregion
+
+        #region Methods
+
+        #endregion
     }
 }
