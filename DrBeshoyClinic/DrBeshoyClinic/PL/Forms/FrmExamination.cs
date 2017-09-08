@@ -142,7 +142,6 @@ namespace DrBeshoyClinic.PL.Forms
         private void btnComplaint_Click(object sender, EventArgs e)
         {
             new FrmComplaints {Owner = this}.ShowDialog();
-            //todo: bind written to this form from the child one
         }
 
         private void btnExamination_Click(object sender, EventArgs e)
@@ -154,7 +153,6 @@ namespace DrBeshoyClinic.PL.Forms
         private void btnDiagnosis_Click(object sender, EventArgs e)
         {
             new FrmDiagnosis {Owner = this}.ShowDialog();
-            //todo: bind written to this form from the child one
         }
 
         private void swVisitType_ValueChanged(object sender, EventArgs e)

@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lstDiagnosis = new System.Windows.Forms.ListBox();
-            this.gdvDiagnosis = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.dgvDiagnosis = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.txtDiagnosis = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.btnAddDiagnosis = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnClear = new DevComponents.DotNetBar.ButtonX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
-            ((System.ComponentModel.ISupportInitialize)(this.gdvDiagnosis)).BeginInit();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiagnosis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lstDiagnosis
@@ -49,22 +52,24 @@
             this.lstDiagnosis.TabIndex = 45;
             this.lstDiagnosis.SelectedIndexChanged += new System.EventHandler(this.lstDiagnosis_SelectedIndexChanged);
             // 
-            // gdvDiagnosis
+            // dgvDiagnosis
             // 
-            this.gdvDiagnosis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdvDiagnosis.DefaultCellStyle = dataGridViewCellStyle5;
-            this.gdvDiagnosis.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.gdvDiagnosis.Location = new System.Drawing.Point(12, 46);
-            this.gdvDiagnosis.Name = "gdvDiagnosis";
-            this.gdvDiagnosis.Size = new System.Drawing.Size(407, 244);
-            this.gdvDiagnosis.TabIndex = 44;
+            this.dgvDiagnosis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDiagnosis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDiagnosis.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDiagnosis.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dgvDiagnosis.Location = new System.Drawing.Point(12, 46);
+            this.dgvDiagnosis.Name = "dgvDiagnosis";
+            this.dgvDiagnosis.ReadOnly = true;
+            this.dgvDiagnosis.Size = new System.Drawing.Size(407, 244);
+            this.dgvDiagnosis.TabIndex = 44;
             // 
             // txtDiagnosis
             // 
@@ -134,6 +139,10 @@
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // FrmDiagnosis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -144,12 +153,15 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAddDiagnosis);
             this.Controls.Add(this.lstDiagnosis);
-            this.Controls.Add(this.gdvDiagnosis);
+            this.Controls.Add(this.dgvDiagnosis);
             this.Controls.Add(this.txtDiagnosis);
             this.DoubleBuffered = true;
             this.Name = "FrmDiagnosis";
             this.Text = "Diagnosis";
-            ((System.ComponentModel.ISupportInitialize)(this.gdvDiagnosis)).EndInit();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDiagnosis_FormClosing);
+            this.Load += new System.EventHandler(this.FrmDiagnosis_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiagnosis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -158,10 +170,11 @@
 
         private DevComponents.DotNetBar.ButtonX btnAddDiagnosis;
         private System.Windows.Forms.ListBox lstDiagnosis;
-        private DevComponents.DotNetBar.Controls.DataGridViewX gdvDiagnosis;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dgvDiagnosis;
         private DevComponents.DotNetBar.Controls.TextBoxX txtDiagnosis;
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.ButtonX btnClear;
         private DevComponents.DotNetBar.ButtonX btnSave;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

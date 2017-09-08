@@ -206,7 +206,9 @@
     <Compile Include="DAL\Repositories\TreatmentDescriptionRepository.cs" />
     <Compile Include="DAL\Repositories\TreatmentPeriodRepository.cs" />
     <Compile Include="DAL\Repositories\TreatmentRepository.cs" />
+    <Compile Include="DAL\VMs\ComplaintVm.cs" />
     <Compile Include="DAL\VMs\DailyReportExaminationVm.cs" />
+    <Compile Include="DAL\VMs\DiagnosiVm.cs" />
     <Compile Include="DAL\VMs\LabTestVm.cs" />
     <Compile Include="DAL\VMs\ListBoxVm.cs" />
     <Compile Include="DAL\VMs\MedicineVm.cs" />
