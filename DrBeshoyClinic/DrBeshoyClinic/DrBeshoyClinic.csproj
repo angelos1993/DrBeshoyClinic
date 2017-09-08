@@ -110,6 +110,12 @@
     <Compile Include="DAL\Model\ChronicDiseas.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Model\Complaint.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model\Diagnosi.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Model\DrugHx.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -120,6 +126,12 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Model\ExaminationChronicDisease.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model\ExaminationComplaint.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model\ExaminationDiagnosi.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Model\FamilyHx.cs">

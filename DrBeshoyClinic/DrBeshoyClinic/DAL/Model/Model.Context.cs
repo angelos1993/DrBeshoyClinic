@@ -26,9 +26,13 @@ namespace DrBeshoyClinic.DAL.Model
         }
     
         public virtual DbSet<ChronicDiseas> ChronicDiseases { get; set; }
+        public virtual DbSet<Complaint> Complaints { get; set; }
+        public virtual DbSet<Diagnosi> Diagnosis { get; set; }
         public virtual DbSet<DrugHx> DrugHxes { get; set; }
         public virtual DbSet<EmgNcv> EmgNcvs { get; set; }
         public virtual DbSet<ExaminationChronicDisease> ExaminationChronicDiseases { get; set; }
+        public virtual DbSet<ExaminationComplaint> ExaminationComplaints { get; set; }
+        public virtual DbSet<ExaminationDiagnosi> ExaminationDiagnosis { get; set; }
         public virtual DbSet<Examination> Examinations { get; set; }
         public virtual DbSet<FamilyHx> FamilyHxes { get; set; }
         public virtual DbSet<LabTest> LabTests { get; set; }

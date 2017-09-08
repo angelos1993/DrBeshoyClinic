@@ -8,6 +8,20 @@
     <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="ExaminationChronicDiseases" Relationship="Self.FK_ExaminationChronicDisease_ChronicDiseases" FromRole="ChronicDiseases" ToRole="ExaminationChronicDisease" />
   </EntityType>
+  <EntityType Name="Complaint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diagnosi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
   <EntityType Name="DrugHx">
     <Key>
       <PropertyRef Name="Id" />
@@ -39,6 +53,22 @@
     <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ChronicDiseas" Relationship="Self.FK_ExaminationChronicDisease_ChronicDiseases" FromRole="ExaminationChronicDisease" ToRole="ChronicDiseases" />
     <NavigationProperty Name="Examination" Relationship="Self.FK_ExaminationChronicDisease_Examinations" FromRole="ExaminationChronicDisease" ToRole="Examinations" />
+  </EntityType>
+  <EntityType Name="ExaminationComplaint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExaminationId" Type="Int32" Nullable="false" />
+    <Property Name="ComplaintId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExaminationDiagnosi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExaminationId" Type="Int32" Nullable="false" />
+    <Property Name="DiagnosisId" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Examination">
     <Key>
@@ -407,9 +437,13 @@
   </Association>
   <EntityContainer Name="DrBeshoyClinicEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ChronicDiseases" EntityType="Self.ChronicDiseas" />
+    <EntitySet Name="Complaints" EntityType="Self.Complaint" />
+    <EntitySet Name="Diagnosis" EntityType="Self.Diagnosi" />
     <EntitySet Name="DrugHxes" EntityType="Self.DrugHx" />
     <EntitySet Name="EmgNcvs" EntityType="Self.EmgNcv" />
     <EntitySet Name="ExaminationChronicDiseases" EntityType="Self.ExaminationChronicDisease" />
+    <EntitySet Name="ExaminationComplaints" EntityType="Self.ExaminationComplaint" />
+    <EntitySet Name="ExaminationDiagnosis" EntityType="Self.ExaminationDiagnosi" />
     <EntitySet Name="Examinations" EntityType="Self.Examination" />
     <EntitySet Name="FamilyHxes" EntityType="Self.FamilyHx" />
     <EntitySet Name="LabTests" EntityType="Self.LabTest" />

@@ -7,6 +7,20 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
   </EntityType>
+  <EntityType Name="Complaints">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diagnosis">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
   <EntityType Name="DrugHx">
     <Key>
       <PropertyRef Name="Id" />
@@ -34,6 +48,22 @@
     <Property Name="ExaminationId" Type="int" Nullable="false" />
     <Property Name="ChronicDiseaseId" Type="int" Nullable="false" />
     <Property Name="Notes" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ExaminationComplaints">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExaminationId" Type="int" Nullable="false" />
+    <Property Name="ComplaintId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExaminationDiagnosis">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExaminationId" Type="int" Nullable="false" />
+    <Property Name="DiagnosisId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Examinations">
     <Key>
@@ -375,9 +405,13 @@
   </Association>
   <EntityContainer Name="DrBeshoyClinicModelStoreContainer">
     <EntitySet Name="ChronicDiseases" EntityType="Self.ChronicDiseases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Complaints" EntityType="Self.Complaints" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diagnosis" EntityType="Self.Diagnosis" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DrugHx" EntityType="Self.DrugHx" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmgNcv" EntityType="Self.EmgNcv" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ExaminationChronicDisease" EntityType="Self.ExaminationChronicDisease" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExaminationComplaints" EntityType="Self.ExaminationComplaints" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExaminationDiagnosis" EntityType="Self.ExaminationDiagnosis" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Examinations" EntityType="Self.Examinations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FamilyHx" EntityType="Self.FamilyHx" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LabTests" EntityType="Self.LabTests" Schema="dbo" store:Type="Tables" />

@@ -9,6 +9,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Complaints">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.Complaint">
+        <MappingFragment StoreEntitySet="Complaints">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diagnosis">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.Diagnosi">
+        <MappingFragment StoreEntitySet="Diagnosis">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="DrugHxes">
       <EntityTypeMapping TypeName="DrBeshoyClinicModel.DrugHx">
         <MappingFragment StoreEntitySet="DrugHx">
@@ -37,6 +53,24 @@
           <ScalarProperty Name="ExaminationId" ColumnName="ExaminationId" />
           <ScalarProperty Name="ChronicDiseaseId" ColumnName="ChronicDiseaseId" />
           <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExaminationComplaints">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.ExaminationComplaint">
+        <MappingFragment StoreEntitySet="ExaminationComplaints">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExaminationId" ColumnName="ExaminationId" />
+          <ScalarProperty Name="ComplaintId" ColumnName="ComplaintId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExaminationDiagnosis">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.ExaminationDiagnosi">
+        <MappingFragment StoreEntitySet="ExaminationDiagnosis">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExaminationId" ColumnName="ExaminationId" />
+          <ScalarProperty Name="DiagnosisId" ColumnName="DiagnosisId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
