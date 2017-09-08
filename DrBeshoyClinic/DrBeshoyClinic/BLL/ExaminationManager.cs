@@ -40,9 +40,9 @@ namespace DrBeshoyClinic.BLL
 
         public Examination GetExaminationByPatientAndDate(string patientId, DateTime dateTime)
         {
-            return UnitOfWork.ExaminationRepository
-                .Get(examination => examination.PatientId == patientId &&
-                                    TruncateTime(examination.Date) == TruncateTime(dateTime)).FirstOrDefault();
+            return UnitOfWork.ExaminationRepository.Get(examination => examination.PatientId == patientId &&
+                                                                       TruncateTime(examination.Date) ==
+                                                                       TruncateTime(dateTime)).FirstOrDefault();
         }
 
         public List<DailyReportExaminationVm> GetDailyReportExaminationVms(DateTime dateTime)

@@ -5,6 +5,7 @@
         Normal,
         HasPatient,
         AddNewPatient,
-        EditPatient
+        EditPatient,
+        HasPreviousExamination
     }
 }

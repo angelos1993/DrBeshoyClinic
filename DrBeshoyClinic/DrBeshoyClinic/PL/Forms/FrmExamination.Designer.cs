@@ -553,7 +553,6 @@
             this.swVisitType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.swVisitType.TabIndex = 18;
             this.swVisitType.Value = true;
-            this.swVisitType.ValueChanged += new System.EventHandler(this.swVisitType_ValueChanged);
             // 
             // grpPnlExaminationData
             // 
@@ -911,6 +910,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmExamination";
             this.Text = "Examination";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmExamination_FormClosing);
             this.Load += new System.EventHandler(this.FrmExamination_Load);
             this.pnlLeftSideButtons.ResumeLayout(false);
             this.grpPnlPatientData.ResumeLayout(false);

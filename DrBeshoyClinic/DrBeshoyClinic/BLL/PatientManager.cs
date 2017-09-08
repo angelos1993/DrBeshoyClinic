@@ -12,6 +12,11 @@ namespace DrBeshoyClinic.BLL
 
         #region Methods
 
+        public IQueryable<Patient> GetAllPatients()
+        {
+            return UnitOfWork.PatientRepository.GetAll();
+        }
+
         public void AddNewPatient(Patient patient)
         {
             UnitOfWork.PatientRepository.Add(patient);

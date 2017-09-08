@@ -29,17 +29,34 @@ namespace DrBeshoyClinic.PL.Forms
 
         private PatientManager _patientManager;
         private PatientManager PatientManager => _patientManager ?? (_patientManager = new PatientManager());
-
         private ExaminationManager _examinationManager;
 
         private ExaminationManager ExaminationManager
             => _examinationManager ?? (_examinationManager = new ExaminationManager());
 
-        private List<Examination> AllPatientExaminations { get; set; }
+        private ComplaintManager _complaintManager;
+        private ComplaintManager ComplaintManager => _complaintManager ?? (_complaintManager = new ComplaintManager());
+        private DiagnosisManager _diagnosisManager;
+        private DiagnosisManager DiagnosisManager => _diagnosisManager ?? (_diagnosisManager = new DiagnosisManager());
+        private ChronicDiseaseManager _chronicDiseaseManager;
 
+        private ChronicDiseaseManager ChronicDiseaseManager
+            => _chronicDiseaseManager ?? (_chronicDiseaseManager = new ChronicDiseaseManager());
+
+        private SurgicalHxManager _surgicalHxManager;
+
+        private SurgicalHxManager SurgicalHxManager
+            => _surgicalHxManager ?? (_surgicalHxManager = new SurgicalHxManager());
+
+        private DrugHxManager _drugHxManager;
+        private DrugHxManager DrugHxManager => _drugHxManager ?? (_drugHxManager = new DrugHxManager());
+        private FamilyHxManager _familyHxManager;
+        private FamilyHxManager FamilyHxManager => _familyHxManager ?? (_familyHxManager = new FamilyHxManager());
+        private List<Examination> AllPatientExaminations { get; set; }
         public ExaminationFormMode Mode { get; set; }
         public Patient Patient { get; set; }
         public Examination Examination { get; set; }
+        private static DateTime Today => DateTime.Now.Date;
 
         #endregion
 
@@ -50,6 +67,13 @@ namespace DrBeshoyClinic.PL.Forms
         private void FrmExamination_Load(object sender, EventArgs e)
         {
             ResetForm();
+        }
+
+        private void FrmExamination_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            SaveCurrentExamination();
+            Cursor = Cursors.Default;
         }
 
         #endregion
@@ -150,7 +174,6 @@ namespace DrBeshoyClinic.PL.Forms
         private void btnExamination_Click(object sender, EventArgs e)
         {
             new FrmLightExamination {Owner = this, AllPatientExaminations = AllPatientExaminations}.ShowDialog();
-            //todo: bind written to this form from the child one
         }
 
         private void btnDiagnosis_Click(object sender, EventArgs e)
@@ -158,27 +181,22 @@ namespace DrBeshoyClinic.PL.Forms
             new FrmDiagnosis {Owner = this}.ShowDialog();
         }
 
-        private void swVisitType_ValueChanged(object sender, EventArgs e)
-        {
-            Cursor = Cursors.WaitCursor;
-            Examination.ExaminationType = swVisitType.Value;
-            ExaminationManager.UpdateExamination(Examination);
-            Cursor = Cursors.Default;
-        }
-
         private void lstExaminations_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //todo: should query the examination in the memory not from DB
-            var selectedExamination = ExaminationManager.GetExaminationByPatientAndDate(Patient.Id,
-                (lstExaminations.SelectedItem as ListBoxVm)?.Date ?? new DateTime());
-            //todo: need to bind the selected examination values to the form
+            var selectedItem = lstExaminations.SelectedItem as ListBoxVm;
+            if (selectedItem == null)
+                return;
+            LoadCurrentExaminationData(
+                ExaminationManager.GetExaminationByPatientAndDate(Patient.Id, selectedItem.Date));
+            EnableOrDisableControls(selectedItem.Date == Today
+                ? ExaminationFormMode.HasPatient
+                : ExaminationFormMode.HasPreviousExamination);
         }
 
         private void btnSaveVisit_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            LoadExaminationFromForm(Examination);
-            ExaminationManager.UpdateExamination(Examination);
+            SaveCurrentExamination();
             Cursor = Cursors.Default;
         }
 
@@ -209,6 +227,7 @@ namespace DrBeshoyClinic.PL.Forms
             ResetPatientPanel();
             ResetExaminationPanel();
             ResetPropertiesValues();
+            SetAutoCompletionForTextBoxes();
         }
 
         private void ResetPropertiesValues()
@@ -261,6 +280,9 @@ namespace DrBeshoyClinic.PL.Forms
             btnNewPatient.Enabled = mode == ExaminationFormMode.Normal || mode == ExaminationFormMode.HasPatient ||
                                     mode == ExaminationFormMode.AddNewPatient;
             btnEditPatient.Enabled = mode == ExaminationFormMode.EditPatient || mode == ExaminationFormMode.HasPatient;
+            btnClearPatient.Enabled = mode == ExaminationFormMode.Normal || mode == ExaminationFormMode.EditPatient ||
+                                      mode == ExaminationFormMode.AddNewPatient ||
+                                      mode == ExaminationFormMode.HasPatient;
 
             #endregion
 
@@ -270,7 +292,8 @@ namespace DrBeshoyClinic.PL.Forms
             btnComplaint.Enabled = mode == ExaminationFormMode.HasPatient;
             btnExamination.Enabled = mode == ExaminationFormMode.HasPatient;
             btnDiagnosis.Enabled = mode == ExaminationFormMode.HasPatient;
-            lstExaminations.Enabled = mode == ExaminationFormMode.HasPatient;
+            lstExaminations.Enabled = mode == ExaminationFormMode.HasPatient ||
+                                      mode == ExaminationFormMode.HasPreviousExamination;
             btnSaveVisit.Enabled = mode == ExaminationFormMode.HasPatient;
             btnClearAll.Enabled = mode == ExaminationFormMode.HasPatient;
 
@@ -285,7 +308,16 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void ResetExaminationPanel()
         {
-            //todo: need to be implemented
+            swVisitType.Value = true;
+            txtComplaints.Clear();
+            txtExamination.Clear();
+            txtDiagnosis.Clear();
+            txtChronicDiseases.Clear();
+            txtSurgicalHx.Clear();
+            txtDrugHx.Clear();
+            txtFamilyHx.Clear();
+            if (lstExaminations.DataSource != null)
+                lstExaminations.SelectedIndex = 0;
         }
 
         private void StartExamination(Patient patient)
@@ -294,6 +326,7 @@ namespace DrBeshoyClinic.PL.Forms
             EnableOrDisableControls(ExaminationFormMode.HasPatient);
             CreateNewExaminationIfNotExistsForToday(patient.Id);
             LoadAllExaminationsForPatient(patient.Id);
+            LoadCurrentExaminationData(Examination);
         }
 
         private void ShowPatientData(Patient patient)
@@ -309,7 +342,7 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void CreateNewExaminationIfNotExistsForToday(string patientId)
         {
-            var today = DateTime.Now.Date;
+            var today = Today;
             if (ExaminationManager.IsExistsExaminationForPatient(patientId, today))
                 return;
             Examination = new Examination
@@ -329,6 +362,21 @@ namespace DrBeshoyClinic.PL.Forms
                 .Select(examination => new ListBoxVm {Date = examination.Date}).ToList();
             lstExaminations.DisplayMember = ListBoxDisplayMember;
             Examination = AllPatientExaminations.OrderByDescending(examination => examination.Date).FirstOrDefault();
+        }
+
+        private void LoadCurrentExaminationData(Examination examination)
+        {
+            swVisitType.Value = examination.ExaminationType;
+            txtComplaints.Text =
+                ComplaintManager.GetComplaintsStringByPatientAndDate(examination.PatientId, examination.Date);
+            txtExamination.Text = examination.ExaminationOfExamination;
+            txtDiagnosis.Text =
+                DiagnosisManager.GetDiagnosisStringByPatientAndDate(examination.PatientId, examination.Date);
+            txtChronicDiseases.Text = ChronicDiseaseManager.GetChronicDiseasByExaminationId(examination.Id);
+            txtSurgicalHx.Text =
+                SurgicalHxManager.GetSurgicalHxsForPatientByDate(examination.PatientId, examination.Date);
+            txtDrugHx.Text = DrugHxManager.GetDrugHxsForPatientByDate(examination.PatientId, examination.Date);
+            txtFamilyHx.Text = FamilyHxManager.GetFamilyHxsForPatientByDate(examination.PatientId, examination.Date);
         }
 
         private void AddNewPatient()
@@ -372,7 +420,7 @@ namespace DrBeshoyClinic.PL.Forms
         private void LoadExaminationFromForm(Examination examination)
         {
             examination.ExaminationOfExamination = txtExamination.Text.FullTrim();
-            examination.Date = DateTime.Now;
+            examination.Date = Today;
             examination.ExaminationType = swVisitType.Value;
         }
 
@@ -417,6 +465,32 @@ namespace DrBeshoyClinic.PL.Forms
             }
         }
 
+        private void SaveCurrentExamination()
+        {
+            LoadExaminationFromForm(Examination);
+            ExaminationManager.UpdateExamination(Examination);
+        }
+
+        private void SetAutoCompletionForTextBoxes()
+        {
+            SetAutoCompletionForPatientIds();
+            SetAutoCompletionForPatientNames();
+        }
+
+        private void SetAutoCompletionForPatientIds()
+        {
+            var collection = new AutoCompleteStringCollection();
+            collection.AddRange(PatientManager.GetAllPatients().Select(patient => patient.Id).ToArray());
+            SetAutoCompleteSourceForTextBox(txtPatientId, collection);
+        }
+
+        private void SetAutoCompletionForPatientNames()
+        {
+            var collection = new AutoCompleteStringCollection();
+            collection.AddRange(PatientManager.GetAllPatients().Select(patient => patient.Name).ToArray());
+            SetAutoCompleteSourceForTextBox(txtPatientName, collection);
+        }
+
         #region Call-Back(s)
 
         public void BindComplaints(string complaints)
@@ -427,6 +501,7 @@ namespace DrBeshoyClinic.PL.Forms
         public void BindExamination(string examination)
         {
             txtExamination.Text = examination;
+            Examination.ExaminationOfExamination = examination;
         }
 
         public void BindDiagnosis(string diagnosis)

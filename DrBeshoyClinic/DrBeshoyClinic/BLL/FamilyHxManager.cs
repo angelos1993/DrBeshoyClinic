@@ -2,6 +2,7 @@
 using System.Linq;
 using DrBeshoyClinic.BLL.Infrastructure;
 using DrBeshoyClinic.DAL.Model;
+using DrBeshoyClinic.Utility;
 
 namespace DrBeshoyClinic.BLL
 {
@@ -30,6 +31,12 @@ namespace DrBeshoyClinic.BLL
         public IQueryable<FamilyHx> GetFamilyHxesForPatient(string patientId)
         {
             return UnitOfWork.FamilyHxRepository.Get(familyHx => familyHx.PatientId == patientId);
+        }
+
+        public string GetFamilyHxsForPatientByDate(string patientId, DateTime date)
+        {
+            return GetFamilyHxesForPatient(patientId).Where(familyHx => familyHx.Date == date)
+                .Select(familyHx => familyHx.Description).ToCommaSeperatedString();
         }
 
         #endregion
