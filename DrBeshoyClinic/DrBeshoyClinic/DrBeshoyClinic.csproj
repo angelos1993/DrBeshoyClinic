@@ -90,9 +90,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\ChronicDiseaseManager.cs" />
+    <Compile Include="BLL\ComplaintManager.cs" />
+    <Compile Include="BLL\DiagnosisManager.cs" />
     <Compile Include="BLL\DrugHxManager.cs" />
     <Compile Include="BLL\EmgNcvManager.cs" />
     <Compile Include="BLL\ExaminationChronicDiseaseManager.cs" />
+    <Compile Include="BLL\ExaminationComplaintManager.cs" />
+    <Compile Include="BLL\ExaminationDiagnosisManager.cs" />
     <Compile Include="BLL\ExaminationManager.cs" />
     <Compile Include="BLL\FamilyHxManager.cs" />
     <Compile Include="BLL\Infrastructure\BaseManager.cs" />
