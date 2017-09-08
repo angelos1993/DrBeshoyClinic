@@ -14,6 +14,9 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PatientId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK_Complaints_Patients" FromRole="Complaints" ToRole="Patients" />
   </EntityType>
   <EntityType Name="Diagnosi">
     <Key>
@@ -21,6 +24,9 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PatientId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK_Diagnosis_Patients" FromRole="Diagnosis" ToRole="Patients" />
   </EntityType>
   <EntityType Name="DrugHx">
     <Key>
@@ -53,22 +59,6 @@
     <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ChronicDiseas" Relationship="Self.FK_ExaminationChronicDisease_ChronicDiseases" FromRole="ExaminationChronicDisease" ToRole="ChronicDiseases" />
     <NavigationProperty Name="Examination" Relationship="Self.FK_ExaminationChronicDisease_Examinations" FromRole="ExaminationChronicDisease" ToRole="Examinations" />
-  </EntityType>
-  <EntityType Name="ExaminationComplaint">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ExaminationId" Type="Int32" Nullable="false" />
-    <Property Name="ComplaintId" Type="Int32" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ExaminationDiagnosi">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ExaminationId" Type="Int32" Nullable="false" />
-    <Property Name="DiagnosisId" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Examination">
     <Key>
@@ -167,6 +157,8 @@
     <Property Name="Job" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="BirthDate" Type="DateTime" Precision="0" />
     <Property Name="Gender" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Complaints" Relationship="Self.FK_Complaints_Patients" FromRole="Patients" ToRole="Complaints" />
+    <NavigationProperty Name="Diagnosis" Relationship="Self.FK_Diagnosis_Patients" FromRole="Patients" ToRole="Diagnosis" />
     <NavigationProperty Name="DrugHxes" Relationship="Self.FK_DrugHx_Patients" FromRole="Patients" ToRole="DrugHx" />
     <NavigationProperty Name="EmgNcvs" Relationship="Self.FK_EmgNcv_Patients" FromRole="Patients" ToRole="EmgNcv" />
     <NavigationProperty Name="Examinations" Relationship="Self.FK_Examinations_Patients" FromRole="Patients" ToRole="Examinations" />
@@ -252,6 +244,30 @@
       </Principal>
       <Dependent Role="ExaminationChronicDisease">
         <PropertyRef Name="ChronicDiseaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Complaints_Patients">
+    <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+    <End Role="Complaints" Type="Self.Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Complaints">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diagnosis_Patients">
+    <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+    <End Role="Diagnosis" Type="Self.Diagnosi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Diagnosis">
+        <PropertyRef Name="PatientId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -442,8 +458,6 @@
     <EntitySet Name="DrugHxes" EntityType="Self.DrugHx" />
     <EntitySet Name="EmgNcvs" EntityType="Self.EmgNcv" />
     <EntitySet Name="ExaminationChronicDiseases" EntityType="Self.ExaminationChronicDisease" />
-    <EntitySet Name="ExaminationComplaints" EntityType="Self.ExaminationComplaint" />
-    <EntitySet Name="ExaminationDiagnosis" EntityType="Self.ExaminationDiagnosi" />
     <EntitySet Name="Examinations" EntityType="Self.Examination" />
     <EntitySet Name="FamilyHxes" EntityType="Self.FamilyHx" />
     <EntitySet Name="LabTests" EntityType="Self.LabTest" />
@@ -461,6 +475,14 @@
     <AssociationSet Name="FK_ExaminationChronicDisease_ChronicDiseases" Association="Self.FK_ExaminationChronicDisease_ChronicDiseases">
       <End Role="ChronicDiseases" EntitySet="ChronicDiseases" />
       <End Role="ExaminationChronicDisease" EntitySet="ExaminationChronicDiseases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Complaints_Patients" Association="Self.FK_Complaints_Patients">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="Complaints" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diagnosis_Patients" Association="Self.FK_Diagnosis_Patients">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="Diagnosis" EntitySet="Diagnosis" />
     </AssociationSet>
     <AssociationSet Name="FK_DrugHx_Patients" Association="Self.FK_DrugHx_Patients">
       <End Role="Patients" EntitySet="Patients" />

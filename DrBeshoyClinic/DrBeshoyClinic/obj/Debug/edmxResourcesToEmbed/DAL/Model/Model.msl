@@ -14,6 +14,8 @@
         <MappingFragment StoreEntitySet="Complaints">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -22,6 +24,8 @@
         <MappingFragment StoreEntitySet="Diagnosis">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -53,24 +57,6 @@
           <ScalarProperty Name="ExaminationId" ColumnName="ExaminationId" />
           <ScalarProperty Name="ChronicDiseaseId" ColumnName="ChronicDiseaseId" />
           <ScalarProperty Name="Notes" ColumnName="Notes" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ExaminationComplaints">
-      <EntityTypeMapping TypeName="DrBeshoyClinicModel.ExaminationComplaint">
-        <MappingFragment StoreEntitySet="ExaminationComplaints">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ExaminationId" ColumnName="ExaminationId" />
-          <ScalarProperty Name="ComplaintId" ColumnName="ComplaintId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ExaminationDiagnosis">
-      <EntityTypeMapping TypeName="DrBeshoyClinicModel.ExaminationDiagnosi">
-        <MappingFragment StoreEntitySet="ExaminationDiagnosis">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ExaminationId" ColumnName="ExaminationId" />
-          <ScalarProperty Name="DiagnosisId" ColumnName="DiagnosisId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

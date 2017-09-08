@@ -13,7 +13,6 @@ namespace DrBeshoyClinic.BLL
 
         #region Methods
 
-
         #endregion
     }
 }

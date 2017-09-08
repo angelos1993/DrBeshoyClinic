@@ -95,8 +95,6 @@
     <Compile Include="BLL\DrugHxManager.cs" />
     <Compile Include="BLL\EmgNcvManager.cs" />
     <Compile Include="BLL\ExaminationChronicDiseaseManager.cs" />
-    <Compile Include="BLL\ExaminationComplaintManager.cs" />
-    <Compile Include="BLL\ExaminationDiagnosisManager.cs" />
     <Compile Include="BLL\ExaminationManager.cs" />
     <Compile Include="BLL\FamilyHxManager.cs" />
     <Compile Include="BLL\Infrastructure\BaseManager.cs" />
@@ -130,12 +128,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Model\ExaminationChronicDisease.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Model\ExaminationComplaint.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Model\ExaminationDiagnosi.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Model\FamilyHx.cs">
@@ -198,8 +190,6 @@
     <Compile Include="DAL\Repositories\DrugHxRepository.cs" />
     <Compile Include="DAL\Repositories\EmgNcvRepository.cs" />
     <Compile Include="DAL\Repositories\ExaminationChronicDiseaseRepository.cs" />
-    <Compile Include="DAL\Repositories\ExaminationComplaintRepository.cs" />
-    <Compile Include="DAL\Repositories\ExaminationDiagnosisRepository.cs" />
     <Compile Include="DAL\Repositories\ExaminationRepository.cs" />
     <Compile Include="DAL\Repositories\FamilyHxRepository.cs" />
     <Compile Include="DAL\Repositories\Infrastructure\IUnitOfWork.cs" />

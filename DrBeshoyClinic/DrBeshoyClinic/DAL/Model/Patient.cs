@@ -17,6 +17,8 @@ namespace DrBeshoyClinic.DAL.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Patient()
         {
+            this.Complaints = new HashSet<Complaint>();
+            this.Diagnosis = new HashSet<Diagnosi>();
             this.DrugHxes = new HashSet<DrugHx>();
             this.EmgNcvs = new HashSet<EmgNcv>();
             this.Examinations = new HashSet<Examination>();
@@ -37,6 +39,10 @@ namespace DrBeshoyClinic.DAL.Model
         public Nullable<System.DateTime> BirthDate { get; set; }
         public bool Gender { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Complaint> Complaints { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Diagnosi> Diagnosis { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DrugHx> DrugHxes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

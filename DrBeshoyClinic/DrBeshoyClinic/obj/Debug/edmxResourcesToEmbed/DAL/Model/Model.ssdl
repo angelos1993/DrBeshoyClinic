@@ -13,6 +13,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Diagnosis">
     <Key>
@@ -20,6 +22,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="DrugHx">
     <Key>
@@ -48,22 +52,6 @@
     <Property Name="ExaminationId" Type="int" Nullable="false" />
     <Property Name="ChronicDiseaseId" Type="int" Nullable="false" />
     <Property Name="Notes" Type="nvarchar(max)" />
-  </EntityType>
-  <EntityType Name="ExaminationComplaints">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ExaminationId" Type="int" Nullable="false" />
-    <Property Name="ComplaintId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ExaminationDiagnosis">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ExaminationId" Type="int" Nullable="false" />
-    <Property Name="DiagnosisId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Examinations">
     <Key>
@@ -211,6 +199,30 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Complaints_Patients">
+    <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+    <End Role="Complaints" Type="Self.Complaints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Complaints">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diagnosis_Patients">
+    <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+    <End Role="Diagnosis" Type="Self.Diagnosis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Diagnosis">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_DrugHx_Patients">
     <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
     <End Role="DrugHx" Type="Self.DrugHx" Multiplicity="*" />
@@ -410,8 +422,6 @@
     <EntitySet Name="DrugHx" EntityType="Self.DrugHx" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmgNcv" EntityType="Self.EmgNcv" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ExaminationChronicDisease" EntityType="Self.ExaminationChronicDisease" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ExaminationComplaints" EntityType="Self.ExaminationComplaints" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ExaminationDiagnosis" EntityType="Self.ExaminationDiagnosis" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Examinations" EntityType="Self.Examinations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FamilyHx" EntityType="Self.FamilyHx" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LabTests" EntityType="Self.LabTests" Schema="dbo" store:Type="Tables" />
@@ -426,6 +436,14 @@
     <EntitySet Name="TreatmentDescriptions" EntityType="Self.TreatmentDescriptions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TreatmentPeriods" EntityType="Self.TreatmentPeriods" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Treatments" EntityType="Self.Treatments" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Complaints_Patients" Association="Self.FK_Complaints_Patients">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="Complaints" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diagnosis_Patients" Association="Self.FK_Diagnosis_Patients">
+      <End Role="Patients" EntitySet="Patients" />
+      <End Role="Diagnosis" EntitySet="Diagnosis" />
+    </AssociationSet>
     <AssociationSet Name="FK_DrugHx_Patients" Association="Self.FK_DrugHx_Patients">
       <End Role="Patients" EntitySet="Patients" />
       <End Role="DrugHx" EntitySet="DrugHx" />
