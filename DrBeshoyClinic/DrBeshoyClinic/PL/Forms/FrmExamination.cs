@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using DrBeshoyClinic.BLL;
@@ -33,6 +34,8 @@ namespace DrBeshoyClinic.PL.Forms
 
         private ExaminationManager ExaminationManager
             => _examinationManager ?? (_examinationManager = new ExaminationManager());
+
+        private List<Examination> AllPatientExaminations { get; set; }
 
         public ExaminationFormMode Mode { get; set; }
         public Patient Patient { get; set; }
@@ -146,7 +149,7 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void btnExamination_Click(object sender, EventArgs e)
         {
-            new FrmLightExamination {Owner = this}.ShowDialog();
+            new FrmLightExamination {Owner = this, AllPatientExaminations = AllPatientExaminations}.ShowDialog();
             //todo: bind written to this form from the child one
         }
 
@@ -321,11 +324,11 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void LoadAllExaminationsForPatient(string patientId)
         {
-            var allPatientExaminations = ExaminationManager.GetAllExaminationsForPatient(patientId).ToList();
-            lstExaminations.DataSource = allPatientExaminations.OrderByDescending(examination => examination.Date)
+            AllPatientExaminations = ExaminationManager.GetAllExaminationsForPatient(patientId).ToList();
+            lstExaminations.DataSource = AllPatientExaminations.OrderByDescending(examination => examination.Date)
                 .Select(examination => new ListBoxVm {Date = examination.Date}).ToList();
             lstExaminations.DisplayMember = ListBoxDisplayMember;
-            Examination = allPatientExaminations.OrderByDescending(examination => examination.Date).FirstOrDefault();
+            Examination = AllPatientExaminations.OrderByDescending(examination => examination.Date).FirstOrDefault();
         }
 
         private void AddNewPatient()

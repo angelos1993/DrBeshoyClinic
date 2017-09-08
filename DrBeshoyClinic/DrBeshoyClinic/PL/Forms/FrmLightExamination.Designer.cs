@@ -58,6 +58,7 @@
             this.txtExamination.Size = new System.Drawing.Size(333, 124);
             this.txtExamination.TabIndex = 32;
             this.txtExamination.WatermarkText = "Examination ...";
+            this.txtExamination.TextChanged += new System.EventHandler(this.txtExamination_TextChanged);
             // 
             // btnCancel
             // 
@@ -99,6 +100,7 @@
             this.DoubleBuffered = true;
             this.Name = "FrmLightExamination";
             this.Text = "Examination";
+            this.Load += new System.EventHandler(this.FrmLightExamination_Load);
             this.ResumeLayout(false);
 
         }
