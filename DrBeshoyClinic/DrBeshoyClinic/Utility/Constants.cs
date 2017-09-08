@@ -29,5 +29,11 @@
         public static int ImageHeight = 100;
 
         #endregion
+
+        #region Report
+
+        public static string ReportParameterEmptyValue = "...";
+
+        #endregion
     }
 }

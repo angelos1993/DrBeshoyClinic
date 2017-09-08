@@ -79,7 +79,14 @@ namespace DrBeshoyClinic.PL.Forms
         {
             Cursor = Cursors.WaitCursor;
             SaveMedicineDetails();
-            new FrmRoshetta {Medicine = CurrentMedicine}.ShowDialog();
+            new FrmRoshetta { RoshettaVm = new RoshettaVm
+            {
+                PatientName = Patient.Name,
+                PatientBirthDate = Patient.BirthDate,
+                //TODO: set Diagnosis value -_-
+                //Diagnosis = !!
+                Medicine = CurrentMedicine
+            }}.ShowDialog();
             Cursor = Cursors.Default;
         }
 

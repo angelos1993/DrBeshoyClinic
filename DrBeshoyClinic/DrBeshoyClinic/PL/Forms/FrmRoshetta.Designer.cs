@@ -30,10 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.repVwRoshetta = new Microsoft.Reporting.WinForms.ReportViewer();
             this.roshettaMedicineVmBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.repVwRoshetta = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.roshettaMedicineVmBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // roshettaMedicineVmBindingSource
+            // 
+            this.roshettaMedicineVmBindingSource.DataSource = typeof(DrBeshoyClinic.DAL.VMs.RoshettaMedicineVm);
             // 
             // repVwRoshetta
             // 
@@ -45,18 +49,14 @@
             this.repVwRoshetta.Location = new System.Drawing.Point(0, 0);
             this.repVwRoshetta.Name = "repVwRoshetta";
             this.repVwRoshetta.ServerReport.BearerToken = null;
-            this.repVwRoshetta.Size = new System.Drawing.Size(426, 402);
+            this.repVwRoshetta.Size = new System.Drawing.Size(684, 741);
             this.repVwRoshetta.TabIndex = 3;
-            // 
-            // roshettaMedicineVmBindingSource
-            // 
-            this.roshettaMedicineVmBindingSource.DataSource = typeof(DrBeshoyClinic.DAL.VMs.RoshettaMedicineVm);
             // 
             // FrmRoshetta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 402);
+            this.ClientSize = new System.Drawing.Size(684, 741);
             this.Controls.Add(this.repVwRoshetta);
             this.DoubleBuffered = true;
             this.Name = "FrmRoshetta";

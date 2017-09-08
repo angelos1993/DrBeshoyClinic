@@ -53,6 +53,7 @@ namespace DrBeshoyClinic.BLL
                 {
                     PatientName = examination.Patient.Name,
                     ExaminationType = examination.ExaminationType ? "كشف" : "إعادة"
+                    //TODO: need to include Diagnosis in each item -_-
                 }).ToList();
         }
 

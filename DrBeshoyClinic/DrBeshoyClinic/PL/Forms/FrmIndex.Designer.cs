@@ -49,7 +49,7 @@
             // 
             this.btnExamination.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnExamination.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnExamination.Location = new System.Drawing.Point(553, 301);
+            this.btnExamination.Location = new System.Drawing.Point(295, 344);
             this.btnExamination.Name = "btnExamination";
             this.btnExamination.Size = new System.Drawing.Size(209, 59);
             this.btnExamination.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -61,7 +61,7 @@
             // 
             this.btnDailyReport.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDailyReport.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnDailyReport.Location = new System.Drawing.Point(768, 301);
+            this.btnDailyReport.Location = new System.Drawing.Point(295, 409);
             this.btnDailyReport.Name = "btnDailyReport";
             this.btnDailyReport.Size = new System.Drawing.Size(209, 59);
             this.btnDailyReport.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;

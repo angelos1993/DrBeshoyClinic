@@ -202,6 +202,7 @@
     <Compile Include="DAL\VMs\MedicineVm.cs" />
     <Compile Include="DAL\VMs\RadiologyVm.cs" />
     <Compile Include="DAL\VMs\RoshettaMedicineVm.cs" />
+    <Compile Include="DAL\VMs\RoshettaVm.cs" />
     <Compile Include="PL\Forms\FrmAddNewChronicDisease.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -467,6 +468,7 @@
     <Content Include="Resources\FamilyHx.png" />
     <Content Include="Resources\Operation.png" />
     <None Include="Resources\Print.png" />
+    <None Include="Resources\Roshetta.jpg" />
     <Content Include="Resources\SurgicalHx.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

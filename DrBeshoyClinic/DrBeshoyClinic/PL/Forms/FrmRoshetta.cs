@@ -1,6 +1,8 @@
-﻿using System.Linq;
-using DrBeshoyClinic.DAL.Model;
+﻿using System.Collections.Generic;
+using System.Linq;
 using DrBeshoyClinic.DAL.VMs;
+using Microsoft.Reporting.WinForms;
+using static DrBeshoyClinic.Utility.Constants;
 
 namespace DrBeshoyClinic.PL.Forms
 {
@@ -17,7 +19,7 @@ namespace DrBeshoyClinic.PL.Forms
 
         #region Properties
 
-        public Medicine Medicine { get; set; }
+        public RoshettaVm RoshettaVm { get; set; }
 
         #endregion
 
@@ -34,14 +36,22 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void LoadRoshetta()
         {
-            //TODO: need to be tested well
-            roshettaMedicineVmBindingSource.DataSource = Medicine.MedicineDetails
+            //repVwDailyReport.LocalReport.SetParameters(new ReportParameter("Date", dateTime.ToShortDateString()));
+            repVwRoshetta.LocalReport.SetParameters(new List<ReportParameter>
+            {
+                new ReportParameter("PatientName", RoshettaVm.PatientName),
+                new ReportParameter("PatientAge", RoshettaVm.PatientAge),
+                new ReportParameter("Date", RoshettaVm.DateString),
+                new ReportParameter("Diagnosis", RoshettaVm.Diagnosis ?? ReportParameterEmptyValue)
+            });
+            roshettaMedicineVmBindingSource.DataSource = RoshettaVm.Medicine.MedicineDetails
                 .Select(medicineDetail => new RoshettaMedicineVm
                 {
                     TreatmentName = medicineDetail.Treatment.Name,
-                    TreatmentPeriod = medicineDetail.TreatmentPeriod.Description,
-                    TreatmentDescription = medicineDetail.TreatmentDescription.Description
+                    TreatmentPeriod = $"\n{medicineDetail.TreatmentPeriod.Description}",
+                    TreatmentDescription = $"\n{medicineDetail.TreatmentDescription.Description}"
                 }).ToList();
+            repVwRoshetta.RefreshReport();
         }
 
         #endregion
