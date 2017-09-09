@@ -1,4 +1,6 @@
-﻿using DrBeshoyClinic.BLL.Infrastructure;
+﻿using System.Linq;
+using DrBeshoyClinic.BLL.Infrastructure;
+using DrBeshoyClinic.DAL.Model;
 
 namespace DrBeshoyClinic.BLL
 {
@@ -9,6 +11,16 @@ namespace DrBeshoyClinic.BLL
         #endregion
 
         #region Methods
+
+        public IQueryable<Operation> GetAllOperationsForPatient(string patientId)
+        {
+            return UnitOfWork.OperationRepository.Get(operation => operation.PatientId == patientId);
+        }
+
+        public void AddOperation(Operation operation)
+        {
+            UnitOfWork.OperationRepository.Add(operation);
+        }
 
         #endregion
     }

@@ -123,7 +123,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PatientId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="OperativeDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="FuturePlan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Approach" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
@@ -141,9 +141,9 @@
     <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IsCultureAndSensitivity" Type="Boolean" Nullable="false" />
     <Property Name="IsBiopsy" Type="Boolean" Nullable="false" />
-    <Property Name="Start" Type="Time" Nullable="false" Precision="7" />
-    <Property Name="End" Type="Time" Nullable="false" Precision="7" />
-    <Property Name="Pressure" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Start" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="End" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Pressure" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
     <NavigationProperty Name="Patient" Relationship="Self.FK_Operations_Patients" FromRole="Operations" ToRole="Patients" />
     <NavigationProperty Name="PostOperativeInstructions" Relationship="Self.FK_PostOperativeInstructions_Operations" FromRole="Operations" ToRole="PostOperativeInstructions" />
     <NavigationProperty Name="PostOperativeTreatments" Relationship="Self.FK_PostOperativeTreatment_Operations" FromRole="Operations" ToRole="PostOperativeTreatments" />

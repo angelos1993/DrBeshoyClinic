@@ -44,6 +44,9 @@ namespace DrBeshoyClinic.PL.Forms
         private TreatmentDescriptionManager TreatmentDescriptionManager
             => _treatmentDescriptionManager ?? (_treatmentDescriptionManager = new TreatmentDescriptionManager());
 
+        private DiagnosisManager _diagnosisManager;
+        private DiagnosisManager DiagnosisManager => _diagnosisManager ?? (_diagnosisManager = new DiagnosisManager());
+
         private FrmExamination OwnerForm => Owner as FrmExamination;
         private Patient Patient => OwnerForm.Patient;
         private Medicine CurrentMedicine { get; set; }
@@ -79,14 +82,18 @@ namespace DrBeshoyClinic.PL.Forms
         {
             Cursor = Cursors.WaitCursor;
             SaveMedicineDetails();
-            new FrmRoshetta { RoshettaVm = new RoshettaVm
+            var medicineDate = (lstMedicines.SelectedItem as ListBoxVm)?.Date ?? default(DateTime);
+            new FrmRoshetta
             {
-                PatientName = Patient.Name,
-                PatientBirthDate = Patient.BirthDate,
-                //TODO: set Diagnosis value -_-
-                //Diagnosis = !!
-                Medicine = CurrentMedicine
-            }}.ShowDialog();
+                RoshettaVm = new RoshettaVm
+                {
+                    PatientName = Patient.Name,
+                    PatientBirthDate = Patient.BirthDate,
+                    Diagnosis = DiagnosisManager.GetDiagnosisStringByPatientAndDate(Patient.Id, medicineDate),
+                    Date = medicineDate,
+                    MedicineDetails = GetMedicineDetailsFromGrid()
+                }
+            }.ShowDialog();
             Cursor = Cursors.Default;
         }
 
@@ -240,6 +247,17 @@ namespace DrBeshoyClinic.PL.Forms
             collection.AddRange(TreatmentDescriptionManager.GetAllTreatmentDescriptions()
                 .Select(treatmentDescription => treatmentDescription.Description).ToArray());
             SetAutoCompleteSourceForTextBox(txtTreatmentDescription, collection);
+        }
+
+        private List<RoshettaMedicineVm> GetMedicineDetailsFromGrid()
+        {
+            return (from DataGridViewRow row in dgvTreatments.Rows
+                select new RoshettaMedicineVm
+                {
+                    TreatmentName = row.Cells[0].Value.ToString(),
+                    TreatmentPeriod = row.Cells[1].Value.ToString(),
+                    TreatmentDescription = row.Cells[2].Value.ToString()
+                }).ToList();
         }
 
         #endregion

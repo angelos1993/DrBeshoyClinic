@@ -21,5 +21,7 @@
         TreatmentRepository TreatmentRepository { get; }
         DiagnosisRepository DiagnosisRepository { get; }
         ComplaintRepository ComplaintRepository { get; }
+        PostOperativeTreatmentRepository PostOperativeTreatmentRepository { get; }
+        PostOperativeInstructionRepository PostOperativeInstructionRepository { get; }
     }
 }

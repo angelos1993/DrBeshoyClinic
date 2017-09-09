@@ -136,7 +136,7 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void btnOperativeDetails_Click(object sender, EventArgs e)
         {
-            new FrmOperationDetails {Owner = this}.ShowDialog();
+            new FrmOperationDetails {Owner = this, Diagnosis = txtDiagnosis.Text.FullTrim()}.ShowDialog();
         }
 
         private void btnSurgicalHx_Click(object sender, EventArgs e)

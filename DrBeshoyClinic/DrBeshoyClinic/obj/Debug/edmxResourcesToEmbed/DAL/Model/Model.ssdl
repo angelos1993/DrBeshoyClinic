@@ -106,7 +106,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Date" Type="date" />
+    <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="OperativeDetails" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FuturePlan" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Approach" Type="nvarchar(max)" Nullable="false" />
@@ -124,9 +124,9 @@
     <Property Name="Notes" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IsCultureAndSensitivity" Type="bit" Nullable="false" />
     <Property Name="IsBiopsy" Type="bit" Nullable="false" />
-    <Property Name="Start" Type="time" Precision="7" Nullable="false" />
-    <Property Name="End" Type="time" Precision="7" Nullable="false" />
-    <Property Name="Pressure" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Start" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="End" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Pressure" Type="decimal" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="Patients">
     <Key>

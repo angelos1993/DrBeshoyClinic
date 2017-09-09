@@ -222,6 +222,8 @@
     <Compile Include="DAL\VMs\LabTestVm.cs" />
     <Compile Include="DAL\VMs\ListBoxVm.cs" />
     <Compile Include="DAL\VMs\MedicineVm.cs" />
+    <Compile Include="DAL\VMs\PostOperativeInstructionVm.cs" />
+    <Compile Include="DAL\VMs\PostOperativeTreatmentVm.cs" />
     <Compile Include="DAL\VMs\RadiologyVm.cs" />
     <Compile Include="DAL\VMs\RoshettaMedicineVm.cs" />
     <Compile Include="DAL\VMs\RoshettaVm.cs" />

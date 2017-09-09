@@ -23,7 +23,7 @@ namespace DrBeshoyClinic.DAL.Model
     
         public int Id { get; set; }
         public string PatientId { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
+        public System.DateTime Date { get; set; }
         public string OperativeDetails { get; set; }
         public string FuturePlan { get; set; }
         public string Approach { get; set; }
@@ -41,9 +41,9 @@ namespace DrBeshoyClinic.DAL.Model
         public string Notes { get; set; }
         public bool IsCultureAndSensitivity { get; set; }
         public bool IsBiopsy { get; set; }
-        public System.TimeSpan Start { get; set; }
-        public System.TimeSpan End { get; set; }
-        public System.TimeSpan Pressure { get; set; }
+        public decimal Start { get; set; }
+        public decimal End { get; set; }
+        public decimal Pressure { get; set; }
     
         public virtual Patient Patient { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

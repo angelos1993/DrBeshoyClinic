@@ -50,7 +50,7 @@
             this.txtImplantUsed = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtImplantCompany = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lstOperations = new System.Windows.Forms.ListBox();
-            this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.grpPnlAssistants = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.txtNotes = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtSurgeon = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtAssistant2 = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -65,9 +65,9 @@
             this.txtPostOperativeInstruction = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.btnAddPostOperativeInstruction = new DevComponents.DotNetBar.ButtonX();
             this.grpPnlTourniquet = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numStart = new System.Windows.Forms.NumericUpDown();
+            this.numEnd = new System.Windows.Forms.NumericUpDown();
+            this.numPressure = new System.Windows.Forms.NumericUpDown();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
@@ -79,15 +79,15 @@
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
             this.grpPnlPatientAndExaminationData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtPatientBirthdate)).BeginInit();
-            this.groupPanel1.SuspendLayout();
+            this.grpPnlAssistants.SuspendLayout();
             this.grpPnlPostOperativeTreatment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPostOperativeTreatments)).BeginInit();
             this.grpPnlPostOperativeInstructions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPostOperativeInstructions)).BeginInit();
             this.grpPnlTourniquet.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numStart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numEnd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPressure)).BeginInit();
             this.grpPnlSpecimen.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,6 +106,7 @@
             this.grpPnlPatientAndExaminationData.Controls.Add(this.txtPatientName);
             this.grpPnlPatientAndExaminationData.Controls.Add(this.txtPatientId);
             this.grpPnlPatientAndExaminationData.Controls.Add(this.txtDiagnosis);
+            this.grpPnlPatientAndExaminationData.Enabled = false;
             this.grpPnlPatientAndExaminationData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPnlPatientAndExaminationData.Location = new System.Drawing.Point(12, 12);
             this.grpPnlPatientAndExaminationData.Name = "grpPnlPatientAndExaminationData";
@@ -435,52 +436,53 @@
             this.lstOperations.Name = "lstOperations";
             this.lstOperations.Size = new System.Drawing.Size(124, 264);
             this.lstOperations.TabIndex = 36;
+            this.lstOperations.Click += new System.EventHandler(this.lstOperations_Click);
             this.lstOperations.SelectedIndexChanged += new System.EventHandler(this.lstOperations_SelectedIndexChanged);
             // 
-            // groupPanel1
+            // grpPnlAssistants
             // 
-            this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel1.Controls.Add(this.txtNotes);
-            this.groupPanel1.Controls.Add(this.txtSurgeon);
-            this.groupPanel1.Controls.Add(this.txtAssistant2);
-            this.groupPanel1.Controls.Add(this.txtAssistant1);
-            this.groupPanel1.Controls.Add(this.txtNurse);
-            this.groupPanel1.Location = new System.Drawing.Point(424, 394);
-            this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(630, 115);
-            // 
-            // 
-            // 
-            this.groupPanel1.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel1.Style.BackColorGradientAngle = 90;
-            this.groupPanel1.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel1.Style.BorderBottomWidth = 1;
-            this.groupPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel1.Style.BorderLeftWidth = 1;
-            this.groupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel1.Style.BorderRightWidth = 1;
-            this.groupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel1.Style.BorderTopWidth = 1;
-            this.groupPanel1.Style.Class = "";
-            this.groupPanel1.Style.CornerDiameter = 4;
-            this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.grpPnlAssistants.CanvasColor = System.Drawing.SystemColors.Control;
+            this.grpPnlAssistants.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.grpPnlAssistants.Controls.Add(this.txtNotes);
+            this.grpPnlAssistants.Controls.Add(this.txtSurgeon);
+            this.grpPnlAssistants.Controls.Add(this.txtAssistant2);
+            this.grpPnlAssistants.Controls.Add(this.txtAssistant1);
+            this.grpPnlAssistants.Controls.Add(this.txtNurse);
+            this.grpPnlAssistants.Location = new System.Drawing.Point(424, 394);
+            this.grpPnlAssistants.Name = "grpPnlAssistants";
+            this.grpPnlAssistants.Size = new System.Drawing.Size(630, 115);
             // 
             // 
             // 
-            this.groupPanel1.StyleMouseDown.Class = "";
-            this.groupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.grpPnlAssistants.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.grpPnlAssistants.Style.BackColorGradientAngle = 90;
+            this.grpPnlAssistants.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.grpPnlAssistants.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.grpPnlAssistants.Style.BorderBottomWidth = 1;
+            this.grpPnlAssistants.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.grpPnlAssistants.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.grpPnlAssistants.Style.BorderLeftWidth = 1;
+            this.grpPnlAssistants.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.grpPnlAssistants.Style.BorderRightWidth = 1;
+            this.grpPnlAssistants.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.grpPnlAssistants.Style.BorderTopWidth = 1;
+            this.grpPnlAssistants.Style.Class = "";
+            this.grpPnlAssistants.Style.CornerDiameter = 4;
+            this.grpPnlAssistants.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.grpPnlAssistants.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.grpPnlAssistants.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.grpPnlAssistants.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             // 
             // 
             // 
-            this.groupPanel1.StyleMouseOver.Class = "";
-            this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel1.TabIndex = 37;
+            this.grpPnlAssistants.StyleMouseDown.Class = "";
+            this.grpPnlAssistants.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.grpPnlAssistants.StyleMouseOver.Class = "";
+            this.grpPnlAssistants.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.grpPnlAssistants.TabIndex = 37;
             // 
             // txtNotes
             // 
@@ -595,6 +597,7 @@
             // 
             // grdPostOperativeTreatments
             // 
+            this.grdPostOperativeTreatments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdPostOperativeTreatments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
@@ -607,6 +610,7 @@
             this.grdPostOperativeTreatments.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdPostOperativeTreatments.Location = new System.Drawing.Point(3, 38);
             this.grdPostOperativeTreatments.Name = "grdPostOperativeTreatments";
+            this.grdPostOperativeTreatments.ReadOnly = true;
             this.grdPostOperativeTreatments.Size = new System.Drawing.Size(306, 151);
             this.grdPostOperativeTreatments.TabIndex = 54;
             // 
@@ -682,6 +686,7 @@
             // 
             // grdPostOperativeInstructions
             // 
+            this.grdPostOperativeInstructions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdPostOperativeInstructions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -694,6 +699,7 @@
             this.grdPostOperativeInstructions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.grdPostOperativeInstructions.Location = new System.Drawing.Point(3, 38);
             this.grdPostOperativeInstructions.Name = "grdPostOperativeInstructions";
+            this.grdPostOperativeInstructions.ReadOnly = true;
             this.grdPostOperativeInstructions.Size = new System.Drawing.Size(306, 151);
             this.grdPostOperativeInstructions.TabIndex = 54;
             // 
@@ -727,9 +733,9 @@
             // 
             this.grpPnlTourniquet.CanvasColor = System.Drawing.SystemColors.Control;
             this.grpPnlTourniquet.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.grpPnlTourniquet.Controls.Add(this.numericUpDown3);
-            this.grpPnlTourniquet.Controls.Add(this.numericUpDown2);
-            this.grpPnlTourniquet.Controls.Add(this.numericUpDown1);
+            this.grpPnlTourniquet.Controls.Add(this.numStart);
+            this.grpPnlTourniquet.Controls.Add(this.numEnd);
+            this.grpPnlTourniquet.Controls.Add(this.numPressure);
             this.grpPnlTourniquet.Controls.Add(this.labelX3);
             this.grpPnlTourniquet.Controls.Add(this.labelX2);
             this.grpPnlTourniquet.Controls.Add(this.labelX1);
@@ -770,26 +776,26 @@
             this.grpPnlTourniquet.TabIndex = 56;
             this.grpPnlTourniquet.Text = "Tourniquet";
             // 
-            // numericUpDown3
+            // numStart
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(88, 12);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(95, 26);
-            this.numericUpDown3.TabIndex = 47;
+            this.numStart.Location = new System.Drawing.Point(88, 12);
+            this.numStart.Name = "numStart";
+            this.numStart.Size = new System.Drawing.Size(95, 26);
+            this.numStart.TabIndex = 47;
             // 
-            // numericUpDown2
+            // numEnd
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(88, 41);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(95, 26);
-            this.numericUpDown2.TabIndex = 46;
+            this.numEnd.Location = new System.Drawing.Point(88, 41);
+            this.numEnd.Name = "numEnd";
+            this.numEnd.Size = new System.Drawing.Size(95, 26);
+            this.numEnd.TabIndex = 46;
             // 
-            // numericUpDown1
+            // numPressure
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(88, 70);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(95, 26);
-            this.numericUpDown1.TabIndex = 42;
+            this.numPressure.Location = new System.Drawing.Point(88, 70);
+            this.numPressure.Name = "numPressure";
+            this.numPressure.Size = new System.Drawing.Size(95, 26);
+            this.numPressure.TabIndex = 42;
             // 
             // labelX3
             // 
@@ -952,7 +958,7 @@
             this.Controls.Add(this.grpPnlTourniquet);
             this.Controls.Add(this.grpPnlPostOperativeInstructions);
             this.Controls.Add(this.grpPnlPostOperativeTreatment);
-            this.Controls.Add(this.groupPanel1);
+            this.Controls.Add(this.grpPnlAssistants);
             this.Controls.Add(this.lstOperations);
             this.Controls.Add(this.txtImplantCompany);
             this.Controls.Add(this.txtImplantUsed);
@@ -971,15 +977,15 @@
             this.Load += new System.EventHandler(this.FrmOperationDetails_Load);
             this.grpPnlPatientAndExaminationData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtPatientBirthdate)).EndInit();
-            this.groupPanel1.ResumeLayout(false);
+            this.grpPnlAssistants.ResumeLayout(false);
             this.grpPnlPostOperativeTreatment.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdPostOperativeTreatments)).EndInit();
             this.grpPnlPostOperativeInstructions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdPostOperativeInstructions)).EndInit();
             this.grpPnlTourniquet.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numStart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numEnd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPressure)).EndInit();
             this.grpPnlSpecimen.ResumeLayout(false);
             this.grpPnlSpecimen.PerformLayout();
             this.ResumeLayout(false);
@@ -1008,7 +1014,7 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtImplantUsed;
         private DevComponents.DotNetBar.Controls.TextBoxX txtImplantCompany;
         private System.Windows.Forms.ListBox lstOperations;
-        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
+        private DevComponents.DotNetBar.Controls.GroupPanel grpPnlAssistants;
         private DevComponents.DotNetBar.Controls.TextBoxX txtNotes;
         private DevComponents.DotNetBar.Controls.TextBoxX txtSurgeon;
         private DevComponents.DotNetBar.Controls.TextBoxX txtAssistant2;
@@ -1023,9 +1029,9 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtPostOperativeInstruction;
         private DevComponents.DotNetBar.ButtonX btnAddPostOperativeInstruction;
         private DevComponents.DotNetBar.Controls.GroupPanel grpPnlTourniquet;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numStart;
+        private System.Windows.Forms.NumericUpDown numEnd;
+        private System.Windows.Forms.NumericUpDown numPressure;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.LabelX labelX1;

@@ -1,4 +1,6 @@
-﻿using DrBeshoyClinic.BLL.Infrastructure;
+﻿using System.Collections.Generic;
+using DrBeshoyClinic.BLL.Infrastructure;
+using DrBeshoyClinic.DAL.Model;
 
 namespace DrBeshoyClinic.BLL
 {
@@ -9,6 +11,15 @@ namespace DrBeshoyClinic.BLL
         #endregion
 
         #region Methods
+
+        public void AddListOfPostOperativeTreatments(int operationId, List<PostOperativeTreatment> postOperativeTreatments)
+        {
+            postOperativeTreatments.ForEach(postOperativeTreatment =>
+            {
+                postOperativeTreatment.OperationId = operationId;
+                UnitOfWork.PostOperativeTreatmentRepository.Add(postOperativeTreatment);
+            });
+        }
 
         #endregion
     }

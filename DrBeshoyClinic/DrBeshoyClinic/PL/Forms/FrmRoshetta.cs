@@ -36,7 +36,6 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void LoadRoshetta()
         {
-            //repVwDailyReport.LocalReport.SetParameters(new ReportParameter("Date", dateTime.ToShortDateString()));
             repVwRoshetta.LocalReport.SetParameters(new List<ReportParameter>
             {
                 new ReportParameter("PatientName", RoshettaVm.PatientName),
@@ -44,12 +43,12 @@ namespace DrBeshoyClinic.PL.Forms
                 new ReportParameter("Date", RoshettaVm.DateString),
                 new ReportParameter("Diagnosis", RoshettaVm.Diagnosis ?? ReportParameterEmptyValue)
             });
-            roshettaMedicineVmBindingSource.DataSource = RoshettaVm.Medicine.MedicineDetails
-                .Select(medicineDetail => new RoshettaMedicineVm
+            roshettaMedicineVmBindingSource.DataSource = RoshettaVm.MedicineDetails
+                .Select(roshettaMedicineVm => new RoshettaMedicineVm
                 {
-                    TreatmentName = medicineDetail.Treatment.Name,
-                    TreatmentPeriod = $"\n{medicineDetail.TreatmentPeriod.Description}",
-                    TreatmentDescription = $"\n{medicineDetail.TreatmentDescription.Description}"
+                    TreatmentName = roshettaMedicineVm.TreatmentName,
+                    TreatmentPeriod = $"\n{roshettaMedicineVm.TreatmentPeriod}",
+                    TreatmentDescription = $"\n{roshettaMedicineVm.TreatmentDescription}"
                 }).ToList();
             repVwRoshetta.RefreshReport();
         }

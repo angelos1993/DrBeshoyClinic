@@ -23,6 +23,8 @@
         private TreatmentRepository _treatmentRepository;
         private DiagnosisRepository _diagnosisRepository;
         private ComplaintRepository _complaintRepository;
+        private PostOperativeTreatmentRepository _postOperativeTreatmentRepository;
+        private PostOperativeInstructionRepository _postOperativeInstructionRepository;
 
         #endregion
 
@@ -82,6 +84,14 @@
 
         public ComplaintRepository ComplaintRepository
             => _complaintRepository ?? (_complaintRepository = new ComplaintRepository());
+
+        public PostOperativeTreatmentRepository PostOperativeTreatmentRepository
+            => _postOperativeTreatmentRepository ?? (_postOperativeTreatmentRepository =
+                   new PostOperativeTreatmentRepository());
+
+        public PostOperativeInstructionRepository PostOperativeInstructionRepository
+            => _postOperativeInstructionRepository ?? (_postOperativeInstructionRepository =
+                   new PostOperativeInstructionRepository());
 
         #endregion
     }

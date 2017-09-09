@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using DrBeshoyClinic.DAL.Model;
+using DrBeshoyClinic.Utility;
 using static DrBeshoyClinic.Utility.Constants;
 
 namespace DrBeshoyClinic.DAL.VMs
@@ -8,9 +10,17 @@ namespace DrBeshoyClinic.DAL.VMs
     {
         public string PatientName { get; set; }
         public DateTime? PatientBirthDate { get; set; }
-        public string Diagnosis { get; set; }
-        public Medicine Medicine { get; set; }
-        public string DateString => Medicine.Date.ToShortDateString();
+        private string _diagnosis;
+
+        public string Diagnosis
+        {
+            get => !_diagnosis.IsNullOrEmptyOrWhiteSpace() ? _diagnosis : ReportParameterEmptyValue;
+            set => _diagnosis = value;
+        }
+
+        public DateTime Date { get; set; }
+        public List<RoshettaMedicineVm> MedicineDetails { get; set; }
+        public string DateString => Date.ToShortDateString();
 
         public string PatientAge
         {
@@ -18,8 +28,8 @@ namespace DrBeshoyClinic.DAL.VMs
             {
                 if (!PatientBirthDate.HasValue)
                     return ReportParameterEmptyValue;
-                var age = Medicine.Date.Year - PatientBirthDate.Value.Year;
-                if (PatientBirthDate > Medicine.Date.AddYears(-age))
+                var age = Date.Year - PatientBirthDate.Value.Year;
+                if (PatientBirthDate > Date.AddYears(-age))
                     age--;
                 return age.ToString();
             }
