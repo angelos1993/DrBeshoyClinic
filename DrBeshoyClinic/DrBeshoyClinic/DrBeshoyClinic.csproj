@@ -104,6 +104,8 @@
     <Compile Include="BLL\OperationManager.cs" />
     <Compile Include="BLL\PatientManager.cs" />
     <Compile Include="BLL\PhotoManager.cs" />
+    <Compile Include="BLL\PostOperativeInstructionManager.cs" />
+    <Compile Include="BLL\PostOperativeTreatmentManager.cs" />
     <Compile Include="BLL\RadiologyManager.cs" />
     <Compile Include="BLL\SurgicalHxManager.cs" />
     <Compile Include="BLL\TreatmentDescriptionManager.cs" />
@@ -207,6 +209,8 @@
     <Compile Include="DAL\Repositories\OperationRepository.cs" />
     <Compile Include="DAL\Repositories\PatientRepository.cs" />
     <Compile Include="DAL\Repositories\PhotoRepository.cs" />
+    <Compile Include="DAL\Repositories\PostOperativeInstructionRepository.cs" />
+    <Compile Include="DAL\Repositories\PostOperativeTreatmentRepository.cs" />
     <Compile Include="DAL\Repositories\RadiologyRepository.cs" />
     <Compile Include="DAL\Repositories\SurgicalHxRepository.cs" />
     <Compile Include="DAL\Repositories\TreatmentDescriptionRepository.cs" />
