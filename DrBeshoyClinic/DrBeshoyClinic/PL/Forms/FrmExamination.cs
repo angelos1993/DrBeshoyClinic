@@ -318,6 +318,7 @@ namespace DrBeshoyClinic.PL.Forms
             txtFamilyHx.Clear();
             if (lstExaminations.DataSource != null)
                 lstExaminations.SelectedIndex = 0;
+            lstExaminations.DataSource = null;
         }
 
         private void StartExamination(Patient patient)
@@ -419,6 +420,8 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void LoadExaminationFromForm(Examination examination)
         {
+            if (examination == null)
+                return;
             examination.ExaminationOfExamination = txtExamination.Text.FullTrim();
             examination.Date = Today;
             examination.ExaminationType = swVisitType.Value;
@@ -467,6 +470,8 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void SaveCurrentExamination()
         {
+            if (Mode == ExaminationFormMode.Normal)
+                return;
             LoadExaminationFromForm(Examination);
             ExaminationManager.UpdateExamination(Examination);
         }
