@@ -39,6 +39,8 @@ namespace DrBeshoyClinic.DAL.Model
         public virtual DbSet<Operation> Operations { get; set; }
         public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<Photo> Photos { get; set; }
+        public virtual DbSet<PostOperativeInstruction> PostOperativeInstructions { get; set; }
+        public virtual DbSet<PostOperativeTreatment> PostOperativeTreatments { get; set; }
         public virtual DbSet<Radiology> Radiologies { get; set; }
         public virtual DbSet<SurgicalHx> SurgicalHxes { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }

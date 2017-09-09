@@ -149,6 +149,22 @@
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="PostOperativeInstructions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="OperationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PostOperativeTreatments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="OperationId" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Radiologies">
     <Key>
       <PropertyRef Name="Id" />
@@ -391,6 +407,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PostOperativeInstructions_Operations">
+    <End Role="Operations" Type="Self.Operations" Multiplicity="1" />
+    <End Role="PostOperativeInstructions" Type="Self.PostOperativeInstructions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PostOperativeInstructions">
+        <PropertyRef Name="OperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PostOperativeTreatment_Operations">
+    <End Role="Operations" Type="Self.Operations" Multiplicity="1" />
+    <End Role="PostOperativeTreatments" Type="Self.PostOperativeTreatments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PostOperativeTreatments">
+        <PropertyRef Name="OperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Radiologies_Patients">
     <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
     <End Role="Radiologies" Type="Self.Radiologies" Multiplicity="*" />
@@ -430,6 +470,8 @@
     <EntitySet Name="Operations" EntityType="Self.Operations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PostOperativeInstructions" EntityType="Self.PostOperativeInstructions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PostOperativeTreatments" EntityType="Self.PostOperativeTreatments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Radiologies" EntityType="Self.Radiologies" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SurgicalHx" EntityType="Self.SurgicalHx" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -499,6 +541,14 @@
     <AssociationSet Name="FK_Photos_Patients" Association="Self.FK_Photos_Patients">
       <End Role="Patients" EntitySet="Patients" />
       <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PostOperativeInstructions_Operations" Association="Self.FK_PostOperativeInstructions_Operations">
+      <End Role="Operations" EntitySet="Operations" />
+      <End Role="PostOperativeInstructions" EntitySet="PostOperativeInstructions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PostOperativeTreatment_Operations" Association="Self.FK_PostOperativeTreatment_Operations">
+      <End Role="Operations" EntitySet="Operations" />
+      <End Role="PostOperativeTreatments" EntitySet="PostOperativeTreatments" />
     </AssociationSet>
     <AssociationSet Name="FK_Radiologies_Patients" Association="Self.FK_Radiologies_Patients">
       <End Role="Patients" EntitySet="Patients" />

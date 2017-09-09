@@ -166,6 +166,12 @@
     <Compile Include="DAL\Model\Photo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Model\PostOperativeInstruction.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model\PostOperativeTreatment.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Model\Radiology.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

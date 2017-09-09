@@ -154,6 +154,22 @@
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="PostOperativeInstructions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="OperationId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostOperativeTreatments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="OperationId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Radiologies">
           <Key>
             <PropertyRef Name="Id" />
@@ -396,6 +412,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PostOperativeInstructions_Operations">
+          <End Role="Operations" Type="Self.Operations" Multiplicity="1" />
+          <End Role="PostOperativeInstructions" Type="Self.PostOperativeInstructions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PostOperativeInstructions">
+              <PropertyRef Name="OperationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostOperativeTreatment_Operations">
+          <End Role="Operations" Type="Self.Operations" Multiplicity="1" />
+          <End Role="PostOperativeTreatments" Type="Self.PostOperativeTreatments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PostOperativeTreatments">
+              <PropertyRef Name="OperationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Radiologies_Patients">
           <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
           <End Role="Radiologies" Type="Self.Radiologies" Multiplicity="*" />
@@ -435,6 +475,8 @@
           <EntitySet Name="Operations" EntityType="Self.Operations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostOperativeInstructions" EntityType="Self.PostOperativeInstructions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostOperativeTreatments" EntityType="Self.PostOperativeTreatments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Radiologies" EntityType="Self.Radiologies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SurgicalHx" EntityType="Self.SurgicalHx" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -504,6 +546,14 @@
           <AssociationSet Name="FK_Photos_Patients" Association="Self.FK_Photos_Patients">
             <End Role="Patients" EntitySet="Patients" />
             <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostOperativeInstructions_Operations" Association="Self.FK_PostOperativeInstructions_Operations">
+            <End Role="Operations" EntitySet="Operations" />
+            <End Role="PostOperativeInstructions" EntitySet="PostOperativeInstructions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostOperativeTreatment_Operations" Association="Self.FK_PostOperativeTreatment_Operations">
+            <End Role="Operations" EntitySet="Operations" />
+            <End Role="PostOperativeTreatments" EntitySet="PostOperativeTreatments" />
           </AssociationSet>
           <AssociationSet Name="FK_Radiologies_Patients" Association="Self.FK_Radiologies_Patients">
             <End Role="Patients" EntitySet="Patients" />
@@ -664,6 +714,8 @@
           <Property Name="End" Type="Time" Nullable="false" Precision="7" />
           <Property Name="Pressure" Type="Time" Nullable="false" Precision="7" />
           <NavigationProperty Name="Patient" Relationship="Self.FK_Operations_Patients" FromRole="Operations" ToRole="Patients" />
+          <NavigationProperty Name="PostOperativeInstructions" Relationship="Self.FK_PostOperativeInstructions_Operations" FromRole="Operations" ToRole="PostOperativeInstructions" />
+          <NavigationProperty Name="PostOperativeTreatments" Relationship="Self.FK_PostOperativeTreatment_Operations" FromRole="Operations" ToRole="PostOperativeTreatments" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
@@ -698,6 +750,24 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="PatientId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Patient" Relationship="Self.FK_Photos_Patients" FromRole="Photos" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="PostOperativeInstruction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OperationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Operation" Relationship="Self.FK_PostOperativeInstructions_Operations" FromRole="PostOperativeInstructions" ToRole="Operations" />
+        </EntityType>
+        <EntityType Name="PostOperativeTreatment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OperationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Operation" Relationship="Self.FK_PostOperativeTreatment_Operations" FromRole="PostOperativeTreatments" ToRole="Operations" />
         </EntityType>
         <EntityType Name="Radiology">
           <Key>
@@ -934,6 +1004,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PostOperativeInstructions_Operations">
+          <End Role="Operations" Type="Self.Operation" Multiplicity="1" />
+          <End Role="PostOperativeInstructions" Type="Self.PostOperativeInstruction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PostOperativeInstructions">
+              <PropertyRef Name="OperationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostOperativeTreatment_Operations">
+          <End Role="Operations" Type="Self.Operation" Multiplicity="1" />
+          <End Role="PostOperativeTreatments" Type="Self.PostOperativeTreatment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PostOperativeTreatments">
+              <PropertyRef Name="OperationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Photos_Patients">
           <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
           <End Role="Photos" Type="Self.Photo" Multiplicity="*" />
@@ -985,6 +1079,8 @@
           <EntitySet Name="Operations" EntityType="Self.Operation" />
           <EntitySet Name="Patients" EntityType="Self.Patient" />
           <EntitySet Name="Photos" EntityType="Self.Photo" />
+          <EntitySet Name="PostOperativeInstructions" EntityType="Self.PostOperativeInstruction" />
+          <EntitySet Name="PostOperativeTreatments" EntityType="Self.PostOperativeTreatment" />
           <EntitySet Name="Radiologies" EntityType="Self.Radiology" />
           <EntitySet Name="SurgicalHxes" EntityType="Self.SurgicalHx" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
@@ -1050,6 +1146,14 @@
           <AssociationSet Name="FK_Operations_Patients" Association="Self.FK_Operations_Patients">
             <End Role="Patients" EntitySet="Patients" />
             <End Role="Operations" EntitySet="Operations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostOperativeInstructions_Operations" Association="Self.FK_PostOperativeInstructions_Operations">
+            <End Role="Operations" EntitySet="Operations" />
+            <End Role="PostOperativeInstructions" EntitySet="PostOperativeInstructions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostOperativeTreatment_Operations" Association="Self.FK_PostOperativeTreatment_Operations">
+            <End Role="Operations" EntitySet="Operations" />
+            <End Role="PostOperativeTreatments" EntitySet="PostOperativeTreatments" />
           </AssociationSet>
           <AssociationSet Name="FK_Photos_Patients" Association="Self.FK_Photos_Patients">
             <End Role="Patients" EntitySet="Patients" />
@@ -1230,6 +1334,24 @@
                 <ScalarProperty Name="Photo1" ColumnName="Photo" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostOperativeInstructions">
+            <EntityTypeMapping TypeName="DrBeshoyClinicModel.PostOperativeInstruction">
+              <MappingFragment StoreEntitySet="PostOperativeInstructions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="OperationId" ColumnName="OperationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostOperativeTreatments">
+            <EntityTypeMapping TypeName="DrBeshoyClinicModel.PostOperativeTreatment">
+              <MappingFragment StoreEntitySet="PostOperativeTreatments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="OperationId" ColumnName="OperationId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

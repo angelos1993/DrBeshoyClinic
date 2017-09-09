@@ -14,6 +14,13 @@ namespace DrBeshoyClinic.DAL.Model
     
     public partial class Operation
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Operation()
+        {
+            this.PostOperativeInstructions = new HashSet<PostOperativeInstruction>();
+            this.PostOperativeTreatments = new HashSet<PostOperativeTreatment>();
+        }
+    
         public int Id { get; set; }
         public string PatientId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
@@ -39,5 +46,9 @@ namespace DrBeshoyClinic.DAL.Model
         public System.TimeSpan Pressure { get; set; }
     
         public virtual Patient Patient { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PostOperativeInstruction> PostOperativeInstructions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PostOperativeTreatment> PostOperativeTreatments { get; set; }
     }
 }

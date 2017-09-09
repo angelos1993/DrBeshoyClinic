@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using DrBeshoyClinic.BLL;
+using DrBeshoyClinic.DAL.Model;
 
 namespace DrBeshoyClinic.PL.Forms
 {
@@ -14,6 +17,14 @@ namespace DrBeshoyClinic.PL.Forms
         #endregion
 
         #region Properties
+
+        private OperationManager _operationManager;
+        private OperationManager OperationManager => _operationManager ?? (_operationManager = new OperationManager());
+        private FrmExamination OwnerForm => Owner as FrmExamination;
+        private Patient Patient => OwnerForm.Patient;
+        private List<Operation> AllPatientOperations { get; set; }
+        private Operation CurrentOperation { get; set; }
+        private static DateTime Today => DateTime.Now.Date;
 
         #endregion
 
@@ -53,6 +64,10 @@ namespace DrBeshoyClinic.PL.Forms
         {
 
         }
+
+        #endregion
+
+        #region Methods
 
         #endregion
     }

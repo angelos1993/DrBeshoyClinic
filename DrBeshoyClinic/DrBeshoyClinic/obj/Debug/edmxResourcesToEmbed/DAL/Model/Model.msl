@@ -164,6 +164,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PostOperativeInstructions">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.PostOperativeInstruction">
+        <MappingFragment StoreEntitySet="PostOperativeInstructions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OperationId" ColumnName="OperationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostOperativeTreatments">
+      <EntityTypeMapping TypeName="DrBeshoyClinicModel.PostOperativeTreatment">
+        <MappingFragment StoreEntitySet="PostOperativeTreatments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OperationId" ColumnName="OperationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Radiologies">
       <EntityTypeMapping TypeName="DrBeshoyClinicModel.Radiology">
         <MappingFragment StoreEntitySet="Radiologies">
