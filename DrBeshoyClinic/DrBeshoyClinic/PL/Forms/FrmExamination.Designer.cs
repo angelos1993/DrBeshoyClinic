@@ -548,7 +548,9 @@
             this.swVisitType.Location = new System.Drawing.Point(458, 8);
             this.swVisitType.Margin = new System.Windows.Forms.Padding(2);
             this.swVisitType.Name = "swVisitType";
+            this.swVisitType.OffText = "Revision";
             this.swVisitType.OnBackColor = System.Drawing.Color.Transparent;
+            this.swVisitType.OnText = "New Visit";
             this.swVisitType.Size = new System.Drawing.Size(125, 25);
             this.swVisitType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.swVisitType.TabIndex = 18;
