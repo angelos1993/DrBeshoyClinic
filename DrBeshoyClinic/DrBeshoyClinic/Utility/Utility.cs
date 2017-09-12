@@ -17,10 +17,10 @@ namespace DrBeshoyClinic.Utility
                     today.Date == new DateTime(year, month, day))
                 {
                     var lastNumber = int.Parse(lastPatientId.Substring(8));
-                    return $"{datePartOfLastPatientIdString}{lastNumber + 1}";
+                    return $"{datePartOfLastPatientIdString}{lastNumber + 1:00}";
                 }
             }
-            return $"{today.Year:0000}{today.Month:00}{today.Day:00}1";
+            return $"{today.Year:0000}{today.Month:00}{today.Day:00}01";
         }
 
         public static void SetAutoCompleteSourceForTextBox(TextBox textBox, AutoCompleteStringCollection collection)
