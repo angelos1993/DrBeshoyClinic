@@ -249,6 +249,8 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Content Include="Deployment Versions\3. Sep 14, 2017\D.Beshoy Clinic.exe" />
+    <Content Include="Deployment Versions\3. Sep 14, 2017\Script.iss" />
     <Content Include="Deployment Versions\3. Sep 14, 2017\Script.sql" />
     <Compile Include="PL\Forms\FrmAddNewChronicDisease.cs">
       <SubType>Form</SubType>
