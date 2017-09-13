@@ -195,9 +195,6 @@
     <Compile Include="DAL\Model\SurgicalHx.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\Model\sysdiagram.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\Model\Treatment.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -242,6 +239,17 @@
     <Compile Include="DAL\VMs\RadiologyVm.cs" />
     <Compile Include="DAL\VMs\RoshettaMedicineVm.cs" />
     <Compile Include="DAL\VMs\RoshettaVm.cs" />
+    <Content Include="DAL\Model\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\Model\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="Deployment Versions\3. Sep 14, 2017\Script.sql" />
     <Compile Include="PL\Forms\FrmAddNewChronicDisease.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -502,16 +510,6 @@
     <None Include="Resources\Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DAL\Model\Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DAL\Model\Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
-    </Content>
     <Content Include="Deployment Versions\1. Sep 9, 2017\D.Beshoy Clinic.exe" />
     <Content Include="Deployment Versions\1. Sep 9, 2017\DrBeshoyClinic DB Script.sql" />
     <Content Include="Deployment Versions\2. Sep 13, 2017\D.Beshoy Clinic.exe" />
@@ -545,5 +543,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using DrBeshoyClinic.BLL.Infrastructure;
 using DrBeshoyClinic.DAL.Model;
 
@@ -19,13 +20,14 @@ namespace DrBeshoyClinic.BLL
 
         public void AddNewPatient(Patient patient)
         {
+            patient.CreatedOn = DateTime.Now;
             UnitOfWork.PatientRepository.Add(patient);
         }
 
         public string GetLastPatientId()
         {
-            return UnitOfWork.PatientRepository.Get(patient => patient.Id.StartsWith("20"))
-                .OrderByDescending(patient => patient.Id).Select(patient => patient.Id).FirstOrDefault();
+            return UnitOfWork.PatientRepository.GetAll().OrderByDescending(patient => patient.CreatedOn)
+                .Select(patient => patient.Id).FirstOrDefault();
         }
 
         public Patient GetPatientById(string patientId)

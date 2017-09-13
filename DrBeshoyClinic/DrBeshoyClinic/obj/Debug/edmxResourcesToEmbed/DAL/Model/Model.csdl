@@ -156,9 +156,10 @@
     <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-    <Property Name="Job" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Job" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="BirthDate" Type="DateTime" Precision="0" />
     <Property Name="Gender" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Complaints" Relationship="Self.FK_Complaints_Patients" FromRole="Patients" ToRole="Complaints" />
     <NavigationProperty Name="Diagnosis" Relationship="Self.FK_Diagnosis_Patients" FromRole="Patients" ToRole="Diagnosis" />
     <NavigationProperty Name="DrugHxes" Relationship="Self.FK_DrugHx_Patients" FromRole="Patients" ToRole="DrugHx" />
@@ -221,22 +222,12 @@
     <Property Name="PatientId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Patient" Relationship="Self.FK_SurgicalHx_Patients" FromRole="SurgicalHx" ToRole="Patients" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="TreatmentDescription">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Description" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="MedicineDetails" Relationship="Self.FK_MedicineDetails_TreatmentDescriptions" FromRole="TreatmentDescriptions" ToRole="MedicineDetails" />
   </EntityType>
   <EntityType Name="TreatmentPeriod">
@@ -514,7 +505,6 @@
     <EntitySet Name="PostOperativeTreatments" EntityType="Self.PostOperativeTreatment" />
     <EntitySet Name="Radiologies" EntityType="Self.Radiology" />
     <EntitySet Name="SurgicalHxes" EntityType="Self.SurgicalHx" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="TreatmentDescriptions" EntityType="Self.TreatmentDescription" />
     <EntitySet Name="TreatmentPeriods" EntityType="Self.TreatmentPeriod" />
     <EntitySet Name="Treatments" EntityType="Self.Treatment" />

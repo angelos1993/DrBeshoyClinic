@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f52ffb83733649e391a5804fb9746bbb" Name="Diagram1">
+      <Diagram DiagramId="6c0c17ae965e4edb9fec14cd517a84d7" Name="Diagram1">
         <EntityTypeShape EntityType="DrBeshoyClinicModel.ChronicDiseas" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DrBeshoyClinicModel.Complaint" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DrBeshoyClinicModel.Diagnosi" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
@@ -23,7 +23,6 @@
         <EntityTypeShape EntityType="DrBeshoyClinicModel.PostOperativeTreatment" Width="1.5" PointX="5.25" PointY="29.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DrBeshoyClinicModel.Radiology" Width="1.5" PointX="3" PointY="35.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DrBeshoyClinicModel.SurgicalHx" Width="1.5" PointX="3" PointY="38.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DrBeshoyClinicModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DrBeshoyClinicModel.TreatmentDescription" Width="1.5" PointX="3" PointY="42" IsExpanded="true" />
         <EntityTypeShape EntityType="DrBeshoyClinicModel.TreatmentPeriod" Width="1.5" PointX="3" PointY="44.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DrBeshoyClinicModel.Treatment" Width="1.5" PointX="3" PointY="46.625" IsExpanded="true" />

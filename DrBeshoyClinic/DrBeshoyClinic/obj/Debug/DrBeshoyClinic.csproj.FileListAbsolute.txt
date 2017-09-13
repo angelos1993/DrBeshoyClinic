@@ -98,4 +98,3 @@ G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\bin\Debug\zh-CHT\Mic
 G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\bin\Debug\zh-HANS\Microsoft.ReportViewer.WinForms.resources.dll
 G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\bin\Debug\zh-HANT\Microsoft.ReportViewer.WinForms.resources.dll
 G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\obj\Debug\DrBeshoyClinic.PL.Forms.FrmRoshetta.resources
-G:\Angelos\DrBe4oyClinic\Repo\DrBeshoyClinic\DrBeshoyClinic\obj\Debug\DrBeshoyClinic.csprojResolveAssemblyReference.cache
