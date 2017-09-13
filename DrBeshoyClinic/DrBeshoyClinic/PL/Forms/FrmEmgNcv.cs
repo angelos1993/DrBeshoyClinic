@@ -70,10 +70,10 @@ namespace DrBeshoyClinic.PL.Forms
             switch ((sender as TextBoxX)?.Name)
             {
                 case "txtEmg":
-                    TodaysEmgNcv.Emg = txtEmg.Text;
+                    TodaysEmgNcv.Emg = txtEmg.Text.FullTrim();
                     break;
                 case "txtNcv":
-                    TodaysEmgNcv.Ncv = txtNcv.Text;
+                    TodaysEmgNcv.Ncv = txtNcv.Text.FullTrim();
                     break;
             }
         }

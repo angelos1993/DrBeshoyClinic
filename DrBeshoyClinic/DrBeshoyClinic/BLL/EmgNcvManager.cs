@@ -2,6 +2,7 @@
 using System.Linq;
 using DrBeshoyClinic.BLL.Infrastructure;
 using DrBeshoyClinic.DAL.Model;
+using DrBeshoyClinic.Utility;
 
 namespace DrBeshoyClinic.BLL
 {
@@ -15,6 +16,10 @@ namespace DrBeshoyClinic.BLL
 
         public void AddOrUpdateEmgNcv(EmgNcv emgNcv)
         {
+            if (emgNcv.Emg.IsNullOrEmptyOrWhiteSpace())
+                emgNcv.Emg = string.Empty;
+            if (emgNcv.Ncv.IsNullOrEmptyOrWhiteSpace())
+                emgNcv.Ncv = string.Empty;
             if (!IsExistEmgNcv(emgNcv.PatientId, emgNcv.Date))
                 UnitOfWork.EmgNcvRepository.Add(emgNcv);
             else
