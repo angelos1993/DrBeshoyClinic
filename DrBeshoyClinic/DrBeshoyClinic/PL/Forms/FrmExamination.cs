@@ -470,10 +470,17 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void SaveCurrentExamination()
         {
-            if (Mode == ExaminationFormMode.Normal)
-                return;
-            LoadExaminationFromForm(Examination);
-            ExaminationManager.UpdateExamination(Examination);
+            try
+            {
+                if (Mode == ExaminationFormMode.Normal)
+                    return;
+                LoadExaminationFromForm(Examination);
+                ExaminationManager.UpdateExamination(Examination);
+            }
+            catch
+            {
+                // ignored
+            }
         }
 
         private void SetAutoCompletionForTextBoxes()
