@@ -18,6 +18,11 @@ namespace DrBeshoyClinic.BLL
             return UnitOfWork.ChronicDiseaseRepository.GetAll();
         }
 
+        public IQueryable<ChronicDiseas> GetAllChronicDiseasesOrderedAlphabetically()
+        {
+            return GetAllChronicDiseases().OrderBy(chronicDiseas => chronicDiseas.Name);
+        }
+
         public void AddNewChronicDisease(ChronicDiseas chronicDiseas)
         {
             UnitOfWork.ChronicDiseaseRepository.Add(chronicDiseas);

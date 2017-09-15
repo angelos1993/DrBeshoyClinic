@@ -92,7 +92,7 @@ namespace DrBeshoyClinic.PL.Forms
 
         public void BindAllDiseasesToGrid()
         {
-            AllChronicDiseases = ChronicDiseaseManager.GetAllChronicDiseases().ToList();
+            AllChronicDiseases = ChronicDiseaseManager.GetAllChronicDiseasesOrderedAlphabetically().ToList();
             SelectedChronicDiseases = ExaminationChronicDiseaseManager
                 .GetChronicDiseasesForExamination(Examination.Id).ToList();
             dgvChronicDiseases.Rows.Clear();
