@@ -132,6 +132,7 @@ namespace DrBeshoyClinic.PL.Forms
         private void btnChronicDiseases_Click(object sender, EventArgs e)
         {
             new FrmChronicDiseases {Owner = this, Examination = Examination}.ShowDialog();
+            txtChronicDiseases.Text = ChronicDiseaseManager.GetChronicDiseasByPatientId(Examination.PatientId);
         }
 
         private void btnOperativeDetails_Click(object sender, EventArgs e)
@@ -373,7 +374,7 @@ namespace DrBeshoyClinic.PL.Forms
             txtExamination.Text = examination.ExaminationOfExamination;
             txtDiagnosis.Text =
                 DiagnosisManager.GetDiagnosisStringByPatientAndDate(examination.PatientId, examination.Date);
-            txtChronicDiseases.Text = ChronicDiseaseManager.GetChronicDiseasByExaminationId(examination.Id);
+            txtChronicDiseases.Text = ChronicDiseaseManager.GetChronicDiseasByPatientId(examination.PatientId);
             txtSurgicalHx.Text =
                 SurgicalHxManager.GetSurgicalHxsForPatientByDate(examination.PatientId, examination.Date);
             txtDrugHx.Text = DrugHxManager.GetDrugHxsForPatientByDate(examination.PatientId, examination.Date);
@@ -519,11 +520,6 @@ namespace DrBeshoyClinic.PL.Forms
         public void BindDiagnosis(string diagnosis)
         {
             txtDiagnosis.Text = diagnosis;
-        }
-
-        public void BindChronicDiseases(string chronicDiseases)
-        {
-            txtChronicDiseases.Text = chronicDiseases;
         }
 
         public void BindSurgicalHxes(string surgicalHxes)

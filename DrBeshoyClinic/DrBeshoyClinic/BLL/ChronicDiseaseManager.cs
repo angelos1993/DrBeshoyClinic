@@ -39,14 +39,17 @@ namespace DrBeshoyClinic.BLL
             UnitOfWork.ChronicDiseaseRepository.Delete(chronicDiseas);
         }
 
-        public string GetChronicDiseasByExaminationId(int examinationId)
+        public string GetChronicDiseasByPatientId(string patientId)
         {
+            var examinationIds = UnitOfWork.ExaminationRepository.Get(examination => examination.PatientId == patientId)
+                .Select(examination => examination.Id).ToList();
             var examinationChronicDiseasesIds = UnitOfWork.ExaminationChronicDiseaseRepository
-                .Get(examinationChronicDisease => examinationChronicDisease.ExaminationId == examinationId)
+                .Get(examinationChronicDisease => examinationIds.Contains(examinationChronicDisease.ExaminationId))
                 .Select(examinationChronicDisease => examinationChronicDisease.ChronicDiseaseId).ToList();
             return UnitOfWork.ChronicDiseaseRepository
                 .Get(chronicDisease => examinationChronicDiseasesIds.Contains(chronicDisease.Id))
-                .Select(chronicDisease => chronicDisease.Name).ToList().ToCommaSeperatedString();
+                .OrderBy(chronicDisease => chronicDisease.Name).Select(chronicDisease => chronicDisease.Name)
+                .ToList().ToCommaSeperatedString();
         }
 
         #endregion

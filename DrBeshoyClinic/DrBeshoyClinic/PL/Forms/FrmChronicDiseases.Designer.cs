@@ -153,7 +153,6 @@
             this.DoubleBuffered = true;
             this.Name = "FrmChronicDiseases";
             this.Text = "Chronic Diseases";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmChronicDiseases_FormClosing);
             this.Load += new System.EventHandler(this.FrmChronicDiseases_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChronicDiseases)).EndInit();
             this.ResumeLayout(false);

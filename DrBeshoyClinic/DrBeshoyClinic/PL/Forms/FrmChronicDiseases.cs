@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows.Forms;
 using DrBeshoyClinic.BLL;
 using DrBeshoyClinic.DAL.Model;
-using DrBeshoyClinic.Utility;
 
 namespace DrBeshoyClinic.PL.Forms
 {
@@ -43,17 +42,6 @@ namespace DrBeshoyClinic.PL.Forms
         private void FrmChronicDiseases_Load(object sender, EventArgs e)
         {
             ResetForm();
-        }
-
-        private void FrmChronicDiseases_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (SelectedChronicDiseases == null || !SelectedChronicDiseases.Any())
-                return;
-            (Owner as FrmExamination)?.BindChronicDiseases(AllChronicDiseases
-                .Where(chronicDisease => SelectedChronicDiseases
-                    .Select(selectedChronicDisease => selectedChronicDisease.ChronicDiseaseId)
-                    .Contains(chronicDisease.Id)).Select(chronicDisease => chronicDisease.Name)
-                .ToCommaSeperatedString());
         }
 
         private void btnAddDiasease_Click(object sender, EventArgs e)
