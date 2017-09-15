@@ -100,7 +100,6 @@
             this.DoubleBuffered = true;
             this.Name = "FrmSurgicalHx";
             this.Text = "Surgical Hx";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSurgicalHx_FormClosing);
             this.Load += new System.EventHandler(this.FrmSurgicalHx_Load);
             this.ResumeLayout(false);
 

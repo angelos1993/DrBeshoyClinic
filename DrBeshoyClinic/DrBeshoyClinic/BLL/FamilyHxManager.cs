@@ -33,10 +33,9 @@ namespace DrBeshoyClinic.BLL
             return UnitOfWork.FamilyHxRepository.Get(familyHx => familyHx.PatientId == patientId);
         }
 
-        public string GetFamilyHxsForPatientByDate(string patientId, DateTime date)
+        public string GetFamilyHxsForPatient(string patientId)
         {
-            return GetFamilyHxesForPatient(patientId).Where(familyHx => familyHx.Date == date)
-                .Select(familyHx => familyHx.Description).ToCommaSeperatedString();
+            return GetFamilyHxesForPatient(patientId).Select(familyHx => familyHx.Description).ToCommaSeperatedString();
         }
 
         #endregion

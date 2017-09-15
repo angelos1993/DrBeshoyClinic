@@ -31,7 +31,6 @@ namespace DrBeshoyClinic.PL.Forms
         private List<DrugHx> AllPatientDrugHxes { get; set; }
         private DrugHx TodaysDrugHx { get; set; }
         private bool IsExistPatientDrugHxForToday => AllPatientDrugHxes.Any(drugHx => drugHx.Date == Today);
-        private bool ShouldBind { get; set; }
 
         #endregion
 
@@ -42,17 +41,10 @@ namespace DrBeshoyClinic.PL.Forms
             ResetForm();
         }
 
-        private void FrmDrugHx_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (ShouldBind)
-                OwnerForm.BindDrugHxes(TodaysDrugHx.Description);
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
             SaveTheCurrentDrugHx();
-            ShouldBind = true;
             Close();
             Cursor = Cursors.Default;
         }

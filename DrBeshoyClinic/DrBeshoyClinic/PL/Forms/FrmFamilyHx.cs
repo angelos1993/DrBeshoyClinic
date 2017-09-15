@@ -32,7 +32,6 @@ namespace DrBeshoyClinic.PL.Forms
         private List<FamilyHx> AllPatientFamilyHxes { get; set; }
         private FamilyHx TodaysFamilyHx { get; set; }
         private bool IsExistPatientFamilyHxForToday => AllPatientFamilyHxes.Any(familyHx => familyHx.Date == Today);
-        private bool ShouldBind { get; set; }
 
         #endregion
 
@@ -43,17 +42,10 @@ namespace DrBeshoyClinic.PL.Forms
             ResetForm();
         }
 
-        private void FrmFamilyHx_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (ShouldBind)
-                OwnerForm.BindFamilyHxes(TodaysFamilyHx.Description);
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
             SaveTheCurrentFamilyHx();
-            ShouldBind = true;
             Close();
             Cursor = Cursors.Default;
         }

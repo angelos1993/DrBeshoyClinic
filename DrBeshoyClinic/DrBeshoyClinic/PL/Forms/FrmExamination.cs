@@ -143,11 +143,13 @@ namespace DrBeshoyClinic.PL.Forms
         private void btnSurgicalHx_Click(object sender, EventArgs e)
         {
             new FrmSurgicalHx {Owner = this}.ShowDialog();
+            txtSurgicalHx.Text = SurgicalHxManager.GetSurgicalHxsForPatient(Examination.PatientId);
         }
 
         private void btnDrugHx_Click(object sender, EventArgs e)
         {
             new FrmDrugHx {Owner = this}.ShowDialog();
+            txtDrugHx.Text = DrugHxManager.GetDrugHxsForPatient(Examination.PatientId);
         }
 
         private void btnEmgNcv_Click(object sender, EventArgs e)
@@ -158,6 +160,7 @@ namespace DrBeshoyClinic.PL.Forms
         private void btnFamilyHx_Click(object sender, EventArgs e)
         {
             new FrmFamilyHx {Owner = this}.ShowDialog();
+            txtFamilyHx.Text = FamilyHxManager.GetFamilyHxsForPatient(Examination.PatientId);
         }
 
         private void btnPhoto_Click(object sender, EventArgs e)
@@ -375,10 +378,9 @@ namespace DrBeshoyClinic.PL.Forms
             txtDiagnosis.Text =
                 DiagnosisManager.GetDiagnosisStringByPatientAndDate(examination.PatientId, examination.Date);
             txtChronicDiseases.Text = ChronicDiseaseManager.GetChronicDiseasByPatientId(examination.PatientId);
-            txtSurgicalHx.Text =
-                SurgicalHxManager.GetSurgicalHxsForPatientByDate(examination.PatientId, examination.Date);
-            txtDrugHx.Text = DrugHxManager.GetDrugHxsForPatientByDate(examination.PatientId, examination.Date);
-            txtFamilyHx.Text = FamilyHxManager.GetFamilyHxsForPatientByDate(examination.PatientId, examination.Date);
+            txtSurgicalHx.Text = SurgicalHxManager.GetSurgicalHxsForPatient(examination.PatientId);
+            txtDrugHx.Text = DrugHxManager.GetDrugHxsForPatient(examination.PatientId);
+            txtFamilyHx.Text = FamilyHxManager.GetFamilyHxsForPatient(examination.PatientId);
         }
 
         private void AddNewPatient()
@@ -520,21 +522,6 @@ namespace DrBeshoyClinic.PL.Forms
         public void BindDiagnosis(string diagnosis)
         {
             txtDiagnosis.Text = diagnosis;
-        }
-
-        public void BindSurgicalHxes(string surgicalHxes)
-        {
-            txtSurgicalHx.Text = surgicalHxes;
-        }
-
-        public void BindDrugHxes(string drugHxes)
-        {
-            txtDrugHx.Text = drugHxes;
-        }
-
-        public void BindFamilyHxes(string familyHxes)
-        {
-            txtFamilyHx.Text = familyHxes;
         }
 
         #endregion

@@ -33,7 +33,6 @@ namespace DrBeshoyClinic.PL.Forms
         private Patient Patient => OwnerForm.Patient;
         private SurgicalHx TodaysSurgicalHx { get; set; }
         private static DateTime Today => DateTime.Now.Date;
-        private bool ShouldBind { get; set; }
 
         private bool IsExistPatientSurgicalHxForToday
             => AllPatientSurgicalHxes.Any(surgicalHx => surgicalHx.Date == Today);
@@ -47,17 +46,10 @@ namespace DrBeshoyClinic.PL.Forms
             ResetForm();
         }
 
-        private void FrmSurgicalHx_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (ShouldBind)
-                OwnerForm.BindSurgicalHxes(TodaysSurgicalHx.Description);
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
             SaveTheCurrentSurgicalHx();
-            ShouldBind = true;
             Close();
             Cursor = Cursors.Default;
         }

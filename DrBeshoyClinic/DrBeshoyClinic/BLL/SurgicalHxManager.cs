@@ -33,10 +33,10 @@ namespace DrBeshoyClinic.BLL
                 .Get(surgicalHx => surgicalHx.PatientId == patientId && surgicalHx.Date == date).Any();
         }
 
-        public string GetSurgicalHxsForPatientByDate(string patientId, DateTime date)
+        public string GetSurgicalHxsForPatient(string patientId)
         {
-            return GetSurgicalHxesForPatient(patientId).Where(surgicalHx => surgicalHx.Date == date)
-                .Select(surgicalHx => surgicalHx.Description).ToCommaSeperatedString();
+            return GetSurgicalHxesForPatient(patientId).Select(surgicalHx => surgicalHx.Description)
+                .ToCommaSeperatedString();
         }
 
         #endregion

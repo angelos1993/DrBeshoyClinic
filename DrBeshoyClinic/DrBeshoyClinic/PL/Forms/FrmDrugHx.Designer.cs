@@ -100,7 +100,6 @@
             this.DoubleBuffered = true;
             this.Name = "FrmDrugHx";
             this.Text = "Drug Hx";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDrugHx_FormClosing);
             this.Load += new System.EventHandler(this.FrmDrugHx_Load);
             this.ResumeLayout(false);
 
