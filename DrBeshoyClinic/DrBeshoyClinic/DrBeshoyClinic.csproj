@@ -348,6 +348,12 @@
     <Compile Include="PL\Forms\FrmPhoto.Designer.cs">
       <DependentUpon>FrmPhoto.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\Forms\FrmPhotoDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Forms\FrmPhotoDisplay.Designer.cs">
+      <DependentUpon>FrmPhotoDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\Forms\FrmRadiology.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -432,6 +438,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Forms\FrmPhoto.resx">
       <DependentUpon>FrmPhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Forms\FrmPhotoDisplay.resx">
+      <DependentUpon>FrmPhotoDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Forms\FrmRadiology.resx">
       <DependentUpon>FrmRadiology.cs</DependentUpon>
@@ -520,9 +529,11 @@
     <Content Include="Resources\DrugHx.png" />
     <Content Include="Resources\EmgNcv.png" />
     <Content Include="Resources\FamilyHx.png" />
+    <None Include="Resources\Next.png" />
     <Content Include="Resources\Operation.png" />
     <None Include="Resources\Print.png" />
     <None Include="Resources\Roshetta.jpg" />
+    <None Include="Resources\Previous.png" />
     <Content Include="Resources\SurgicalHx.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

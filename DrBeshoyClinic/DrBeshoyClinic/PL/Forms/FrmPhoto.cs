@@ -53,8 +53,7 @@ namespace DrBeshoyClinic.PL.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            if (NewPhotos.Any())
-                PhotoManager.AddListOfPhotos(NewPhotos);
+            SaveNewPhotos();
             Close();
             Cursor = Cursors.Default;
         }
@@ -71,16 +70,25 @@ namespace DrBeshoyClinic.PL.Forms
             Cursor = Cursors.Default;
         }
 
+        private void lstVwPhotos_DoubleClick(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            if (lstVwPhotos.SelectedItems.Count > 0)
+            {
+                SaveNewPhotos();
+                SetCurrentPatientPhotos();
+                ShowLargeImage();
+            }
+            Cursor = Cursors.Default;
+        }
+
         #endregion
 
         #region Methods
 
         private void ResetForm()
         {
-            AllPatientPhotos = PhotoManager.GetAllPhotosForPatient(Patient.Id).ToList();
-            var todaysPhotos = AllPatientPhotos.Where(photo => photo.Date == Today).ToList();
-            TodaysPhotos = todaysPhotos.Any() ? todaysPhotos : new List<Photo>();
-            NewPhotos = new List<Photo>();
+            SetCurrentPatientPhotos();
             BindPhotosToListView();
         }
 
@@ -139,6 +147,33 @@ namespace DrBeshoyClinic.PL.Forms
                 NewPhotos.Add(photo);
             }
             BindPhotosToForm(TodaysPhotos);
+        }
+
+        private void ShowLargeImage()
+        {
+            var selectedItem = lstPhotos.SelectedItem as ListBoxVm;
+            if (selectedItem == null)
+                return;
+            new FrmPhotoDisplay
+            {
+                SelectedPhotoIndex = lstVwPhotos.SelectedItems[0].ImageIndex,
+                Photos = AllPatientPhotos.Where(photo => photo.Date == selectedItem.Date)
+                    .Select(photo => photo.Photo1).ToList()
+            }.ShowDialog();
+        }
+
+        private void SaveNewPhotos()
+        {
+            if (NewPhotos.Any())
+                PhotoManager.AddListOfPhotos(NewPhotos);
+        }
+
+        private void SetCurrentPatientPhotos()
+        {
+            AllPatientPhotos = PhotoManager.GetAllPhotosForPatient(Patient.Id).ToList();
+            var todaysPhotos = AllPatientPhotos.Where(photo => photo.Date == Today).ToList();
+            TodaysPhotos = todaysPhotos.Any() ? todaysPhotos : new List<Photo>();
+            NewPhotos = new List<Photo>();
         }
 
         #endregion

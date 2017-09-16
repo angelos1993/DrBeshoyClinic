@@ -30,9 +30,9 @@
         {
             this.lstVwPhotos = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.lstPhotos = new System.Windows.Forms.ListBox();
+            this.btnAddPhoto = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
-            this.btnAddPhoto = new DevComponents.DotNetBar.ButtonX();
             this.SuspendLayout();
             // 
             // lstVwPhotos
@@ -47,6 +47,7 @@
             this.lstVwPhotos.Size = new System.Drawing.Size(770, 384);
             this.lstVwPhotos.TabIndex = 0;
             this.lstVwPhotos.UseCompatibleStateImageBehavior = false;
+            this.lstVwPhotos.DoubleClick += new System.EventHandler(this.lstVwPhotos_DoubleClick);
             // 
             // lstPhotos
             // 
@@ -57,6 +58,20 @@
             this.lstPhotos.Size = new System.Drawing.Size(120, 384);
             this.lstPhotos.TabIndex = 52;
             this.lstPhotos.SelectedIndexChanged += new System.EventHandler(this.lstPhotos_SelectedIndexChanged);
+            // 
+            // btnAddPhoto
+            // 
+            this.btnAddPhoto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAddPhoto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAddPhoto.Image = global::DrBeshoyClinic.Properties.Resources.Add;
+            this.btnAddPhoto.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.btnAddPhoto.Location = new System.Drawing.Point(244, 402);
+            this.btnAddPhoto.Name = "btnAddPhoto";
+            this.btnAddPhoto.Size = new System.Drawing.Size(159, 40);
+            this.btnAddPhoto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAddPhoto.TabIndex = 56;
+            this.btnAddPhoto.Text = "Add Photo";
+            this.btnAddPhoto.Click += new System.EventHandler(this.btnAddPhoto_Click);
             // 
             // btnCancel
             // 
@@ -85,20 +100,6 @@
             this.btnSave.TabIndex = 53;
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnAddPhoto
-            // 
-            this.btnAddPhoto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnAddPhoto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddPhoto.Image = global::DrBeshoyClinic.Properties.Resources.Add;
-            this.btnAddPhoto.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.btnAddPhoto.Location = new System.Drawing.Point(244, 402);
-            this.btnAddPhoto.Name = "btnAddPhoto";
-            this.btnAddPhoto.Size = new System.Drawing.Size(159, 40);
-            this.btnAddPhoto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnAddPhoto.TabIndex = 56;
-            this.btnAddPhoto.Text = "Add Photo";
-            this.btnAddPhoto.Click += new System.EventHandler(this.btnAddPhoto_Click);
             // 
             // FrmPhoto
             // 

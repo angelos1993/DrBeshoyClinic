@@ -183,6 +183,16 @@ namespace DrBeshoyClinic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Next {
+            get {
+                object obj = ResourceManager.GetObject("Next", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Operation {
             get {
                 object obj = ResourceManager.GetObject("Operation", resourceCulture);
@@ -196,6 +206,16 @@ namespace DrBeshoyClinic.Properties {
         internal static System.Drawing.Bitmap Photo {
             get {
                 object obj = ResourceManager.GetObject("Photo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Previous {
+            get {
+                object obj = ResourceManager.GetObject("Previous", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
