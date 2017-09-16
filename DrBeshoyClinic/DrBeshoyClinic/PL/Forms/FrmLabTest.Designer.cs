@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.grdLabTests = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.dgvLabTests = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.lstLabTests = new System.Windows.Forms.ListBox();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
@@ -38,14 +38,14 @@
             this.txtTestName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtTestResult = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.grdLabTests)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLabTests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // grdLabTests
+            // dgvLabTests
             // 
-            this.grdLabTests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grdLabTests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLabTests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLabTests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -53,13 +53,13 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdLabTests.DefaultCellStyle = dataGridViewCellStyle1;
-            this.grdLabTests.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.grdLabTests.Location = new System.Drawing.Point(12, 44);
-            this.grdLabTests.Name = "grdLabTests";
-            this.grdLabTests.ReadOnly = true;
-            this.grdLabTests.Size = new System.Drawing.Size(571, 192);
-            this.grdLabTests.TabIndex = 0;
+            this.dgvLabTests.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLabTests.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dgvLabTests.Location = new System.Drawing.Point(12, 44);
+            this.dgvLabTests.Name = "dgvLabTests";
+            this.dgvLabTests.ReadOnly = true;
+            this.dgvLabTests.Size = new System.Drawing.Size(571, 192);
+            this.dgvLabTests.TabIndex = 0;
             // 
             // lstLabTests
             // 
@@ -153,12 +153,12 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lstLabTests);
-            this.Controls.Add(this.grdLabTests);
+            this.Controls.Add(this.dgvLabTests);
             this.DoubleBuffered = true;
             this.Name = "FrmLabTest";
             this.Text = "Lab Test";
             this.Load += new System.EventHandler(this.FrmLabTest_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.grdLabTests)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLabTests)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
@@ -166,7 +166,7 @@
 
         #endregion
 
-        private DevComponents.DotNetBar.Controls.DataGridViewX grdLabTests;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dgvLabTests;
         private System.Windows.Forms.ListBox lstLabTests;
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.ButtonX btnSave;

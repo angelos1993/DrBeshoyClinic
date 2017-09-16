@@ -174,14 +174,14 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void BindPostOperativeTreatmentsToGrid(IEnumerable<PostOperativeTreatment> postOperativeTreatments)
         {
-            grdPostOperativeTreatments.DataSource = postOperativeTreatments.Select(postOperativeTreatment
+            dgvPostOperativeTreatments.DataSource = postOperativeTreatments.Select(postOperativeTreatment
                 => new PostOperativeTreatmentVm {Description = postOperativeTreatment.Description}).ToList();
         }
 
         private void BindPostOperativeInstructionsToGrid(
             IEnumerable<PostOperativeInstruction> postOperativeInstructions)
         {
-            grdPostOperativeInstructions.DataSource = postOperativeInstructions.Select(postOperativeInstruction
+            dgvPostOperativeInstructions.DataSource = postOperativeInstructions.Select(postOperativeInstruction
                 => new PostOperativeInstructionVm {Description = postOperativeInstruction.Description}).ToList();
         }
 
@@ -278,13 +278,13 @@ namespace DrBeshoyClinic.PL.Forms
 
         private List<PostOperativeInstruction> GetPostOperativeInstructionsFromGrid()
         {
-            return (from DataGridViewRow row in grdPostOperativeInstructions.Rows
+            return (from DataGridViewRow row in dgvPostOperativeInstructions.Rows
                 select new PostOperativeInstruction {Description = row.Cells[0].Value.ToString()}).ToList();
         }
 
         private List<PostOperativeTreatment> GetPostOperativeTreatmentsFromGrid()
         {
-            return (from DataGridViewRow row in grdPostOperativeTreatments.Rows
+            return (from DataGridViewRow row in dgvPostOperativeTreatments.Rows
                 select new PostOperativeTreatment {Description = row.Cells[0].Value.ToString()}).ToList();
         }
 

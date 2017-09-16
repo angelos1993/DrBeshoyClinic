@@ -108,7 +108,7 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void BindLabTestsToGrid(IEnumerable<LabTest> labTests)
         {
-            grdLabTests.DataSource = labTests.Select(labTest => new LabTestVm
+            dgvLabTests.DataSource = labTests.Select(labTest => new LabTestVm
                 {TestName = labTest.TestName, TestResult = labTest.TestResult}).ToList();
         }
 

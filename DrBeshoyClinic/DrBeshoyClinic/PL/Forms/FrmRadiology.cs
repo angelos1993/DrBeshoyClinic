@@ -106,7 +106,7 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void BindRadiologiesToGrid(IEnumerable<Radiology> radiologies)
         {
-            grdRadiologies.DataSource = radiologies.Select(radiology => new RadiologyVm
+            dgvRadiologies.DataSource = radiologies.Select(radiology => new RadiologyVm
                 {Name = radiology.Name, Description = radiology.Description}).ToList();
         }
 

@@ -57,11 +57,11 @@
             this.txtAssistant1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtNurse = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.grpPnlPostOperativeTreatment = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.grdPostOperativeTreatments = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.dgvPostOperativeTreatments = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.txtPostOperativeTreatment = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.btnAddPostOperativeTreatment = new DevComponents.DotNetBar.ButtonX();
             this.grpPnlPostOperativeInstructions = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.grdPostOperativeInstructions = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.dgvPostOperativeInstructions = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.txtPostOperativeInstruction = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.btnAddPostOperativeInstruction = new DevComponents.DotNetBar.ButtonX();
             this.grpPnlTourniquet = new DevComponents.DotNetBar.Controls.GroupPanel();
@@ -81,9 +81,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtPatientBirthdate)).BeginInit();
             this.grpPnlAssistants.SuspendLayout();
             this.grpPnlPostOperativeTreatment.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdPostOperativeTreatments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPostOperativeTreatments)).BeginInit();
             this.grpPnlPostOperativeInstructions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdPostOperativeInstructions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPostOperativeInstructions)).BeginInit();
             this.grpPnlTourniquet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numEnd)).BeginInit();
@@ -555,7 +555,7 @@
             // 
             this.grpPnlPostOperativeTreatment.CanvasColor = System.Drawing.SystemColors.Control;
             this.grpPnlPostOperativeTreatment.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.grpPnlPostOperativeTreatment.Controls.Add(this.grdPostOperativeTreatments);
+            this.grpPnlPostOperativeTreatment.Controls.Add(this.dgvPostOperativeTreatments);
             this.grpPnlPostOperativeTreatment.Controls.Add(this.txtPostOperativeTreatment);
             this.grpPnlPostOperativeTreatment.Controls.Add(this.btnAddPostOperativeTreatment);
             this.grpPnlPostOperativeTreatment.Location = new System.Drawing.Point(12, 151);
@@ -595,10 +595,10 @@
             this.grpPnlPostOperativeTreatment.TabIndex = 22;
             this.grpPnlPostOperativeTreatment.Text = "Post Operative Treatments";
             // 
-            // grdPostOperativeTreatments
+            // dgvPostOperativeTreatments
             // 
-            this.grdPostOperativeTreatments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grdPostOperativeTreatments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPostOperativeTreatments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPostOperativeTreatments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -606,13 +606,13 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdPostOperativeTreatments.DefaultCellStyle = dataGridViewCellStyle1;
-            this.grdPostOperativeTreatments.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.grdPostOperativeTreatments.Location = new System.Drawing.Point(3, 38);
-            this.grdPostOperativeTreatments.Name = "grdPostOperativeTreatments";
-            this.grdPostOperativeTreatments.ReadOnly = true;
-            this.grdPostOperativeTreatments.Size = new System.Drawing.Size(306, 151);
-            this.grdPostOperativeTreatments.TabIndex = 54;
+            this.dgvPostOperativeTreatments.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPostOperativeTreatments.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dgvPostOperativeTreatments.Location = new System.Drawing.Point(3, 38);
+            this.dgvPostOperativeTreatments.Name = "dgvPostOperativeTreatments";
+            this.dgvPostOperativeTreatments.ReadOnly = true;
+            this.dgvPostOperativeTreatments.Size = new System.Drawing.Size(306, 151);
+            this.dgvPostOperativeTreatments.TabIndex = 54;
             // 
             // txtPostOperativeTreatment
             // 
@@ -644,7 +644,7 @@
             // 
             this.grpPnlPostOperativeInstructions.CanvasColor = System.Drawing.SystemColors.Control;
             this.grpPnlPostOperativeInstructions.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.grpPnlPostOperativeInstructions.Controls.Add(this.grdPostOperativeInstructions);
+            this.grpPnlPostOperativeInstructions.Controls.Add(this.dgvPostOperativeInstructions);
             this.grpPnlPostOperativeInstructions.Controls.Add(this.txtPostOperativeInstruction);
             this.grpPnlPostOperativeInstructions.Controls.Add(this.btnAddPostOperativeInstruction);
             this.grpPnlPostOperativeInstructions.Location = new System.Drawing.Point(336, 151);
@@ -684,10 +684,10 @@
             this.grpPnlPostOperativeInstructions.TabIndex = 55;
             this.grpPnlPostOperativeInstructions.Text = "Post Operative Instructions";
             // 
-            // grdPostOperativeInstructions
+            // dgvPostOperativeInstructions
             // 
-            this.grdPostOperativeInstructions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grdPostOperativeInstructions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPostOperativeInstructions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPostOperativeInstructions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -695,13 +695,13 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdPostOperativeInstructions.DefaultCellStyle = dataGridViewCellStyle2;
-            this.grdPostOperativeInstructions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.grdPostOperativeInstructions.Location = new System.Drawing.Point(3, 38);
-            this.grdPostOperativeInstructions.Name = "grdPostOperativeInstructions";
-            this.grdPostOperativeInstructions.ReadOnly = true;
-            this.grdPostOperativeInstructions.Size = new System.Drawing.Size(306, 151);
-            this.grdPostOperativeInstructions.TabIndex = 54;
+            this.dgvPostOperativeInstructions.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvPostOperativeInstructions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dgvPostOperativeInstructions.Location = new System.Drawing.Point(3, 38);
+            this.dgvPostOperativeInstructions.Name = "dgvPostOperativeInstructions";
+            this.dgvPostOperativeInstructions.ReadOnly = true;
+            this.dgvPostOperativeInstructions.Size = new System.Drawing.Size(306, 151);
+            this.dgvPostOperativeInstructions.TabIndex = 54;
             // 
             // txtPostOperativeInstruction
             // 
@@ -979,9 +979,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtPatientBirthdate)).EndInit();
             this.grpPnlAssistants.ResumeLayout(false);
             this.grpPnlPostOperativeTreatment.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdPostOperativeTreatments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPostOperativeTreatments)).EndInit();
             this.grpPnlPostOperativeInstructions.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdPostOperativeInstructions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPostOperativeInstructions)).EndInit();
             this.grpPnlTourniquet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numEnd)).EndInit();
@@ -1021,11 +1021,11 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtAssistant1;
         private DevComponents.DotNetBar.Controls.TextBoxX txtNurse;
         private DevComponents.DotNetBar.Controls.GroupPanel grpPnlPostOperativeTreatment;
-        private DevComponents.DotNetBar.Controls.DataGridViewX grdPostOperativeTreatments;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dgvPostOperativeTreatments;
         private DevComponents.DotNetBar.Controls.TextBoxX txtPostOperativeTreatment;
         private DevComponents.DotNetBar.ButtonX btnAddPostOperativeTreatment;
         private DevComponents.DotNetBar.Controls.GroupPanel grpPnlPostOperativeInstructions;
-        private DevComponents.DotNetBar.Controls.DataGridViewX grdPostOperativeInstructions;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dgvPostOperativeInstructions;
         private DevComponents.DotNetBar.Controls.TextBoxX txtPostOperativeInstruction;
         private DevComponents.DotNetBar.ButtonX btnAddPostOperativeInstruction;
         private DevComponents.DotNetBar.Controls.GroupPanel grpPnlTourniquet;

@@ -32,14 +32,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtRadiology = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtRadiologyDescription = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.grdRadiologies = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.dgvRadiologies = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.lstRadiologies = new System.Windows.Forms.ListBox();
             this.btnAddRadiology = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnClear = new DevComponents.DotNetBar.ButtonX();
             this.btnSave = new DevComponents.DotNetBar.ButtonX();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.grdRadiologies)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRadiologies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,10 +71,10 @@
             this.txtRadiologyDescription.TabIndex = 22;
             this.txtRadiologyDescription.WatermarkText = "Radiology Description ...";
             // 
-            // grdRadiologies
+            // dgvRadiologies
             // 
-            this.grdRadiologies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grdRadiologies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRadiologies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRadiologies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -82,13 +82,13 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdRadiologies.DefaultCellStyle = dataGridViewCellStyle1;
-            this.grdRadiologies.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.grdRadiologies.Location = new System.Drawing.Point(12, 76);
-            this.grdRadiologies.Name = "grdRadiologies";
-            this.grdRadiologies.ReadOnly = true;
-            this.grdRadiologies.Size = new System.Drawing.Size(572, 205);
-            this.grdRadiologies.TabIndex = 23;
+            this.dgvRadiologies.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvRadiologies.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dgvRadiologies.Location = new System.Drawing.Point(12, 76);
+            this.dgvRadiologies.Name = "dgvRadiologies";
+            this.dgvRadiologies.ReadOnly = true;
+            this.dgvRadiologies.Size = new System.Drawing.Size(572, 205);
+            this.dgvRadiologies.TabIndex = 23;
             // 
             // lstRadiologies
             // 
@@ -170,14 +170,14 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAddRadiology);
             this.Controls.Add(this.lstRadiologies);
-            this.Controls.Add(this.grdRadiologies);
+            this.Controls.Add(this.dgvRadiologies);
             this.Controls.Add(this.txtRadiologyDescription);
             this.Controls.Add(this.txtRadiology);
             this.DoubleBuffered = true;
             this.Name = "FrmRadiology";
             this.Text = "Radiology";
             this.Load += new System.EventHandler(this.FrmRadiology_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.grdRadiologies)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRadiologies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
@@ -187,7 +187,7 @@
 
         private DevComponents.DotNetBar.Controls.TextBoxX txtRadiology;
         private DevComponents.DotNetBar.Controls.TextBoxX txtRadiologyDescription;
-        private DevComponents.DotNetBar.Controls.DataGridViewX grdRadiologies;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dgvRadiologies;
         private System.Windows.Forms.ListBox lstRadiologies;
         private DevComponents.DotNetBar.ButtonX btnAddRadiology;
         private DevComponents.DotNetBar.ButtonX btnCancel;
