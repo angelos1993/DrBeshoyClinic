@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIndex));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExamination = new DevComponents.DotNetBar.ButtonX();
             this.btnDailyReport = new DevComponents.DotNetBar.ButtonX();
@@ -79,6 +80,7 @@
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmIndex";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
