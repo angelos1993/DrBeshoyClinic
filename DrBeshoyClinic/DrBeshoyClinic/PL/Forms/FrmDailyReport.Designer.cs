@@ -111,17 +111,17 @@
             reportDataSource1.Value = this.DailyReportExaminationVmBindingSource;
             this.repVwDailyReport.LocalReport.DataSources.Add(reportDataSource1);
             this.repVwDailyReport.LocalReport.ReportEmbeddedResource = "DrBeshoyClinic.PL.Reports.RepDailyReport.rdlc";
-            this.repVwDailyReport.Location = new System.Drawing.Point(0, 44);
+            this.repVwDailyReport.Location = new System.Drawing.Point(0, 64);
             this.repVwDailyReport.Name = "repVwDailyReport";
             this.repVwDailyReport.ServerReport.BearerToken = null;
-            this.repVwDailyReport.Size = new System.Drawing.Size(644, 617);
+            this.repVwDailyReport.Size = new System.Drawing.Size(834, 617);
             this.repVwDailyReport.TabIndex = 2;
             // 
             // FrmDailyReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 661);
+            this.ClientSize = new System.Drawing.Size(834, 681);
             this.Controls.Add(this.repVwDailyReport);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dtExaminationsDate);

@@ -6,7 +6,11 @@ namespace DrBeshoyClinic.DAL.VMs
     {
         [DisplayName("اسم المريض")]
         public string PatientName { get; set; }
+
         [DisplayName("نوع الكشف")]
         public string ExaminationType { get; set; }
+
+        [DisplayName("Diagnosis")]
+        public string Diagnosis { get; set; }
     }
 }

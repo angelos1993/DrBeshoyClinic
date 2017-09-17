@@ -5,6 +5,7 @@ using System.Linq;
 using DrBeshoyClinic.BLL.Infrastructure;
 using DrBeshoyClinic.DAL.Model;
 using DrBeshoyClinic.DAL.VMs;
+using DrBeshoyClinic.Utility;
 using static System.Data.Entity.DbFunctions;
 
 namespace DrBeshoyClinic.BLL
@@ -47,13 +48,28 @@ namespace DrBeshoyClinic.BLL
 
         public List<DailyReportExaminationVm> GetDailyReportExaminationVms(DateTime dateTime)
         {
-            return UnitOfWork.ExaminationRepository
+            var examinationList = UnitOfWork.ExaminationRepository
                 .Get(examination => SqlFunctions.DateDiff("DAY", examination.Date, dateTime) == 0)
-                .Select(examination => new DailyReportExaminationVm
+                .Select(examination => new
                 {
+                    examination.PatientId,
                     PatientName = examination.Patient.Name,
                     ExaminationType = examination.ExaminationType ? "كشف" : "إعادة"
-                    //TODO: need to include Diagnosis in each item -_-
+                }).ToList();
+            var diagnosisList = UnitOfWork.DiagnosisRepository
+                .Get(diagnosi => SqlFunctions.DateDiff("DAY", diagnosi.Date, dateTime) == 0)
+                .Select(diagnosi => new
+                {
+                    diagnosi.PatientId,
+                    diagnosi.Name
+                }).ToList();
+            return examinationList.Select(examination
+                => new DailyReportExaminationVm
+                {
+                    PatientName = examination.PatientName,
+                    ExaminationType = examination.ExaminationType,
+                    Diagnosis = diagnosisList.Where(diagnosi => diagnosi.PatientId == examination.PatientId)
+                        .Select(diagnosi => diagnosi.Name).ToList().ToCommaSeperatedString()
                 }).ToList();
         }
 
