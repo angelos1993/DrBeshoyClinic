@@ -528,6 +528,8 @@
     <Content Include="Deployment Versions\1. Sep 9, 2017\DrBeshoyClinic DB Script.sql" />
     <Content Include="Deployment Versions\2. Sep 13, 2017\D.Beshoy Clinic.exe" />
     <Content Include="Deployment Versions\2. Sep 13, 2017\Script.iss" />
+    <Content Include="Deployment Versions\4. Sep 20, 2017\D.Beshoy Clinic.exe" />
+    <Content Include="Deployment Versions\4. Sep 20, 2017\Script.iss" />
     <Content Include="Logo.ico" />
     <Content Include="Resources\ChronicDisease.png" />
     <Content Include="Resources\DrugHx.png" />
