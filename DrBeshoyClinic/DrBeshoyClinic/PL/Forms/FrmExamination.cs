@@ -104,7 +104,7 @@ namespace DrBeshoyClinic.PL.Forms
         private void btnClearPatient_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            ResetPatientPanel();
+            ResetForm();
             Cursor = Cursors.Default;
         }
 
@@ -206,7 +206,9 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void btnClearAll_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             ResetForm();
+            Cursor = Cursors.Default;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
