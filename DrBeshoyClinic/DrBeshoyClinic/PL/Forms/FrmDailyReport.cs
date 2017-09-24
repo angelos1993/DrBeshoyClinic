@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using DrBeshoyClinic.BLL;
+using DrBeshoyClinic.Utility;
 using Microsoft.Reporting.WinForms;
 
 namespace DrBeshoyClinic.PL.Forms
@@ -51,7 +52,7 @@ namespace DrBeshoyClinic.PL.Forms
         {
             var dateSource = ExaminationManager.GetDailyReportExaminationVms(dateTime);
             DailyReportExaminationVmBindingSource.DataSource = dateSource;
-            repVwDailyReport.LocalReport.SetParameters(new ReportParameter("Date", dateTime.ToShortDateString()));
+            repVwDailyReport.LocalReport.SetParameters(new ReportParameter("Date", dateTime.ToCustomFormattedLongDateString()));
             repVwDailyReport.LocalReport.SetParameters(new ReportParameter("Count", dateSource.Count.ToString()));
             repVwDailyReport.RefreshReport();
         }

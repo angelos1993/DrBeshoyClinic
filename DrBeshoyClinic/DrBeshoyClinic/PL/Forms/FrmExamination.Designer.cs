@@ -442,6 +442,8 @@
             this.dtPatientBirthdate.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.dtPatientBirthdate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.dtPatientBirthdate.ButtonDropDown.Visible = true;
+            this.dtPatientBirthdate.CustomFormat = "MMM dd, yyyy";
+            this.dtPatientBirthdate.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.dtPatientBirthdate.Location = new System.Drawing.Point(358, 39);
             this.dtPatientBirthdate.Margin = new System.Windows.Forms.Padding(2);
             // 

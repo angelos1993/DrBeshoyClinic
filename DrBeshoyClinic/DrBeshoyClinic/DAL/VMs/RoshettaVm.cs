@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using DrBeshoyClinic.DAL.Model;
 using DrBeshoyClinic.Utility;
 using static DrBeshoyClinic.Utility.Constants;
 
@@ -20,7 +19,7 @@ namespace DrBeshoyClinic.DAL.VMs
 
         public DateTime Date { get; set; }
         public List<RoshettaMedicineVm> MedicineDetails { get; set; }
-        public string DateString => Date.ToShortDateString();
+        public string DateString => Date.ToCustomShortDateString();
 
         public string PatientAge
         {

@@ -51,6 +51,8 @@
             this.dtExaminationsDate.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.dtExaminationsDate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.dtExaminationsDate.ButtonDropDown.Visible = true;
+            this.dtExaminationsDate.CustomFormat = "MMM dd, yyyy";
+            this.dtExaminationsDate.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.dtExaminationsDate.Location = new System.Drawing.Point(12, 12);
             // 
             // 
