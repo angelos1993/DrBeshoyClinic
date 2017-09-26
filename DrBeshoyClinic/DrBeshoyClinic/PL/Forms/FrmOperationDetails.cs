@@ -69,6 +69,7 @@ namespace DrBeshoyClinic.PL.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
+            LoadOperationFromForm();
             OperationManager.AddOperation(CurrentOperation);
             PostOperativeTreatmentManager.AddListOfPostOperativeTreatments(CurrentOperation.Id,
                 CurrentOperation.PostOperativeTreatments.ToList());
@@ -100,7 +101,7 @@ namespace DrBeshoyClinic.PL.Forms
         private void lstOperations_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            LoadOperationFromForm();
+            LoadOperationsForSelectedDate();
             Cursor = Cursors.Default;
         }
 
@@ -251,26 +252,26 @@ namespace DrBeshoyClinic.PL.Forms
             {
                 PatientId = Patient.Id,
                 Date = Today,
-                FuturePlan = txtFuturePlan.Text.FullTrim(),
-                OperativeDetails = txtOperativeDetails.Text.FullTrim(),
-                Approach = txtApproach.Text.FullTrim(),
-                Anesthesiologist = txtAnesthesiologist.Text.FullTrim(),
-                Anesthesia = txtAnesthesia.Text.FullTrim(),
-                Position = txtPosition.Text.FullTrim(),
-                Antibiotic = txtAntibiotic.Text.FullTrim(),
-                BloodLoss = txtBloodLoss.Text.FullTrim(),
-                ImplantUsed = txtImplantUsed.Text.FullTrim(),
-                ImplantCompany = txtImplantCompany.Text.FullTrim(),
+                FuturePlan = txtFuturePlan.Text.FullTrim() ?? string.Empty,
+                OperativeDetails = txtOperativeDetails.Text.FullTrim() ?? string.Empty,
+                Approach = txtApproach.Text.FullTrim() ?? string.Empty,
+                Anesthesiologist = txtAnesthesiologist.Text.FullTrim() ?? string.Empty,
+                Anesthesia = txtAnesthesia.Text.FullTrim() ?? string.Empty,
+                Position = txtPosition.Text.FullTrim() ?? string.Empty,
+                Antibiotic = txtAntibiotic.Text.FullTrim() ?? string.Empty,
+                BloodLoss = txtBloodLoss.Text.FullTrim() ?? string.Empty,
+                ImplantUsed = txtImplantUsed.Text.FullTrim() ?? string.Empty,
+                ImplantCompany = txtImplantCompany.Text.FullTrim() ?? string.Empty,
                 Start = numStart.Value,
                 End = numEnd.Value,
                 Pressure = numPressure.Value,
                 IsCultureAndSensitivity = chkCultureAndSensitivity.Checked,
                 IsBiopsy = chkBiopsy.Checked,
-                Nurse = txtNurse.Text.FullTrim(),
-                Assisstant1 = txtAssistant1.Text.FullTrim(),
-                Assisstant2 = txtAssistant2.Text.FullTrim(),
-                Surgion = txtSurgeon.Text.FullTrim(),
-                Notes = txtNotes.Text.FullTrim(),
+                Nurse = txtNurse.Text.FullTrim() ?? string.Empty,
+                Assisstant1 = txtAssistant1.Text.FullTrim() ?? string.Empty,
+                Assisstant2 = txtAssistant2.Text.FullTrim() ?? string.Empty,
+                Surgion = txtSurgeon.Text.FullTrim() ?? string.Empty,
+                Notes = txtNotes.Text.FullTrim() ?? string.Empty,
                 PostOperativeInstructions = GetPostOperativeInstructionsFromGrid(),
                 PostOperativeTreatments = GetPostOperativeTreatmentsFromGrid()
             };
