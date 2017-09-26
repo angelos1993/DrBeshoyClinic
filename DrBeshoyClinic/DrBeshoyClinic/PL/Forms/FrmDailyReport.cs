@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security;
+using System.Security.Permissions;
 using System.Windows.Forms;
 using DrBeshoyClinic.BLL;
 using DrBeshoyClinic.Utility;
@@ -52,8 +54,12 @@ namespace DrBeshoyClinic.PL.Forms
         {
             var dateSource = ExaminationManager.GetDailyReportExaminationVms(dateTime);
             DailyReportExaminationVmBindingSource.DataSource = dateSource;
-            repVwDailyReport.LocalReport.SetParameters(new ReportParameter("Date", dateTime.ToCustomFormattedLongDateString()));
+            repVwDailyReport.LocalReport.SetParameters(
+                new ReportParameter("Date", dateTime.ToCustomFormattedLongDateString()));
             repVwDailyReport.LocalReport.SetParameters(new ReportParameter("Count", dateSource.Count.ToString()));
+            var permissions = new PermissionSet(PermissionState.None);
+            permissions.AddPermission(new FileIOPermission(PermissionState.Unrestricted));
+            permissions.AddPermission(new SecurityPermission(SecurityPermissionFlag.Execution));
             repVwDailyReport.RefreshReport();
         }
 
