@@ -88,11 +88,24 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SQL Server\110\SDK\Assemblies\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SQL Server\110\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SQL Server\110\SDK\Assemblies\Microsoft.SqlServer.SmoExtended.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -261,6 +274,12 @@
     <Compile Include="PL\Forms\FrmAddNewChronicDisease.Designer.cs">
       <DependentUpon>FrmAddNewChronicDisease.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\Forms\FrmBackupAndRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Forms\FrmBackupAndRestore.Designer.cs">
+      <DependentUpon>FrmBackupAndRestore.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\Forms\FrmChronicDiseases.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,6 +419,9 @@
     <EmbeddedResource Include="PL\Forms\FrmAddNewChronicDisease.resx">
       <DependentUpon>FrmAddNewChronicDisease.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\Forms\FrmBackupAndRestore.resx">
+      <DependentUpon>FrmBackupAndRestore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\Forms\FrmChronicDiseases.resx">
       <DependentUpon>FrmChronicDiseases.cs</DependentUpon>
     </EmbeddedResource>
@@ -533,7 +555,9 @@
     <Content Include="Deployment Versions\5. Sep 28, 2017\D.Beshoy Clinic.exe" />
     <Content Include="Deployment Versions\5. Sep 28, 2017\Script.iss" />
     <Content Include="Logo.ico" />
+    <None Include="Resources\Backup.png" />
     <Content Include="Resources\ChronicDisease.png" />
+    <None Include="Resources\DB.png" />
     <Content Include="Resources\DrugHx.png" />
     <Content Include="Resources\EmgNcv.png" />
     <Content Include="Resources\FamilyHx.png" />
@@ -542,6 +566,7 @@
     <None Include="Resources\Print.png" />
     <None Include="Resources\Roshetta.jpg" />
     <None Include="Resources\Previous.png" />
+    <None Include="Resources\Restore.png" />
     <Content Include="Resources\SurgicalHx.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

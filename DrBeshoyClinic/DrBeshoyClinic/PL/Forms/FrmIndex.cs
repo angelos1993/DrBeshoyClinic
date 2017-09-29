@@ -31,6 +31,11 @@ namespace DrBeshoyClinic.PL.Forms
             new FrmDailyReport().ShowDialog();
         }
 
+        private void btnDatabase_Click(object sender, EventArgs e)
+        {
+            new FrmBackupAndRestore().ShowDialog();
+        }
+
         private void FrmIndex_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();

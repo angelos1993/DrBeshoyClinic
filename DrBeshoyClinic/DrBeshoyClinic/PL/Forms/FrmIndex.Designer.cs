@@ -32,6 +32,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExamination = new DevComponents.DotNetBar.ButtonX();
             this.btnDailyReport = new DevComponents.DotNetBar.ButtonX();
+            this.btnDatabase = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +42,7 @@
             this.pictureBox1.Image = global::DrBeshoyClinic.Properties.Resources.HomeBackground;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(989, 473);
+            this.pictureBox1.Size = new System.Drawing.Size(989, 590);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -70,11 +71,24 @@
             this.btnDailyReport.Text = "Daily Report";
             this.btnDailyReport.Click += new System.EventHandler(this.btnDailyReport_Click);
             // 
+            // btnDatabase
+            // 
+            this.btnDatabase.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDatabase.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDatabase.Location = new System.Drawing.Point(295, 474);
+            this.btnDatabase.Name = "btnDatabase";
+            this.btnDatabase.Size = new System.Drawing.Size(209, 59);
+            this.btnDatabase.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnDatabase.TabIndex = 3;
+            this.btnDatabase.Text = "Database";
+            this.btnDatabase.Click += new System.EventHandler(this.btnDatabase_Click);
+            // 
             // FrmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 473);
+            this.ClientSize = new System.Drawing.Size(989, 590);
+            this.Controls.Add(this.btnDatabase);
             this.Controls.Add(this.btnDailyReport);
             this.Controls.Add(this.btnExamination);
             this.Controls.Add(this.pictureBox1);
@@ -97,5 +111,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevComponents.DotNetBar.ButtonX btnExamination;
         private DevComponents.DotNetBar.ButtonX btnDailyReport;
+        private DevComponents.DotNetBar.ButtonX btnDatabase;
     }
 }

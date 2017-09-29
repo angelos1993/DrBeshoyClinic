@@ -73,6 +73,16 @@ namespace DrBeshoyClinic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Backup {
+            get {
+                object obj = ResourceManager.GetObject("Backup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChronicDisease {
             get {
                 object obj = ResourceManager.GetObject("ChronicDisease", resourceCulture);
@@ -86,6 +96,16 @@ namespace DrBeshoyClinic.Properties {
         internal static System.Drawing.Bitmap Clear {
             get {
                 object obj = ResourceManager.GetObject("Clear", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DB {
+            get {
+                object obj = ResourceManager.GetObject("DB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +256,16 @@ namespace DrBeshoyClinic.Properties {
         internal static System.Drawing.Bitmap Radiology {
             get {
                 object obj = ResourceManager.GetObject("Radiology", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Restore {
+            get {
+                object obj = ResourceManager.GetObject("Restore", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

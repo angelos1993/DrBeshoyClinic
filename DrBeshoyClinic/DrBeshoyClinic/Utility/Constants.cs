@@ -14,6 +14,12 @@
 
         #endregion
 
+        #region Report
+
+        public static string ReportParameterEmptyValue = "...";
+
+        #endregion
+
         #region Image Size(s) & Filter(s)
 
         #region OpenFileDialog
@@ -30,9 +36,10 @@
 
         #endregion
 
-        #region Report
+        #region DB
 
-        public static string ReportParameterEmptyValue = "...";
+        public static string ServerName = ".";
+        public static string DatabaseName = "DrBeshoyClinic";
 
         #endregion
     }
