@@ -5,14 +5,14 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Complaints">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -21,7 +21,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -30,7 +30,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -39,8 +39,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Emg" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="Ncv" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Emg" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ncv" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -77,8 +77,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TestName" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="TestResult" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="TestName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TestResult" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -133,10 +133,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="Address" Type="nvarchar" MaxLength="500" />
-    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
-    <Property Name="Job" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Job" Type="nvarchar(max)" Nullable="false" />
     <Property Name="BirthDate" Type="date" />
     <Property Name="Gender" Type="bit" Nullable="false" />
     <Property Name="CreatedOn" Type="datetime" />
@@ -155,7 +155,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="OperationId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PostOperativeTreatments">
@@ -163,7 +163,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="OperationId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Radiologies">
@@ -171,8 +171,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -181,7 +181,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="PatientId" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -190,21 +190,21 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="TreatmentPeriods">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Treatments">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="FK_Complaints_Patients">
     <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
