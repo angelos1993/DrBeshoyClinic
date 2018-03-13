@@ -195,12 +195,16 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void BindMedicinesToGrid(IEnumerable<MedicineDetail> medicineDetails)
         {
-            dgvTreatments.DataSource = medicineDetails.Select(medicineDetail => new MedicineVm
+            var medicineDetailsList = medicineDetails as IList<MedicineDetail> ?? medicineDetails.ToList();
+            dgvTreatments.DataSource = medicineDetailsList.Select(medicineDetail => new MedicineVm
             {
                 TreatmentName = TreatmentManager.GetTreatmentNameById(medicineDetail.TreatmentId),
                 Period = TreatmentPeriodManager.GetPeriodDescriptionById(medicineDetail.TreatmentPeriodId),
                 Description = TreatmentDescriptionManager.GetDescriptionById(medicineDetail.TreatmentDescriptionId)
             }).ToList();
+            dgvTreatments.AutoSizeColumnsMode = medicineDetailsList.Any()
+                ? DataGridViewAutoSizeColumnsMode.DisplayedCells
+                : DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void ResetInputControls()

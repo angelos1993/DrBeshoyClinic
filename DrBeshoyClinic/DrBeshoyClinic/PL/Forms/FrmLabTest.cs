@@ -108,8 +108,12 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void BindLabTestsToGrid(IEnumerable<LabTest> labTests)
         {
-            dgvLabTests.DataSource = labTests.Select(labTest => new LabTestVm
+            var labTestsList = labTests as IList<LabTest> ?? labTests.ToList();
+            dgvLabTests.DataSource = labTestsList.Select(labTest => new LabTestVm
                 {TestName = labTest.TestName, TestResult = labTest.TestResult}).ToList();
+            dgvLabTests.AutoSizeColumnsMode = labTestsList.Any()
+                ? DataGridViewAutoSizeColumnsMode.DisplayedCells
+                : DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void BindLabTestsToListView()
