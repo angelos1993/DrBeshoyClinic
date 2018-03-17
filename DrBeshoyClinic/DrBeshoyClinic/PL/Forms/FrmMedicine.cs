@@ -193,7 +193,7 @@ namespace DrBeshoyClinic.PL.Forms
         {
             if (NewMedicineDetails.Any())
                 MedicineDetailsManager.AddListOfMedicineDetails(NewMedicineDetails);
-            if(DeletedMedicineDetails.Any())
+            if (DeletedMedicineDetails.Any())
                 MedicineDetailsManager.DeleteListOfMedicineDetails(DeletedMedicineDetails);
             NewMedicineDetails.Clear();
             DeletedMedicineDetails.Clear();
@@ -276,20 +276,20 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void DeleteMedicineDetail()
         {
-            //TODO: EXCEPTIOS -_-
-            //var selectedItem = lstMedicines.SelectedItem as ListBoxVm;
-            //if (selectedItem == null || selectedItem.Date != Today || dgvTreatments.SelectedRows.Count == 0)
-            //    return;
-            //var selectedMedicineDetail = CurrentMedicine.MedicineDetails.FirstOrDefault(medicineDetail
-            //    => medicineDetail.Treatment.Name == dgvTreatments.SelectedRows[0].Cells[0].Value.ToString());
-            //if (selectedMedicineDetail == null)
-            //    return;
-            //CurrentMedicine.MedicineDetails.Remove(selectedMedicineDetail);
-            //if (NewMedicineDetails.Contains(selectedMedicineDetail))
-            //    NewMedicineDetails.Remove(selectedMedicineDetail);
-            //else
-            //    DeletedMedicineDetails.Add(selectedMedicineDetail);
-            //BindMedicinesToGrid(CurrentMedicine.MedicineDetails);
+            var selectedItem = lstMedicines.SelectedItem as ListBoxVm;
+            if (selectedItem == null || selectedItem.Date != Today || dgvTreatments.SelectedRows.Count == 0)
+                return;
+            var selectedMedicineDetail = CurrentMedicine.MedicineDetails.FirstOrDefault(medicineDetail
+                => medicineDetail.TreatmentId == TreatmentManager
+                       .GetTreatmentIdByName(dgvTreatments.SelectedRows[0].Cells[0].Value.ToString()));
+            if (selectedMedicineDetail == null)
+                return;
+            CurrentMedicine.MedicineDetails.Remove(selectedMedicineDetail);
+            if (NewMedicineDetails.Contains(selectedMedicineDetail))
+                NewMedicineDetails.Remove(selectedMedicineDetail);
+            else
+                DeletedMedicineDetails.Add(selectedMedicineDetail);
+            BindMedicinesToGrid(CurrentMedicine.MedicineDetails);
         }
 
         #endregion

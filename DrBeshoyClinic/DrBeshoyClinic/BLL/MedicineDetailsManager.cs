@@ -28,7 +28,7 @@ namespace DrBeshoyClinic.BLL
         {
             medicineDetails.ForEach(medicineDetail => UnitOfWork.MedicineDetailsRepository.Delete(medicineDetail));
         }
-
+        
         #endregion
     }
 }
