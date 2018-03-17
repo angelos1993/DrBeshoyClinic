@@ -31,6 +31,7 @@ namespace DrBeshoyClinic.PL.Forms
         private List<Diagnosi> AllPatientDiagnosis { get; set; }
         private List<Diagnosi> TodaysDiagnosis { get; set; }
         private List<Diagnosi> NewDiagnosis { get; set; }
+        private List<Diagnosi> DeletedDiagnosis { get; set; }
         private static DateTime Today => DateTime.Now.Date;
         private bool ShouldBind { get; set; }
 
@@ -61,6 +62,8 @@ namespace DrBeshoyClinic.PL.Forms
             Cursor = Cursors.WaitCursor;
             if (NewDiagnosis.Any())
                 DiagnosisManager.AddListOfDiagnosis(NewDiagnosis);
+            if (DeletedDiagnosis.Any())
+                DiagnosisManager.DeleteListOfDiagnosis(DeletedDiagnosis);
             ShouldBind = true;
             Close();
             Cursor = Cursors.Default;
@@ -85,6 +88,13 @@ namespace DrBeshoyClinic.PL.Forms
             Cursor = Cursors.Default;
         }
 
+        private void dgvDiagnosis_DoubleClick(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            DeleteDiagnisi();
+            Cursor = Cursors.Default;
+        }
+
         #endregion
 
         #region Methods
@@ -95,6 +105,7 @@ namespace DrBeshoyClinic.PL.Forms
             var todaysDiagnosis = AllPatientDiagnosis.Where(diagnosi => diagnosi.Date == Today).ToList();
             TodaysDiagnosis = todaysDiagnosis.Any() ? todaysDiagnosis : new List<Diagnosi>();
             NewDiagnosis = new List<Diagnosi>();
+            DeletedDiagnosis = new List<Diagnosi>();
             BindDiagnosisToListView();
             if (TodaysDiagnosis.Any())
                 BindDiagnosisToGrid(TodaysDiagnosis);
@@ -117,7 +128,10 @@ namespace DrBeshoyClinic.PL.Forms
                 Date = Today
             };
             TodaysDiagnosis.Add(diagnosi);
-            NewDiagnosis.Add(diagnosi);
+            if (DeletedDiagnosis.Contains(diagnosi))
+                DeletedDiagnosis.Remove(diagnosi);
+            else
+                NewDiagnosis.Add(diagnosi);
             BindDiagnosisToGrid(TodaysDiagnosis);
             ResetInputControls();
         }
@@ -176,6 +190,23 @@ namespace DrBeshoyClinic.PL.Forms
         {
             txtDiagnosis.Enabled = isEnabled;
             btnAddDiagnosis.Enabled = isEnabled;
+        }
+
+        private void DeleteDiagnisi()
+        {
+            var selectedItem = lstDiagnosis.SelectedItem as ListBoxVm;
+            if (selectedItem == null || selectedItem.Date != Today || dgvDiagnosis.SelectedRows.Count == 0)
+                return;
+            var selectedDiagnosi = TodaysDiagnosis.FirstOrDefault(
+                complaint => complaint.Name == dgvDiagnosis.SelectedRows[0].Cells[0].Value.ToString());
+            if (selectedDiagnosi == null)
+                return;
+            TodaysDiagnosis.Remove(selectedDiagnosi);
+            if (NewDiagnosis.Contains(selectedDiagnosi))
+                NewDiagnosis.Remove(selectedDiagnosi);
+            else
+                DeletedDiagnosis.Add(selectedDiagnosi);
+            BindDiagnosisToGrid(TodaysDiagnosis);
         }
 
         #endregion

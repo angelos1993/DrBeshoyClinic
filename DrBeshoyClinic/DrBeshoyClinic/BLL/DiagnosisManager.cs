@@ -36,6 +36,11 @@ namespace DrBeshoyClinic.BLL
             diagnosis.ForEach(diagnosi => UnitOfWork.DiagnosisRepository.Add(diagnosi));
         }
 
+        public void DeleteListOfDiagnosis(List<Diagnosi> diagnosis)
+        {
+            diagnosis.ForEach(diagnosi => UnitOfWork.DiagnosisRepository.Delete(diagnosi));
+        }
+
         #endregion
     }
 }

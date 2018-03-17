@@ -90,20 +90,9 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void dgvComplaints_DoubleClick(object sender, EventArgs e)
         {
-            //todo: need to be tested well & should be moved into a separate function
-            //todo: MUST check if the selected day is TODAY or not (if not shouldn't do anything)
-            var complaintName = dgvComplaints.SelectedRows[0].Cells[0].Value.ToString();
-            if (complaintName.IsNullOrEmptyOrWhiteSpace())
-                return;
-            var selectedComplaint = TodaysComplaints.FirstOrDefault(complaint => complaint.Name == complaintName);
-            if (selectedComplaint == null)
-                return;
-            TodaysComplaints.Remove(selectedComplaint);
-            if (NewComplaints.Contains(selectedComplaint))
-                NewComplaints.Remove(selectedComplaint);
-            else
-                DeletedComplaints.Add(selectedComplaint);
-            BindComplaintsToGrid(TodaysComplaints);
+            Cursor = Cursors.WaitCursor;
+            DeleteComplaint();
+            Cursor = Cursors.Default;
         }
 
         #endregion
@@ -206,6 +195,23 @@ namespace DrBeshoyClinic.PL.Forms
         {
             txtComplaint.Enabled = isEnabled;
             btnAddComplaint.Enabled = isEnabled;
+        }
+
+        private void DeleteComplaint()
+        {
+            var selectedItem = lstComplaints.SelectedItem as ListBoxVm;
+            if (selectedItem == null || selectedItem.Date != Today || dgvComplaints.SelectedRows.Count == 0)
+                return;
+            var selectedComplaint = TodaysComplaints.FirstOrDefault(
+                complaint => complaint.Name == dgvComplaints.SelectedRows[0].Cells[0].Value.ToString());
+            if (selectedComplaint == null)
+                return;
+            TodaysComplaints.Remove(selectedComplaint);
+            if (NewComplaints.Contains(selectedComplaint))
+                NewComplaints.Remove(selectedComplaint);
+            else
+                DeletedComplaints.Add(selectedComplaint);
+            BindComplaintsToGrid(TodaysComplaints);
         }
 
         #endregion
