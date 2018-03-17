@@ -74,6 +74,7 @@
             // dgvRadiologies
             // 
             this.dgvRadiologies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRadiologies.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvRadiologies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
@@ -81,12 +82,14 @@
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvRadiologies.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRadiologies.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvRadiologies.Location = new System.Drawing.Point(12, 76);
             this.dgvRadiologies.Name = "dgvRadiologies";
             this.dgvRadiologies.ReadOnly = true;
+            this.dgvRadiologies.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvRadiologies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRadiologies.Size = new System.Drawing.Size(572, 205);
             this.dgvRadiologies.TabIndex = 23;
             // 

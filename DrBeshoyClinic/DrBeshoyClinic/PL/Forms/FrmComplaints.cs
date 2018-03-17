@@ -31,6 +31,7 @@ namespace DrBeshoyClinic.PL.Forms
         private List<Complaint> AllPatientComplaints { get; set; }
         private List<Complaint> TodaysComplaints { get; set; }
         private List<Complaint> NewComplaints { get; set; }
+        private List<Complaint> DeletedComplaints { get; set; }
         private static DateTime Today => DateTime.Now.Date;
         private bool ShouldBind { get; set; }
 
@@ -61,6 +62,8 @@ namespace DrBeshoyClinic.PL.Forms
             Cursor = Cursors.WaitCursor;
             if (NewComplaints.Any())
                 ComplaintManager.AddListOfComplaints(NewComplaints);
+            if (DeletedComplaints.Any())
+                ComplaintManager.DeleteListOfComplaints(DeletedComplaints);
             ShouldBind = true;
             Close();
             Cursor = Cursors.Default;
@@ -85,6 +88,24 @@ namespace DrBeshoyClinic.PL.Forms
             Cursor = Cursors.Default;
         }
 
+        private void dgvComplaints_DoubleClick(object sender, EventArgs e)
+        {
+            //todo: need to be tested well & should be moved into a separate function
+            //todo: MUST check if the selected day is TODAY or not (if not shouldn't do anything)
+            var complaintName = dgvComplaints.SelectedRows[0].Cells[0].Value.ToString();
+            if (complaintName.IsNullOrEmptyOrWhiteSpace())
+                return;
+            var selectedComplaint = TodaysComplaints.FirstOrDefault(complaint => complaint.Name == complaintName);
+            if (selectedComplaint == null)
+                return;
+            TodaysComplaints.Remove(selectedComplaint);
+            if (NewComplaints.Contains(selectedComplaint))
+                NewComplaints.Remove(selectedComplaint);
+            else
+                DeletedComplaints.Add(selectedComplaint);
+            BindComplaintsToGrid(TodaysComplaints);
+        }
+
         #endregion
 
         #region Methods
@@ -94,7 +115,7 @@ namespace DrBeshoyClinic.PL.Forms
             AllPatientComplaints = ComplaintManager.GetComplaintsForPatient(Patient.Id).ToList();
             var todaysComplaints = AllPatientComplaints.Where(complaint => complaint.Date == Today).ToList();
             TodaysComplaints = todaysComplaints.Any() ? todaysComplaints : new List<Complaint>();
-            NewComplaints = new List<Complaint>();
+            NewComplaints = DeletedComplaints = new List<Complaint>();
             BindComplaintsToListView();
             if(TodaysComplaints.Any())
                 BindComplaintsToGrid(TodaysComplaints);
@@ -117,7 +138,10 @@ namespace DrBeshoyClinic.PL.Forms
                 Date = Today
             };
             TodaysComplaints.Add(complaint);
-            NewComplaints.Add(complaint);
+            if (DeletedComplaints.Contains(complaint))
+                DeletedComplaints.Remove(complaint);
+            else
+                NewComplaints.Add(complaint);
             BindComplaintsToGrid(TodaysComplaints);
             ResetInputControls();
         }
@@ -158,6 +182,10 @@ namespace DrBeshoyClinic.PL.Forms
         {
             dgvComplaints.DataSource = complaints.Select(complaint => new ComplaintVm
                 {ComplaintName = complaint.Name}).ToList();
+            if (dgvComplaints.Width > dgvComplaints.Columns.GetColumnsWidth(DataGridViewElementStates.Visible))
+            {
+
+            }
         }
 
         private void SetAutoCompletionForTextBoxes()

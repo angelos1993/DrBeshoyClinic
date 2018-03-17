@@ -68,8 +68,10 @@
             this.dgvComplaints.Location = new System.Drawing.Point(12, 44);
             this.dgvComplaints.Name = "dgvComplaints";
             this.dgvComplaints.ReadOnly = true;
+            this.dgvComplaints.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvComplaints.Size = new System.Drawing.Size(407, 244);
             this.dgvComplaints.TabIndex = 37;
+            this.dgvComplaints.DoubleClick += new System.EventHandler(this.dgvComplaints_DoubleClick);
             // 
             // txtComplaint
             // 

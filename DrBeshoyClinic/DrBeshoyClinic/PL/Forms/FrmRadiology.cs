@@ -106,12 +106,8 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void BindRadiologiesToGrid(IEnumerable<Radiology> radiologies)
         {
-            var radiologiesList = radiologies as IList<Radiology> ?? radiologies.ToList();
-            dgvRadiologies.DataSource = radiologiesList.Select(radiology => new RadiologyVm
+            dgvRadiologies.DataSource = radiologies.Select(radiology => new RadiologyVm
                 {Name = radiology.Name, Description = radiology.Description}).ToList();
-            dgvRadiologies.AutoSizeColumnsMode = radiologiesList.Any()
-                ? DataGridViewAutoSizeColumnsMode.DisplayedCells
-                : DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void SetAutoCompletionForTextBoxes()

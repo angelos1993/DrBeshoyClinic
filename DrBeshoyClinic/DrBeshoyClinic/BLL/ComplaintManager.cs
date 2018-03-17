@@ -9,11 +9,6 @@ namespace DrBeshoyClinic.BLL
 {
     public class ComplaintManager : BaseManager
     {
-        public void AddListOfComplaints(List<Complaint> complaints)
-        {
-            complaints.ForEach(complaint => UnitOfWork.ComplaintRepository.Add(complaint));
-        }
-
         #region Properties
 
         #endregion
@@ -34,6 +29,16 @@ namespace DrBeshoyClinic.BLL
         {
             return GetComplaintsForPatient(patientId).Where(complaint => complaint.Date == date)
                 .Select(complaint => complaint.Name).ToCommaSeperatedString();
+        }
+
+        public void AddListOfComplaints(List<Complaint> complaints)
+        {
+            complaints.ForEach(complaint => UnitOfWork.ComplaintRepository.Add(complaint));
+        }
+
+        public void DeleteListOfComplaints(List<Complaint> complaints)
+        {
+            complaints.ForEach(complaint => UnitOfWork.ComplaintRepository.Delete(complaint));
         }
 
         #endregion
