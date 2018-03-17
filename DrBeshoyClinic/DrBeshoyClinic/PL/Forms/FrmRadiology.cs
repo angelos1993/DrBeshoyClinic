@@ -31,6 +31,7 @@ namespace DrBeshoyClinic.PL.Forms
         private List<Radiology> AllRadiologies { get; set; }
         private List<Radiology> TodaysRadiologies { get; set; }
         private List<Radiology> NewRadiologies { get; set; }
+        private List<Radiology> DeletedRadiologies { get; set; }
         private static DateTime Today => DateTime.Now.Date;
 
         #endregion
@@ -54,6 +55,8 @@ namespace DrBeshoyClinic.PL.Forms
             Cursor = Cursors.WaitCursor;
             if (NewRadiologies.Any())
                 RadiologyManager.AddListOfRadiologies(NewRadiologies);
+            if (DeletedRadiologies.Any())
+                RadiologyManager.DeleteListOfRadiologies(DeletedRadiologies);
             Close();
             Cursor = Cursors.Default;
         }
@@ -77,6 +80,13 @@ namespace DrBeshoyClinic.PL.Forms
             Cursor = Cursors.Default;
         }
 
+        private void dgvRadiologies_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            DeleteRadiology();
+            Cursor = Cursors.Default;
+        }
+
         #endregion
 
         #region Methods
@@ -87,6 +97,7 @@ namespace DrBeshoyClinic.PL.Forms
             var todaysRadiologies = AllRadiologies.Where(radiology => radiology.Date == Today).ToList();
             TodaysRadiologies = todaysRadiologies.Any() ? todaysRadiologies : new List<Radiology>();
             NewRadiologies = new List<Radiology>();
+            DeletedRadiologies = new List<Radiology>();
             BindRadiologiesToListView();
             if (TodaysRadiologies.Any())
                 BindRadiologiesToGrid(TodaysRadiologies);
@@ -126,7 +137,8 @@ namespace DrBeshoyClinic.PL.Forms
         private void SetAutoCompletionForRadiologyDescriptions()
         {
             var collection = new AutoCompleteStringCollection();
-            collection.AddRange(RadiologyManager.GetAllRadiologies().Select(radiology => radiology.Description).ToArray());
+            collection.AddRange(RadiologyManager.GetAllRadiologies().Select(radiology => radiology.Description)
+                .ToArray());
             SetAutoCompleteSourceForTextBox(txtRadiologyDescription, collection);
         }
 
@@ -147,7 +159,10 @@ namespace DrBeshoyClinic.PL.Forms
                 Date = Today
             };
             TodaysRadiologies.Add(radiology);
-            NewRadiologies.Add(radiology);
+            if (DeletedRadiologies.Contains(radiology))
+                DeletedRadiologies.Remove(radiology);
+            else
+                NewRadiologies.Add(radiology);
             BindRadiologiesToGrid(TodaysRadiologies);
             ResetInputControls();
         }
@@ -185,6 +200,23 @@ namespace DrBeshoyClinic.PL.Forms
             txtRadiology.Enabled = isEnabled;
             txtRadiology.Enabled = isEnabled;
             btnAddRadiology.Enabled = isEnabled;
+        }
+
+        private void DeleteRadiology()
+        {
+            var selectedItem = lstRadiologies.SelectedItem as ListBoxVm;
+            if (selectedItem == null || selectedItem.Date != Today || dgvRadiologies.SelectedRows.Count == 0)
+                return;
+            var selectedRadiology = TodaysRadiologies.FirstOrDefault(
+                radiology => radiology.Name == dgvRadiologies.SelectedRows[0].Cells[0].Value.ToString());
+            if (selectedRadiology == null)
+                return;
+            TodaysRadiologies.Remove(selectedRadiology);
+            if (NewRadiologies.Contains(selectedRadiology))
+                NewRadiologies.Remove(selectedRadiology);
+            else
+                DeletedRadiologies.Add(selectedRadiology);
+            BindRadiologiesToGrid(TodaysRadiologies);
         }
 
         #endregion

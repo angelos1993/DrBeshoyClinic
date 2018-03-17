@@ -92,6 +92,7 @@
             this.dgvRadiologies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRadiologies.Size = new System.Drawing.Size(572, 205);
             this.dgvRadiologies.TabIndex = 23;
+            this.dgvRadiologies.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRadiologies_CellDoubleClick);
             // 
             // lstRadiologies
             // 

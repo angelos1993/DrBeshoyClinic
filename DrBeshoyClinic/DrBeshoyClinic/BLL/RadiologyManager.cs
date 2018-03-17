@@ -28,6 +28,11 @@ namespace DrBeshoyClinic.BLL
             radiologies.ForEach(radiology => UnitOfWork.RadiologyRepository.Add(radiology));
         }
 
+        public void DeleteListOfRadiologies(List<Radiology> radiologies)
+        {
+            radiologies.ForEach(radiology => UnitOfWork.RadiologyRepository.Delete(radiology));
+        }
+
         #endregion
     }
 }
