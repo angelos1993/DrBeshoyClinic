@@ -115,7 +115,8 @@ namespace DrBeshoyClinic.PL.Forms
             AllPatientComplaints = ComplaintManager.GetComplaintsForPatient(Patient.Id).ToList();
             var todaysComplaints = AllPatientComplaints.Where(complaint => complaint.Date == Today).ToList();
             TodaysComplaints = todaysComplaints.Any() ? todaysComplaints : new List<Complaint>();
-            NewComplaints = DeletedComplaints = new List<Complaint>();
+            NewComplaints = new List<Complaint>();
+            DeletedComplaints = new List<Complaint>();
             BindComplaintsToListView();
             if(TodaysComplaints.Any())
                 BindComplaintsToGrid(TodaysComplaints);
