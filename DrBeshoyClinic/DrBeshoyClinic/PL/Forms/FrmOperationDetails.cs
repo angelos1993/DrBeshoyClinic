@@ -215,15 +215,21 @@ namespace DrBeshoyClinic.PL.Forms
 
         private void AddPostOperativeTreatment()
         {
+            var postOperativeTreatmentDescription = txtPostOperativeTreatment.Text.FullTrim();
+            if (postOperativeTreatmentDescription.IsNullOrEmptyOrWhiteSpace())
+                return;
             CurrentOperation.PostOperativeTreatments.Add(
-                new PostOperativeTreatment {Description = txtPostOperativeTreatment.Text.FullTrim()});
+                new PostOperativeTreatment {Description = postOperativeTreatmentDescription});
             BindPostOperativeTreatmentsToGrid(CurrentOperation.PostOperativeTreatments);
         }
 
         private void AddPostOperativeInstruction()
         {
+            var postOperativeInstructionDescription = txtPostOperativeInstruction.Text.FullTrim();
+            if (postOperativeInstructionDescription.IsNullOrEmptyOrWhiteSpace())
+                return;
             CurrentOperation.PostOperativeInstructions.Add(
-                new PostOperativeInstruction {Description = txtPostOperativeInstruction.Text.FullTrim()});
+                new PostOperativeInstruction {Description = postOperativeInstructionDescription});
             BindPostOperativeInstructionsToGrid(CurrentOperation.PostOperativeInstructions);
         }
 
