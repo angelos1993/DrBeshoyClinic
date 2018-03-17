@@ -228,6 +228,7 @@
     <Compile Include="DAL\Repositories\ExaminationChronicDiseaseRepository.cs" />
     <Compile Include="DAL\Repositories\ExaminationRepository.cs" />
     <Compile Include="DAL\Repositories\FamilyHxRepository.cs" />
+    <Compile Include="DAL\Repositories\Infrastructure\DrBeshoyClinicContext.cs" />
     <Compile Include="DAL\Repositories\Infrastructure\IUnitOfWork.cs" />
     <Compile Include="DAL\Repositories\Infrastructure\RepositoryBase.cs" />
     <Compile Include="DAL\Repositories\Infrastructure\UnitOfWork.cs" />

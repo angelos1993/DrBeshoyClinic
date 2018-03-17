@@ -21,14 +21,8 @@ namespace DrBeshoyClinic.DAL.Repositories.Infrastructure
     public abstract class RepositoryBase<T> : IRepository<T> where T : class
     {
         #region Properties
-
-        private DrBeshoyClinicEntities _context;
-
-        public DrBeshoyClinicEntities Context
-        {
-            get => _context ?? (_context = new DrBeshoyClinicEntities());
-            private set => _context = value;
-        }
+        
+        public DrBeshoyClinicEntities Context => DrBeshoyClinicContext.Instance;
 
         private DbSet<T> _dbSet;
         public DbSet<T> DbSet => _dbSet ?? (_dbSet = Context.Set<T>());
@@ -84,10 +78,8 @@ namespace DrBeshoyClinic.DAL.Repositories.Infrastructure
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposing) return;
-            if (Context == null) return;
-            Context.Dispose();
-            Context = null;
+            if (!disposing || Context == null) return;
+            Context?.Dispose();
         }
 
         #endregion
