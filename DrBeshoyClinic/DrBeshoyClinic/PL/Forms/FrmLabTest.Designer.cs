@@ -63,6 +63,7 @@
             this.dgvLabTests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLabTests.Size = new System.Drawing.Size(571, 192);
             this.dgvLabTests.TabIndex = 0;
+            this.dgvLabTests.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLabTests_CellDoubleClick);
             // 
             // lstLabTests
             // 

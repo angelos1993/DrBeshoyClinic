@@ -30,6 +30,7 @@ namespace DrBeshoyClinic.PL.Forms
         private Patient Patient => OwnerForm.Patient;
         private List<LabTest> AllLabTests { get; set; }
         private List<LabTest> TodaysLabTests { get; set; }
+        private List<LabTest> DeletedLabTests { get; set; }
         private List<LabTest> NewLabTests { get; set; }
         private static DateTime Today => DateTime.Now.Date;
 
@@ -47,6 +48,8 @@ namespace DrBeshoyClinic.PL.Forms
             Cursor = Cursors.WaitCursor;
             if (NewLabTests.Any())
                 LabTestManager.AddListOfLabTests(NewLabTests);
+            if(DeletedLabTests.Any())
+                LabTestManager.DeleteListOfLabTests(DeletedLabTests);
             Close();
             Cursor = Cursors.Default;
         }
@@ -70,6 +73,13 @@ namespace DrBeshoyClinic.PL.Forms
             Cursor = Cursors.Default;
         }
 
+        private void dgvLabTests_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            DeleteLabTest();
+            Cursor = Cursors.Default;
+        }
+        
         #endregion
 
         #region Methods
@@ -80,6 +90,7 @@ namespace DrBeshoyClinic.PL.Forms
             var todaysLabTests = AllLabTests.Where(labTest => labTest.Date == Today).ToList();
             TodaysLabTests = todaysLabTests.Any() ? todaysLabTests : new List<LabTest>();
             NewLabTests = new List<LabTest>();
+            DeletedLabTests = new List<LabTest>();
             BindLabTestsToListView();
             if (TodaysLabTests.Any())
                 BindLabTestsToGrid(TodaysLabTests);
@@ -140,7 +151,10 @@ namespace DrBeshoyClinic.PL.Forms
                 Date = Today
             };
             TodaysLabTests.Add(labTest);
-            NewLabTests.Add(labTest);
+            if (DeletedLabTests.Contains(labTest))
+                DeletedLabTests.Remove(labTest);
+            else
+                NewLabTests.Add(labTest);
             BindLabTestsToGrid(TodaysLabTests);
             ResetInputControls();
         }
@@ -177,6 +191,23 @@ namespace DrBeshoyClinic.PL.Forms
             var collection = new AutoCompleteStringCollection();
             collection.AddRange(LabTestManager.GetAllLabTests().Select(labTest => labTest.TestResult).ToArray());
             SetAutoCompleteSourceForTextBox(txtTestResult, collection);
+        }
+
+        private void DeleteLabTest()
+        {
+            var selectedItem = lstLabTests.SelectedItem as ListBoxVm;
+            if (selectedItem == null || selectedItem.Date != Today || dgvLabTests.SelectedRows.Count == 0)
+                return;
+            var selectedLabTest = TodaysLabTests.FirstOrDefault(
+                labTest => labTest.TestName == dgvLabTests.SelectedRows[0].Cells[0].Value.ToString());
+            if (selectedLabTest == null)
+                return;
+            TodaysLabTests.Remove(selectedLabTest);
+            if (NewLabTests.Contains(selectedLabTest))
+                NewLabTests.Remove(selectedLabTest);
+            else
+                DeletedLabTests.Add(selectedLabTest);
+            BindLabTestsToGrid(TodaysLabTests);
         }
 
         #endregion

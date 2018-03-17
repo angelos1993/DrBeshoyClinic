@@ -87,8 +87,8 @@ namespace DrBeshoyClinic.PL.Forms
             LoadDiagnosisForSelectedDate();
             Cursor = Cursors.Default;
         }
-
-        private void dgvDiagnosis_DoubleClick(object sender, EventArgs e)
+        
+        private void dgvDiagnosis_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Cursor = Cursors.WaitCursor;
             DeleteDiagnisi();
@@ -198,7 +198,7 @@ namespace DrBeshoyClinic.PL.Forms
             if (selectedItem == null || selectedItem.Date != Today || dgvDiagnosis.SelectedRows.Count == 0)
                 return;
             var selectedDiagnosi = TodaysDiagnosis.FirstOrDefault(
-                complaint => complaint.Name == dgvDiagnosis.SelectedRows[0].Cells[0].Value.ToString());
+                diagnosi => diagnosi.Name == dgvDiagnosis.SelectedRows[0].Cells[0].Value.ToString());
             if (selectedDiagnosi == null)
                 return;
             TodaysDiagnosis.Remove(selectedDiagnosi);

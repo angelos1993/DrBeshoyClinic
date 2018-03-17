@@ -71,7 +71,7 @@
             this.dgvComplaints.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvComplaints.Size = new System.Drawing.Size(407, 244);
             this.dgvComplaints.TabIndex = 37;
-            this.dgvComplaints.DoubleClick += new System.EventHandler(this.dgvComplaints_DoubleClick);
+            this.dgvComplaints.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComplaints_CellDoubleClick);
             // 
             // txtComplaint
             // 

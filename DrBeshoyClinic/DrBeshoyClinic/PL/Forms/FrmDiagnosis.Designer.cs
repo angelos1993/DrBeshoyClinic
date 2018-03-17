@@ -71,7 +71,7 @@
             this.dgvDiagnosis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDiagnosis.Size = new System.Drawing.Size(407, 244);
             this.dgvDiagnosis.TabIndex = 44;
-            this.dgvDiagnosis.DoubleClick += new System.EventHandler(this.dgvDiagnosis_DoubleClick);
+            this.dgvDiagnosis.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDiagnosis_CellDoubleClick);
             // 
             // txtDiagnosis
             // 

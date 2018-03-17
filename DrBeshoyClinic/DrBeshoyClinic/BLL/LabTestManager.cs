@@ -28,6 +28,11 @@ namespace DrBeshoyClinic.BLL
             labTests.ForEach(labtest => UnitOfWork.LabTestRepository.Add(labtest));
         }
 
+        public void DeleteListOfLabTests(List<LabTest> labTests)
+        {
+            labTests.ForEach(labtest => UnitOfWork.LabTestRepository.Delete(labtest));
+        }
+
         #endregion
     }
 }

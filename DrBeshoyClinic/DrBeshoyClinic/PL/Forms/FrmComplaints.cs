@@ -88,7 +88,7 @@ namespace DrBeshoyClinic.PL.Forms
             Cursor = Cursors.Default;
         }
 
-        private void dgvComplaints_DoubleClick(object sender, EventArgs e)
+        private void dgvComplaints_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Cursor = Cursors.WaitCursor;
             DeleteComplaint();
