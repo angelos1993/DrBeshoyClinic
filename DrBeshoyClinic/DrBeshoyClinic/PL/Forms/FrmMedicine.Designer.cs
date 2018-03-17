@@ -105,6 +105,7 @@
             this.dgvTreatments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTreatments.Size = new System.Drawing.Size(669, 244);
             this.dgvTreatments.TabIndex = 18;
+            this.dgvTreatments.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTreatments_CellDoubleClick);
             // 
             // lstMedicines
             // 

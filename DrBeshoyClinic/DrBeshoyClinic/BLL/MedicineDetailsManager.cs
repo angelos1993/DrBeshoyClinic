@@ -24,6 +24,11 @@ namespace DrBeshoyClinic.BLL
             medicineDetails.ForEach(medicineDetail => UnitOfWork.MedicineDetailsRepository.Add(medicineDetail));
         }
 
+        public void DeleteListOfMedicineDetails(List<MedicineDetail> medicineDetails)
+        {
+            medicineDetails.ForEach(medicineDetail => UnitOfWork.MedicineDetailsRepository.Delete(medicineDetail));
+        }
+
         #endregion
     }
 }

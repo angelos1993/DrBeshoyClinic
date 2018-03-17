@@ -53,6 +53,7 @@ namespace DrBeshoyClinic.PL.Forms
         private List<Medicine> AllPatientMedicines { get; set; }
         private List<MedicineDetail> AllPatientMedicineDetails { get; set; }
         private List<MedicineDetail> NewMedicineDetails { get; set; }
+        private List<MedicineDetail> DeletedMedicineDetails { get; set; }
         private static DateTime Today => DateTime.Now.Date;
 
         #endregion
@@ -116,6 +117,13 @@ namespace DrBeshoyClinic.PL.Forms
             Cursor = Cursors.Default;
         }
 
+        private void dgvTreatments_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            DeleteMedicineDetail();
+            Cursor = Cursors.Default;
+        }
+
         #endregion
 
         #region Methods
@@ -127,6 +135,7 @@ namespace DrBeshoyClinic.PL.Forms
             AllPatientMedicines = MedicineManager.GetAllMedicinesForPatient(Patient.Id).ToList();
             AllPatientMedicineDetails = MedicineDetailsManager.GetMedicineDetailsByPatientId(Patient.Id);
             NewMedicineDetails = new List<MedicineDetail>();
+            DeletedMedicineDetails = new List<MedicineDetail>();
             BindMedicinesToListView();
             BindMedicinesToGrid(CurrentMedicine.MedicineDetails);
             SetAutoCompletionForTextBoxes();
@@ -172,17 +181,22 @@ namespace DrBeshoyClinic.PL.Forms
                     .GetTreatmentDescriptionIdByDescription(txtTreatmentDescription.Text.FullTrim())
             };
             CurrentMedicine.MedicineDetails.Add(medicineDetail);
-            NewMedicineDetails.Add(medicineDetail);
+            if (DeletedMedicineDetails.Contains(medicineDetail))
+                DeletedMedicineDetails.Remove(medicineDetail);
+            else
+                NewMedicineDetails.Add(medicineDetail);
             BindMedicinesToGrid(CurrentMedicine.MedicineDetails);
             ResetInputControls();
         }
 
         private void SaveMedicineDetails()
         {
-            if (!NewMedicineDetails.Any())
-                return;
-            MedicineDetailsManager.AddListOfMedicineDetails(NewMedicineDetails);
+            if (NewMedicineDetails.Any())
+                MedicineDetailsManager.AddListOfMedicineDetails(NewMedicineDetails);
+            if(DeletedMedicineDetails.Any())
+                MedicineDetailsManager.DeleteListOfMedicineDetails(DeletedMedicineDetails);
             NewMedicineDetails.Clear();
+            DeletedMedicineDetails.Clear();
         }
 
         private void BindMedicinesToListView()
@@ -258,6 +272,24 @@ namespace DrBeshoyClinic.PL.Forms
                     TreatmentPeriod = row.Cells[1].Value.ToString(),
                     TreatmentDescription = row.Cells[2].Value.ToString()
                 }).ToList();
+        }
+
+        private void DeleteMedicineDetail()
+        {
+            //TODO: EXCEPTIOS -_-
+            //var selectedItem = lstMedicines.SelectedItem as ListBoxVm;
+            //if (selectedItem == null || selectedItem.Date != Today || dgvTreatments.SelectedRows.Count == 0)
+            //    return;
+            //var selectedMedicineDetail = CurrentMedicine.MedicineDetails.FirstOrDefault(medicineDetail
+            //    => medicineDetail.Treatment.Name == dgvTreatments.SelectedRows[0].Cells[0].Value.ToString());
+            //if (selectedMedicineDetail == null)
+            //    return;
+            //CurrentMedicine.MedicineDetails.Remove(selectedMedicineDetail);
+            //if (NewMedicineDetails.Contains(selectedMedicineDetail))
+            //    NewMedicineDetails.Remove(selectedMedicineDetail);
+            //else
+            //    DeletedMedicineDetails.Add(selectedMedicineDetail);
+            //BindMedicinesToGrid(CurrentMedicine.MedicineDetails);
         }
 
         #endregion
